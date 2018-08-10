@@ -41,4 +41,5 @@ fabric-loader {
     overflow: hidden;
     padding:25px;   
     z-index:9000;
+    background: rgba(73,59,141,.60) ;
 }

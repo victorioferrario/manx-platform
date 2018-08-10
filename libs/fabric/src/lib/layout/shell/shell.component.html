@@ -6,17 +6,17 @@
         <ng-content select="[topnav]"></ng-content>
     </fabric-container>
 </fabric-header>
-<fabric-main>  
-        <div class="projected-content-wrapper" (cdkObserveContent)="projectContentChanged()">
-                <ng-content></ng-content>
-              </div>
-    <fabric-loader 
-            *ngIf="this.layoutService.layout.loading"></fabric-loader>
-            {{this.layoutService.layout.loading}}
+<fabric-main>
+    <div class="projected-content-wrapper" (cdkObserveContent)="projectContentChanged()">
+        <ng-content></ng-content>
+    </div>  
     <fabric-sidebar>
         <ng-content select="[sidebar]"></ng-content>
     </fabric-sidebar>
     <fabric-content>
+            <fabric-loader *ngIf="this.layoutService.layout.loading"></fabric-loader>
+            {{this.layoutService.layout.loading}}
+            <a href="javascript:void(0);" (click)="onClick()">Click Here</a>
         <ng-content select="[content]"></ng-content>
     </fabric-content>
 </fabric-main>

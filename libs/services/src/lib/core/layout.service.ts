@@ -28,13 +28,15 @@ export class LayoutService {
     const self = this;
     self.isLoadingEvent.emit(true);      
     console.log("THIS IS CALLED");
-
+    self.layout.loading = true;
+    setTimeout(() => {
+      self.fakeService().then(() => {
+        self.layout.loading = false;
+        self.isLoadingEvent.emit(false);      
+      });
+    },5000);
     //self.isLoadingEvent.emit(true);
-
-    self.fakeService().then(() => {
-      self.layout.loading = false;
-      self.isLoadingEvent.emit(false);      
-    });
+   
   }
 
 

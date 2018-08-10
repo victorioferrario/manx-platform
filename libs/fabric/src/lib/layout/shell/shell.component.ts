@@ -15,4 +15,10 @@ export class ShellComponent implements OnInit {
     self.layoutService.startLoad();
   }
 
+  onClick(){
+    const self = this;
+    console.log(self);
+    self.layoutService.startLoad();
+  }
+
 }
