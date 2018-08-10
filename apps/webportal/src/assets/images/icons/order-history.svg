@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>order-history</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="order-history" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M12,2 C6.47777778,2 2,6.47777778 2,12 C2,17.5222222 6.47777778,22 12,22 C17.5222222,22 22,17.5222222 22,12 C22,6.47777778 17.5222222,2 12,2 Z M16.12,16.12 C15.9022222,16.3355556 15.6177778,16.4444444 15.3333333,16.4444444 C15.0488889,16.4444444 14.7644444,16.3355556 14.5466667,16.12 L11.2133333,12.7866667 C11.0066667,12.5777778 10.8888889,12.2955556 10.8888889,12 L10.8888889,7.55555556 C10.8888889,6.94222222 11.3866667,6.44444444 12,6.44444444 C12.6133333,6.44444444 13.1111111,6.94222222 13.1111111,7.55555556 L13.1111111,11.54 L16.12,14.5488889 C16.5533333,14.9822222 16.5533333,15.6844444 16.12,16.12 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

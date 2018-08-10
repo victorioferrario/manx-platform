@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>add-to-cart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-to-cart" fill-rule="nonzero" fill="#ffffff">
+            <path d="M21,4 L20.349795,6.13178125 L18.8204409,6.13178125 L15.8016246,16.16 L4.21811963,16.16 L0,6.05183945 L15.1377483,6.05183945 L12.7901031,13.9780153 L14.3265479,13.9780153 L17.3285301,4 L21,4 Z M12.0799764,17.44 C11.3977189,17.44 10.8446823,18.0130512 10.8446823,18.72 C10.8446823,19.4269488 11.3977189,20 12.0799764,20 C12.762234,20 13.3152705,19.4269488 13.3152705,18.72 C13.3152705,18.0130512 12.762188,17.44 12.0799764,17.44 Z M7.75629904,17.44 C7.07406685,17.44 6.52105086,18.0130512 6.52105086,18.72 C6.52105086,19.4269488 7.07406685,20 7.75629904,20 C8.43857718,20 8.9916391,19.4269488 8.9916391,18.72 C8.9916391,18.0130512 8.43857718,17.44 7.75629904,17.44 Z" id="shopping-cart-icon" transform="translate(10.500000, 12.000000) scale(-1, 1) translate(-10.500000, -12.000000) "></path>
+        </g>
+    </g>
+</svg>

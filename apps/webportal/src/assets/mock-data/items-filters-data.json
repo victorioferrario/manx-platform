@@ -1,0 +1,80 @@
+{
+    "values": [
+        {
+            "id": 12345,
+            "itemCode": "ABC123",
+            "itemDesc": "IPhone X",
+            "availableQTY": 100,
+            "price": 1000,
+            "condition": "New"
+        },
+        {
+            "id": 6543,
+            "itemCode": "ABC123",
+            "itemDesc": "IPhone 8",
+            "availableQTY": 222,
+            "price": 700,
+            "condition": "New"
+        },
+        {
+            "id": 12345,
+            "itemCode": "ABC123",
+            "itemDesc": "IPhone 7+",
+            "availableQTY": 100,
+            "price": 1000,
+            "condition": "New"
+        },
+        {
+            "id": 6567887,
+            "itemCode": "ABC123",
+            "itemDesc": "IPhone 5",
+            "availableQTY": 100,
+            "price": 1000,
+            "condition": "Old"
+        }
+    ],
+    "filter": {
+        "categories": [
+            {
+                "id": "category1",
+                "name": "iphones",
+                "count": 123,
+                "subCategories": [
+                    {
+                        "id": 111,
+                        "name": "iphone5",
+                        "count": 60,
+                        "selected": false,
+                        "sequence": 123453
+                    },
+                    {
+                        "id": 1113,
+                        "name": "iphone8",
+                        "count": 610,
+                        "selected": false,
+                        "sequence": 123451
+                    },
+                    {
+                        "id": 1116,
+                        "name": "iphone7",
+                        "count": 630,
+                        "selected": false,
+                        "sequence": 123456
+                    }
+                ]
+            }
+        ],
+        "attributes": [
+
+        ],
+        "displayOrder": [
+
+        ],
+        "pagination": {
+
+        }
+    },
+    "links": [
+
+    ]
+}

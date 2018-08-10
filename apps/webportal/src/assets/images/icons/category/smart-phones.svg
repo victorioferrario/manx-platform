@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>category/smart-phones</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="category/smart-phones" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M19,2.375 L18.999278,2.375 L18.999278,3.2055 L6,3.2055 L6,2.375 C6,1.61875 6.64978341,1 7.44396312,1 L17.5560369,1 C18.3502166,1 19,1.61875 19,2.375 Z M6,4.5805 L18.999278,4.5805 L18.999278,18.0445 L6,18.0445 L6,4.5805 Z M7.44396312,23 C6.64978341,23 6,22.38125 6,21.625 L6,19.4195 L18.999278,19.4195 L18.999278,21.625 C18.999278,22.38125 18.3494946,23 17.5553149,23 L7.44396312,23 Z M12.5,20.547 C12.107964,20.547 11.7895701,20.844 11.7895701,21.20975 C11.7895701,21.5755 12.107964,21.8725 12.5,21.8725 C12.892036,21.8725 13.2104299,21.5755 13.2104299,21.20975 C13.2104299,20.844 12.892036,20.547 12.5,20.547 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

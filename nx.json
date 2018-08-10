@@ -7,5 +7,23 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "webportal": {
+      "tags": []
+    },
+    "webportal-e2e": {
+      "tags": []
+    },
+    "services": {
+      "tags": [
+        "service",
+        "data"
+      ]
+    },
+    "fabric": {
+      "tags": [
+        "ux"
+      ]
+    }
+  }
 }

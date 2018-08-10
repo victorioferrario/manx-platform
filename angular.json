@@ -2,13 +2,201 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "webportal": {
+      "root": "apps/webportal/",
+      "sourceRoot": "apps/webportal/src",
+      "projectType": "application",
+      "prefix": "apworkspace",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/webportal",
+            "index": "apps/webportal/src/index.html",
+            "main": "apps/webportal/src/main.ts",
+            "polyfills": "apps/webportal/src/polyfills.ts",
+            "tsConfig": "apps/webportal/tsconfig.app.json",
+            "assets": [
+              "apps/webportal/src/favicon.ico",
+              "apps/webportal/src/assets"
+            ],
+            "styles": [
+              "apps/webportal/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webportal/src/environments/environment.ts",
+                  "with": "apps/webportal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "webportal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "webportal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "webportal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/webportal/src/test.ts",
+            "polyfills": "apps/webportal/src/polyfills.ts",
+            "tsConfig": "apps/webportal/tsconfig.spec.json",
+            "karmaConfig": "apps/webportal/karma.conf.js",
+            "styles": [
+              "apps/webportal/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/webportal/src/favicon.ico",
+              "apps/webportal/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/webportal/tsconfig.app.json",
+              "apps/webportal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "webportal-e2e": {
+      "root": "apps/webportal-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/webportal-e2e/protractor.conf.js",
+            "devServerTarget": "webportal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "webportal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/webportal-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "services": {
+      "root": "libs/services",
+      "sourceRoot": "libs/services/src",
+      "projectType": "library",
+      "prefix": "apworkspace",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/services/src/test.ts",
+            "tsConfig": "libs/services/tsconfig.spec.json",
+            "karmaConfig": "libs/services/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/services/tsconfig.lib.json",
+              "libs/services/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fabric": {
+      "root": "libs/fabric",
+      "sourceRoot": "libs/fabric/src",
+      "projectType": "library",
+      "prefix": "libs/fabric",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/fabric/tsconfig.lib.json",
+            "project": "libs/fabric/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/fabric/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/fabric/src/test.ts",
+            "tsConfig": "libs/fabric/tsconfig.spec.json",
+            "karmaConfig": "libs/fabric/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fabric/tsconfig.lib.json",
+              "libs/fabric/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
     "defaultCollection": "@nrwl/schematics"
-    
-  }
+  },
+  "defaultProject": "webportal"
 }

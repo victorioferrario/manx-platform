@@ -1,0 +1,300 @@
+[
+    {
+        "name": "Computers",
+        "availableQTY": 500,
+        "apiLink": "api.test",
+        "children": [
+            {
+                "name": "Laptops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Desktops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Towers",
+                "availableQTY": 60,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 40,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "All in Ones",
+                "availableQTY": 40,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TVs",
+        "availableQTY": 500,
+        "apiLink": "api.test",
+        "children": [
+            {
+                "name": "Laptops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Desktops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Towers",
+                "availableQTY": 60,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 40,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "All in Ones",
+                "availableQTY": 40,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Tablets",
+        "availableQTY": 500,
+        "apiLink": "api.test",
+        "children": [
+            {
+                "name": "Laptops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Desktops",
+                "availableQTY": 200,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 120,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 80,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Towers",
+                "availableQTY": 60,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 40,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "All in Ones",
+                "availableQTY": 40,
+                "apiLink": "api.test",
+                "children": [
+                    {
+                        "name": "Mac - 13inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    },
+                    {
+                        "name": "Dell 15inch",
+                        "availableQTY": 20,
+                        "apiLink": "api.test",
+                        "children": [
+                            
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+]

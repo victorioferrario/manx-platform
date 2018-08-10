@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>price-list-hover</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="price-list-hover" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14.1504106,2 L5.96007195,2 C4.87938747,2 4,2.86149031 4,3.92018085 L4,20.0798191 C4,21.1385097 4.87938747,22 5.96007195,22 L17.039928,22 C18.1206125,22 19,21.1385097 19,20.0798191 L19,6.81766803 L14.1504106,2 Z" id="Shape" fill="#FF655B" fill-rule="nonzero"></path>
+        <path d="M16.5922463,6.40726893 L14.5633003,6.40726893 L14.5633003,4.39179202 L16.5922463,6.40726893 Z M7.53210575,18.5105643 L7.53210575,17.1193809 L15.4675392,17.1193809 L15.4675392,18.5105643 L7.53210575,18.5105643 Z M7.53210575,14.8378402 L7.53210575,13.4466568 L15.4675392,13.4466568 L15.4675392,14.8378402 L7.53210575,14.8378402 Z M7.53210575,11.1651161 L7.53210575,9.7739327 L15.4675392,9.7739327 L15.4675392,11.1651161 L7.53210575,11.1651161 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

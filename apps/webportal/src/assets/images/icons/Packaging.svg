@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Packaging</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.50999999">
+        <g id="Packaging" fill="#000000">
+            <path d="M22,3 L22,7.77777778 L2,8 L2,3 L22,3 Z M21,9 L21,21 L3,21 L3,9 L21,9 Z M15,12.0588235 C15,11.4705882 14.6785714,11 14.1428571,11 L9.85714286,11 C9.42857143,11 9,11.4705882 9,12.0588235 C9,12.5294118 9.42857143,13 9.85714286,13 L14.1428571,13 C14.6785714,13 15,12.5294118 15,12.0588235 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

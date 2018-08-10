@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>edit-address-hover</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="edit-address-hover" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M19.361,4.23846618 C17.919,2.79546618 16.836,3.01146618 16.836,3.01146618 L10.784,9.06346618 L4.01,15.8364662 L3,20.5984662 L7.763,19.5884662 L14.537,12.8174662 L20.589,6.76546618 C20.588,6.76546618 20.805,5.68246618 19.361,4.23846618 Z M7.48,19.0164662 L5.856,19.3664662 C5.7,19.0734662 5.511,18.7804662 5.166,18.4344662 C4.82,18.0884662 4.527,17.9014662 4.234,17.7434662 L4.584,16.1204662 L5.054,15.6514662 C5.054,15.6514662 5.937,15.6694662 6.935,16.6674662 C7.932,17.6634662 7.951,18.5484662 7.951,18.5484662 L7.48,19.0164662 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

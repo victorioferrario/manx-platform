@@ -1,0 +1,22 @@
+<fabric-header>
+    <fabric-container header>
+        <ng-content select="[header]"></ng-content>
+    </fabric-container>
+    <fabric-container subnav>
+        <ng-content select="[topnav]"></ng-content>
+    </fabric-container>
+</fabric-header>
+<fabric-main>  
+        <div class="projected-content-wrapper" (cdkObserveContent)="projectContentChanged()">
+                <ng-content></ng-content>
+              </div>
+    <fabric-loader 
+            *ngIf="this.layoutService.layout.loading"></fabric-loader>
+            {{this.layoutService.layout.loading}}
+    <fabric-sidebar>
+        <ng-content select="[sidebar]"></ng-content>
+    </fabric-sidebar>
+    <fabric-content>
+        <ng-content select="[content]"></ng-content>
+    </fabric-content>
+</fabric-main>
