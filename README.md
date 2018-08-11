@@ -1,11 +1,12 @@
+
+# HUBX-PLATFORM
+This repository is an experimentation in creating a very sophisticated application eco-system, but put together in a way that teams of all sizes and skill sets can collaborate with in the same repository.  This is the main montivation in extracting the services and core layout modules.  A front-end developer has no business creating services or sophisticated models.  They need to just have a reliable and pre-wired up framework, and let them focus on what they do best. 
+
 # Apworkspace
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
 ## Nrwl Extensions for Angular (Nx)
-
-<a href="https://nrwl.io/nx"><img src="https://preview.ibb.co/mW6sdw/nx_logo.png"></a>
-
 Nx is an open source toolkit for enterprise Angular applications.
 
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
