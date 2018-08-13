@@ -56,4 +56,61 @@ export class Store<T> {
 }
 
 ```
+Other Store.ts
 
+```ts
+import { Injectable } from '@angular/core';
+import { Subject, Observable, pipe } from 'rxjs';
+import { scan } from 'rxjs/operators';
+import { omit } from 'lodash';
+import { map, distinctUntilChanged, shareReplay } from 'rxjs/operators';
+
+import { get, isEqual } from 'lodash';
+import { Action} from './actions';
+
+export const reducer = () =>
+  scan<any>((state: any, action: any) => {
+    let next;
+    switch (action.type) {
+      case 'SET':
+        next = action.payload;
+        break;
+      case 'UPDATE':
+        next = { ...state, ...action.payload };
+        break;
+      case 'DELETE':
+        next = omit(state, action.payload);
+        break;
+      default:
+        next = state;
+        break;
+    }
+    return next;
+}, {});
+
+export const slice = path =>
+  pipe(
+      map(state => get(state, path, null)), distinctUntilChanged(isEqual));
+
+@Injectable({
+    providedIn: 'root'
+  })
+  export class Store {
+    state: Observable<any>;
+    actions: Subject<Action> = new Subject();
+    constructor() {
+        this.state = this.actions.pipe(
+            reducer(),
+            shareReplay(1)
+        );
+    }
+    dispatch(action: Action) {
+        this.actions.next(action);
+    }
+    select(path: string) {
+        return this.state.pipe(slice(path));
+    }
+}
+
+
+```
