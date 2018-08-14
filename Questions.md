@@ -3,7 +3,7 @@
 
 ### [ HUBX-2638 ] Create endpoint to get a list of items pending for Purchase Orders
 - Optional GUID parameter => VendorId
-```json
+```[json]
 {
         Date: DateTime,
         ItemCode: string,
@@ -20,7 +20,7 @@ Questions:
 ### [HUBX-2632 ] Create an endpoint in portal to get a summary of Purchase Orders pending:
 - Pull data from HubxB1WebApiClient.
 - Optional GUID parameter, VendorId and returns following JSON.
-```json
+```[json]
 {
     NumOfOrders: int,
     TotalAmmount: decimal
@@ -32,7 +32,7 @@ Questions:
 - Send a request to B1Web API to get PO pending Items per Vendor.
 - Request will include vendor code
 - Response will include
----json
+---[json]
 {
     VendorCode,
     VendorItemCode
@@ -53,7 +53,7 @@ Questions:
 
 ### [ HUBX-2629 ] Create an endpoint to provide summary of open Sales Orders:
 Provide Summary of open SOs.
-```json
+```[json]
 {
     NumOfOrders: int,
     TotalAmmount: decimal
