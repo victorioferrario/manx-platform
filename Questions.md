@@ -43,7 +43,7 @@ Questions:
 
 - Search for VendorItem by Vendor Code(Translated from BP Code), Vendor Item Code and Fullfillment Type(MarketPlace?)
 - Response will include :
-```json
+```[json]
 {
     Vendor Code,
     Vendor Item Code,
