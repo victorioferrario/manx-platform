@@ -2,21 +2,19 @@
     <fabric-container header>
         <ng-content select="[header]"></ng-content>
     </fabric-container>
-    <fabric-container subnav>
+    <fabric-container subtitle>
         <ng-content select="[topnav]"></ng-content>
     </fabric-container>
 </fabric-header>
 <fabric-main>
     <div class="projected-content-wrapper" (cdkObserveContent)="projectContentChanged()">
         <ng-content></ng-content>
-    </div>  
+    </div>
     <fabric-sidebar>
         <ng-content select="[sidebar]"></ng-content>
     </fabric-sidebar>
     <fabric-content>
-            <fabric-loader *ngIf="this.layoutService.layout.loading"></fabric-loader>
-            {{this.layoutService.layout.loading}}
-            <a href="javascript:void(0);" (click)="onClick()">Click Here</a>
+        <fabric-loader *ngIf="this.layoutService.layout.loading"></fabric-loader>
         <ng-content select="[content]"></ng-content>
     </fabric-content>
 </fabric-main>

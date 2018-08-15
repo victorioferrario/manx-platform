@@ -1,0 +1,51 @@
+.header-toolbar-row-1 {
+    height: 100px;
+    background-color: #FFF;
+    padding-top: 23px;
+    padding-bottom: 27px;
+}
+
+.header-toolbar-row-2 {
+    height: 48px;
+    min-height: 48px;
+    background-color: #493b8d;
+}
+.header-toolbar-row-2 > .sub-header-col-left {
+    max-width: 268px;
+    min-width: 268px;
+    min-height: 48px!important;
+    max-height: 48px!important;
+    background: #ff655b;      
+    font: 500 14px/22px Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display:block;
+    position:absolute;
+    left:0;
+ }
+ .header-toolbar-row-2 > .sub-header-col-left:after{
+    content: '';
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border-top: 24px solid #4d3b8b;
+    border-left: 13px solid #ff655b;
+    border-bottom: 24px solid #4c3b8c;
+ }
+ .header-toolbar-row-2 > .sub-header-col-left > .label {
+     position: absolute;
+     font-weight: 500;
+     font-size: 18px;
+     left:20px;
+     top:14px;
+ }
+ .hubx-logo {
+    height: 45px;
+    width: 160px;
+    margin-left:9px;   
+}

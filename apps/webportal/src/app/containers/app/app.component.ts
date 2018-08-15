@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from '@hubx/services';
+import { LayoutService, Layout } from '@hubx/services';
+import { LocalStorageService } from '@hubx/services';
 @Component({
-  selector: 'apworkspace-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit  {
   title = 'webportal';  
-  constructor() {
+  constructor(private local: LocalStorageService<Layout>) {
     const self = this;     
+    //
+    const layoutInstance = new Layout();
+    layoutInstance.loading = false;
+    layoutInstance.currentView = "home";
+    //
+    this.local.storeOnLocalStorage(layoutInstance);
   }
   ngOnInit() {     
   }

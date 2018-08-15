@@ -29,6 +29,8 @@ fabric-content {
     bottom:0;
     overflow-y: auto;
     padding:25px;
+    padding: left 22px;
+    padding-top:20px;
     border:solid 0 #000000;
     z-index:1000;
 }

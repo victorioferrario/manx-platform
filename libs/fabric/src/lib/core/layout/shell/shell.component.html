@@ -1,0 +1,13 @@
+<fabric-mat-header SubHeaderTitle="Featured">
+    <fabric-fragment headerLogo><img src="../assets/images/logo.svg" class="hubx-logo" /></fabric-fragment>
+</fabric-mat-header>
+<mat-sidenav-container class="fabric-sidenav-container">
+    <mat-sidenav [opened]="this.layoutService.layout.sideNavigation" [mode]="this.layoutService.layout.sideNavigationMode" class="fabric-sidenav-nav" [fixedInViewport]="true" [fixedTopGap]="148" [fixedBottomGap]="0">
+        <mat-nav-list class="fabric-sidenav-list">
+            <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="fabric-main-content">      
+        <ng-content select="[mainContent]"></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

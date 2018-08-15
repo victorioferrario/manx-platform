@@ -10,14 +10,12 @@ export class ShellComponent implements OnInit {
   constructor(public layoutService: LayoutService ) {
   }
   ngOnInit() {
-    const self = this;       
-    
+    const self = this;      
     self.layoutService.startLoad();
   }
 
   onClick(){
-    const self = this;
-    console.log(self);
+    const self = this;    
     self.layoutService.startLoad();
   }
 

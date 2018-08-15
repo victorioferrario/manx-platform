@@ -12,31 +12,29 @@ export class LayoutService {
 
   @Output()
   isLoadingEvent = new EventEmitter<boolean>();
-
   constructor() {
     const self = this;
     //
     self.layout = new Layout();
     self.layout.loading = true;
+    self.layout.sideNavigation = true;
+    self.layout.sideNavigationMode = "side";    
     // 
     self.isLoadingEvent.subscribe((event) => {
       self.layout.loading = event;
-      console.log('self.layout.loading', self.layout.loading );
     });
   }
   startLoad() {
     const self = this;
-    self.isLoadingEvent.emit(true);      
-    console.log("THIS IS CALLED");
+    self.isLoadingEvent.emit(true);          
     self.layout.loading = true;
     setTimeout(() => {
       self.fakeService().then(() => {
         self.layout.loading = false;
         self.isLoadingEvent.emit(false);      
       });
-    },5000);
+    },1000);
     //self.isLoadingEvent.emit(true);
-   
   }
 
 
@@ -44,7 +42,7 @@ export class LayoutService {
     setTimeout(() => {
       console.log("tmmmemae");
       return "hello";
-    }, 7000);
+    }, 2000);
   }
 
 }

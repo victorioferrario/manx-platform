@@ -1,8 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule        } from '@angular/core';
+import { CommonModule    } from '@angular/common';
 import { MaterialModules } from './material.module';
-import { ServicesModule } from '@hubx/services';
-import { LoaderComponent } from './components'
+// @Collection: Local Modules
+import { ServicesModule  } from '@hubx/services';
+// @Collection: Local Components
+import { LoaderComponent } from './components';
+// @Collection: Local Directives
+import { BusyDirective   } from './directives/busy.directive';
+
+import {
+  ShellMaterialComponent  ,
+  HeaderMaterialComponent 
+ } from './core/layout';
 
 import {
   ItemComponent,
@@ -15,10 +24,17 @@ import {
   ContainerComponent,
   SubheaderComponent} from './layout';
 
-const COMPONENTS = [
-  LoaderComponent];
+const COMPONENTS_LOCAL = [
+  LoaderComponent,
+  ShellMaterialComponent  ,
+  HeaderMaterialComponent 
+];
 
-const LAYOUT_COMPONENTS = [
+const COMPONENTS_DIRECTIVES = [
+  BusyDirective
+];
+
+const COMPONENTS_LAYOUTS = [
   ItemComponent,
   MainComponent,
   ShellComponent,
@@ -35,9 +51,12 @@ const LAYOUT_COMPONENTS = [
     ServicesModule,
     MaterialModules],    
   exports: [
-    COMPONENTS, 
-    LAYOUT_COMPONENTS,
-    MaterialModules],
-  declarations: [COMPONENTS, LAYOUT_COMPONENTS]  
+    MaterialModules,
+    COMPONENTS_LOCAL, 
+    COMPONENTS_LAYOUTS],
+  declarations: [
+    COMPONENTS_LOCAL,     
+    COMPONENTS_LAYOUTS,
+    COMPONENTS_DIRECTIVES]  
 })
 export class FabricModule { }

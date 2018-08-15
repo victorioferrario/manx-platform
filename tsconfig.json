@@ -21,7 +21,10 @@
       ],
       "@hubx/services": [
         "libs/services/src/index.ts"
-      ]     
+      ],
+      "@hubx/fiber": [
+        "libs/fiber/src/index.ts"
+      ]
     }
   },
   "exclude": [

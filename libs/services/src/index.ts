@@ -1,2 +1,3 @@
+export * from './lib/core';
+export * from './lib/models';
 export * from './lib/services.module';
-export * from './lib/core/layout.service';

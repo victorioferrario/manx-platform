@@ -24,6 +24,12 @@
       "tags": [
         "ux"
       ]
+    },
+    "fiber": {
+      "tags": [
+        "state",
+        "data"
+      ]
     }
   }
 }

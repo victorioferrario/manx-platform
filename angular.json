@@ -189,6 +189,46 @@
           }
         }
       }
+    },
+    "fiber": {
+      "root": "libs/fiber",
+      "sourceRoot": "libs/fiber/src",
+      "projectType": "library",
+      "prefix": "apworkspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/fiber/tsconfig.lib.json",
+            "project": "libs/fiber/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/fiber/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/fiber/src/test.ts",
+            "tsConfig": "libs/fiber/tsconfig.spec.json",
+            "karmaConfig": "libs/fiber/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fiber/tsconfig.lib.json",
+              "libs/fiber/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

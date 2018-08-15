@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "apworkspace",
+      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "apworkspace",
+      "app",
       "kebab-case"
     ]
   }

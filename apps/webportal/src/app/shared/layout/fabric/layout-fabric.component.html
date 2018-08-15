@@ -1,0 +1,26 @@
+<fabric-shell>
+    <fabric-item header>
+        <img src="../assets/images/logo.svg" class="hubx-logo" />
+    </fabric-item>
+    <fabric-item topnav>Sub Nav Here</fabric-item>
+    <fabric-item sidebar>
+        <mat-nav-list class="fabric-sidenav-list">
+            <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        </mat-nav-list>
+    </fabric-item>
+    <fabric-item content>
+        <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+            <article class="item item-1" fxFlex="100%">
+                <h3>Fabric</h3>
+                <button mat-button (click)="onToggle()">No Show/Hide Menu</button>
+            </article>
+        </section>
+        <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+            <article class="item item-1 card-white" fxFlex="45%">
+                <button mat-button routerLink='/material'>Material</button>&nbsp; |&nbsp;<button mat-button routerLink='/hybrid'>Hybrid</button>
+            </article>
+            <article class="item item-2 text card" fxFlex="20%" fxFlexOrder="3">Item 2</article>
+            <article class="item item-3 text card" fxFlex>Item 3</article>
+        </section>
+    </fabric-item>
+</fabric-shell>
