@@ -9,8 +9,9 @@ import { LoaderComponent } from './components';
 import { BusyDirective   } from './directives/busy.directive';
 
 import {
-  ShellMaterialComponent  ,
-  HeaderMaterialComponent 
+  ShellMaterialComponent    ,
+  HeaderMaterialComponent   ,
+  SideMenuMaterialComponent
  } from './core/layout';
 
 import {
@@ -23,11 +24,12 @@ import {
   FragmentComponent,
   ContainerComponent,
   SubheaderComponent} from './layout';
-
+  
 const COMPONENTS_LOCAL = [
-  LoaderComponent,
-  ShellMaterialComponent  ,
-  HeaderMaterialComponent 
+  LoaderComponent           ,
+  ShellMaterialComponent    ,
+  HeaderMaterialComponent   ,
+  SideMenuMaterialComponent ,
 ];
 
 const COMPONENTS_DIRECTIVES = [

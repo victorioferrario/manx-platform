@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input } from '@angular/core';
 @Component({
     selector: 'fabric-mat-header',
     template: `
@@ -14,6 +14,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
     styleUrls: ['./header.component.css']
 })
 export class HeaderMaterialComponent implements OnDestroy, OnInit {
+    @Input()
     SubHeaderTitle:string;
     constructor(){}
     ngOnInit(): void { }

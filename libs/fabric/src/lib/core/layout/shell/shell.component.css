@@ -1,9 +1,10 @@
 .fabric-sidenav-nav {
     display: flex;
-    align-items: left;    
+    align-items: left;
     width: 254px;
     background: #493b8d;
 }
+
 .fabric-sidenav-container {
     position: fixed;
     bottom: 0;
@@ -11,25 +12,59 @@
     right: 0;
     top: 148px;
 }
-.fabric-sidenav-list{
-    position: absolute;
-    top: -10px;
-    left:0;
-    width: 100%;
-    overflow-y: auto;
-}
-.fabric-main-content{
+
+.fabric-main-content {
     padding: 20px;
     background: #fff;
 }
+
 .hubx-logo {
     height: 45px;
     width: 160px;
-    margin-left:9px;  
-    margin-top: 8px; 
+    margin-left: 9px;
+    margin-top: 8px;
 }
 
-.mat-nav-list .mat-list-item{
-    color:#ffff;
+.mat-nav-list .mat-list-item {
+    color: #ffff;
     font-weight: 400;
+}
+
+.experiment {
+    background: #493b8d;
+    width: 250px;
+    display: block;
+}
+
+.experiment-small {
+    background: #493b8d;
+    width: 65px;
+    display: block;
+     overflow:hidden;
+}
+
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.fabric-color {
+    background: #493b8d;
+}
+
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-sidenav {
+    padding: 20px;
+}
+
+.fabric-end-nav{
+    border-left: solid 1px #ddd;
+    background: #ccc;
 }
