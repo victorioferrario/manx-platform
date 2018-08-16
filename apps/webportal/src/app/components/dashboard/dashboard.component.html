@@ -1,2 +1,18 @@
 <a href="javascript:void(0);" routerLink="/fabric" >Fabric Layout</a>
 <a href="javascript:void(0);" routerLink="/material" >Material Layout</a>
+
+<section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <article class="item item-1" fxFlex="85%">
+        <h3>Welcome to UI Selector</h3>     
+        <p>I am using this landing page to switch betwen UI Master templates.  This is a convient way to see which master template will suit our needs.</p> 
+    </article>
+</section>
+<section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <article class="item item-1 card-white" fxFlex="45%">
+        <button mat-button routerLink='/fabric'>Fabric</button>
+        &nbsp;|&nbsp;<button mat-button routerLink='/hybrid'>Hybrid</button>
+        &nbsp;|&nbsp;<button mat-button routerLink='/material'>Material</button>
+    </article>
+    <article class="item item-2 text card" fxFlex="20%" fxFlexOrder="3">Item 2</article>
+    <article class="item item-3 text card" fxFlex>Item 3</article>
+</section>
