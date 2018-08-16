@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
-import { LayoutService } from '@hubx/services';
+import { ApplicationContext, MenuAction } from '@hubx/services';
 @Component({
   selector: 'app-fab-material',
   templateUrl: './layout-fabric-mat.component.html',
   styleUrls: ['./layout-fabric-mat.component.css']
 })
 export class LayoutHybridComponent {
-  constructor(public layoutService: LayoutService) { }
-  onToggle() {
+
+  local_SwitchAction:MenuAction;
+  local_ToggleAction:MenuAction;
+  constructor(public ctx: ApplicationContext) { 
     const self = this;
-    self.layoutService.layout.sideNavigation = self.layoutService.layout.sideNavigation ? false :  true;
+    self.local_SwitchAction = MenuAction.SwitchMode;
+    self.local_ToggleAction = MenuAction.State_Toggle;    
+  }
+  onToggle() {
+     
   }
   onSwitchMode(){
     const self = this;
-    self.layoutService.layout.sideNavigationMode 
-    = self.layoutService.layout.sideNavigationMode === "side" ? "over": "side";
+    // self.layoutService.layout.sideNavigationMode 
+    // = self.layoutService.layout.sideNavigationMode === "side" ? "over": "side";
   }
 }

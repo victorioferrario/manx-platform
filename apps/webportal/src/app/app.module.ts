@@ -17,7 +17,7 @@ import { ToolbarComponent         } from './toolbar/toolbar.component';//
 import { DashboardComponent       } from './components/dashboard/dashboard.component';
 import { LayoutFiberComponent     } from './shared/layout/fabric/layout-fabric.component';
 import { LayoutMaterialComponent  } from './shared/layout/material/layout-material.component';
-import { LayoutHybridComponent} from './shared/layout/hybrid/layout-fabric-mat.component';
+import { LayoutHybridComponent    } from './shared/layout/hybrid/layout-fabric-mat.component';
 
 // 
   const COMPONENTS = [

@@ -1,13 +1,20 @@
-<fabric-mat-header SubHeaderTitle="Featured">
-    <fabric-fragment headerLogo><img src="../assets/images/logo.svg" class="hubx-logo" /></fabric-fragment>
+<fabric-mat-header 
+    SubHeaderTitle="Featured">
+    <fabric-fragment headerLogo>
+        <img src="../assets/images/logo.svg" class="hubx-logo" alt="HubX.com"/></fabric-fragment>
 </fabric-mat-header>
-<mat-sidenav-container class="fabric-sidenav-container">
-    <mat-sidenav [opened]="this.layoutService.layout.sideNavigation" [mode]="this.layoutService.layout.sideNavigationMode" class="fabric-sidenav-nav" [fixedInViewport]="true" [fixedTopGap]="148" [fixedBottomGap]="0">
-        <mat-nav-list class="fabric-sidenav-list">
-            <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
-        </mat-nav-list>
+<mat-sidenav-container class="fabric-sidenav-container" #container>
+    <mat-sidenav #sideNav class="fabric-color"          
+      [mode]="this.context.ux.props.mode"
+      [opened]="this.context.ux.props.opened"
+      [fixedTopGap] ="this.context.ux.props.fixedTopGap" 
+      [fixedBottomGap] ="this.context.ux.props.fixedBottomGap"
+      [fixedInViewport] ="this.context.ux.props.fixedInViewport" autosize>       
+        <fabric-mat-sidemenu class="{{this.cssClass}}"></fabric-mat-sidemenu>
     </mat-sidenav>
+    <mat-sidenav opened mode="side" position="end" class="fabric-end-nav"></mat-sidenav>
     <mat-sidenav-content class="fabric-main-content">      
+      <a href="javascript:void(0)" (click)="changeCss()" >Click</a>
         <ng-content select="[mainContent]"></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>

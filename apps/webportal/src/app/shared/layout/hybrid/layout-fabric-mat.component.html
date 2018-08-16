@@ -3,8 +3,9 @@
         <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
             <article class="item item-1" fxFlex="85%">
                 <h3>Hybrid</h3>
-                <button mat-button (click)="onToggle()">Show/Hide Menu</button>  
-                <button mat-button (click)="onSwitchMode()">Switch Mode</button>({{this.layoutService.layout.sideNavigationMode}})
+                {{this.ctx.ux.props.size}}
+                <button mat-button (click)="this.ctx.dispatch(this.local_ToggleAction)">Show/Hide Menu</button>  
+                <button mat-button (click)="this.ctx.dispatch(this.local_SwitchAction)">Switch Mode</button>({{this.ctx.ux.props.mode}})
             </article>
         </section>
         <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
