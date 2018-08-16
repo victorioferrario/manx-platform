@@ -15,7 +15,8 @@ export class AppComponent implements OnInit  {
     layoutInstance.loading = false;
     layoutInstance.currentView = "home";
     //
-    this.local.storeOnLocalStorage(layoutInstance);
+    this.local.storeOnLocalStorage(
+      layoutInstance);
   }
   ngOnInit() {     
   }
