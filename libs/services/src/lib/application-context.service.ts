@@ -1,110 +1,88 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Observer } from 'rxjs';
 import { Output, EventEmitter } from '@angular/core';
+import { IActionEmitter, ActionEmitter } from './core/emitters'
 import { Actions_UI, MenuAction, LoadStateEnum, ModeEnum } from './models';
 import { Layout, ILayoutProps, SizeEnum } from './models';
-export class ActionEmitter {
-  type: Actions_UI;
-  payload?: any;
-  subType?: LoadStateEnum | MenuAction;
-  subPayload?: any;
-  constructor(type?: Actions_UI, sub?: LoadStateEnum | MenuAction) {
-    if (type && sub) {
-      this.type = type;
-      this.subType = sub;
-    }
-  }
+export interface IApplicationContext {
+  ux: ILayoutProps; 
+  dispatch: EventEmitter<IActionEmitter>;
+  initializeListeners():void;  
+  transformSideMenu(to: string,toSize: SizeEnum):void;  
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationContext {
+export class ApplicationContext implements IApplicationContext {
   ux: ILayoutProps;
-  dispatch: EventEmitter<ActionEmitter> = new EventEmitter();  
+  dispatch: EventEmitter<IActionEmitter>;  
   constructor() {
     const self = this;
-    self.ux = new Layout(true);   
+    self.ux = new Layout(true);
+    self.dispatch = new EventEmitter();
     self.initializeListeners();
   }
-  /*
-  **
-    @method: initializeListeners
-    @description: This method handles ui commands.
-  **
-  **/
+    /**
+   * Initializes listeners
+   */
   initializeListeners() {
-    //this.dispatch.
     const self = this;
-    self.dispatch.subscribe((event: ActionEmitter) => {
+    self.dispatch.subscribe((event: IActionEmitter) => {
       switch (event.type) {
         case Actions_UI.Menu:
+          //ToDo: lets see if this switch statement can be eliminated.
           switch (event.subType) {
             case MenuAction.State_Open:
+              //ToDO: Remove log
+              console.log(self.ux.props.opened,
+                self.ux.props.opened ? false : true);
               self.ux.props.opened = true;
               break;
             case MenuAction.State_Close:
+              //ToDO: Remove log
+              console.log(self.ux.props.opened, self.ux.props.opened ? false : true);
               self.ux.props.opened = false;
               break;
             case MenuAction.State_Toggle:
+              //ToDO: Remove log, is it always toggle?              
+              console.log(self.ux.props.opened,
+                self.ux.props.opened ? false : true);
               self.ux.props.opened = (self.ux.props.opened ? false : true);
               break;
           }
           break;
         case Actions_UI.Mode:
           self.ux.props.mode = self.ux.props.mode === ModeEnum.side ? ModeEnum.over : ModeEnum.side;
-          // switch (event.subType) {
-          //   case MenuAction.State_Open:
-          //     self.ux.props.opened = true;
-          //     break;
-          //   case MenuAction.State_Close:
-          //     self.ux.props.opened = false;
-          //     break;
-          //   case MenuAction.State_Toggle:
-          //     self.ux.props.opened = (self.ux.props.opened ? false : true);
-          //     break;
-          // }
           break;
-        case Actions_UI.Resize:
-          switch (event.subType) {
-            case MenuAction.Resize_Small:
-              const fromCss = self.ux.props.cssClass;
-              const toCss = "sidenav-root-" + SizeEnum.small;
-              self.transformSideMenu(
-                toCss,
-                fromCss,
-                SizeEnum.small);
-
-              break;
-            case MenuAction.Resize_Large:
-              const fromCss2 = self.ux.props.cssClass;
-              const toCss2 = "sidenav-root-" + SizeEnum.large;
-              self.transformSideMenu(
-                toCss2,
-                fromCss2,
-                SizeEnum.large);
-              break;
-          }
+        case Actions_UI.Resize:          
+          /**@description: sets up references, 
+          then call transformSideMenu**/
+          const toSize = (event.subType === MenuAction.Resize_Small
+            ? SizeEnum.small : SizeEnum.large);
+          const toCss = "sidenav-root-" + toSize;
+          self.transformSideMenu(toCss, toSize);
           break;
       }
     });
-  }
-  /*
-    @method: transformSideMenu
-    @description:This handles resizing the sidebar.
-  */
-  private transformSideMenu(to: string,
-    from: string,
+  }  
+  /**
+   * Transforms side menu
+   * @param to 
+   * @param toSize 
+   */
+  transformSideMenu (
+    to: string,
     toSize: SizeEnum) {
     const self = this;
     self.ux.props.opened = false;
     const _size: SizeEnum = self.ux.props.size;
     setTimeout(() => {
-      self.ux.props.cssClass = to;      
+      self.ux.props.cssClass = to;
     }, _size === SizeEnum.small ? 300 : 150);
     setTimeout(() => {
       self.ux.props.opened = true;
-      self.ux.props.size = toSize;    
+      self.ux.props.size = toSize;
     }, _size === SizeEnum.small ? 400 : 300);
   }
 }

@@ -13,7 +13,7 @@ export interface ISideNavProps {
         mode: Mode,
         size: Size,
         open: boolean,
-        cssclass: string,
+        cssClass: string,
         fixedTopGap?: number,
         fixedBottomGap?: number,
         fixedInViewport?: boolean): boolean;
@@ -58,19 +58,9 @@ export class SideNavProps implements ISideNavProps {
         self.fixedInViewport = fixedInViewport;return true;
     }
     public resize(toSize: SizeEnum) {
+        //ToDo: Implement
         this.size = toSize;
-        this.cssClass = Config.CssClass + this.size;
-        // switch (toSize) {
-        //     case SizeEnum.small:
-        //      this.css = SideNavConfiguration.configCssClass + this.size;
-        //         break;
-        //     case SizeEnum.medium:
-        //     this.css = SideNavConfiguration.configCssClass + this.size;
-        //         break;
-        //     case SizeEnum.large:
-        //     this.css = SideNavConfiguration.configCssClass + this.size;
-        //         break;
-        // }
+        this.cssClass = Config.CssClass + this.size;      
         return true;
     }
 }
