@@ -3,14 +3,12 @@
         <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
             <article class="item item-1" fxFlex="85%">
                 <h3>Hybrid</h3>                
-                {{this.ctx.ux.props.size}}
-                <button mat-button (click)="this.onToggle()">Show/Hide Menu</button>  
-                <button mat-button (click)="this.onSwitchMode()">Switch Mode</button>({{this.ctx.ux.props.mode}})
             </article>
         </section>
         <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
             <article class="item item-1 card-white" fxFlex="45%">
-                <button mat-button routerLink='/material'>Material</button><button mat-button routerLink='/fabric'>Fabric</button></article>
+                Item 1
+            </article>
             <article class="item item-2 text card" fxFlex="20%" fxFlexOrder="3">Item 2</article>
             <article class="item item-3 text card" fxFlex>Item 3</article>
         </section>

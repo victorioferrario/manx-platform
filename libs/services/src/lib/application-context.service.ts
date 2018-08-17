@@ -49,7 +49,7 @@ export class ApplicationContext implements IApplicationContext {
           break;
         case Actions_UI.Mode:
           self.ux.props.mode = self.ux.props.mode === ModeEnum.side
-            ? ModeEnum.over : ModeEnum.side;
+            ? ModeEnum.push : ModeEnum.side;
           break;
         case Actions_UI.Resize:
           const toSize = (event.subType === MenuAction.Resize_Small

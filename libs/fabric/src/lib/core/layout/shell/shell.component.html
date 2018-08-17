@@ -1,5 +1,5 @@
 <fabric-mat-header 
-    SubHeaderTitle="Featured">
+    SubHeaderTitle="Features">
     <fabric-fragment headerLogo>
         <img src="../assets/images/logo.svg" class="hubx-logo" alt="HubX.com"/></fabric-fragment>
 </fabric-mat-header>
@@ -13,8 +13,7 @@
         <fabric-mat-sidemenu class="{{this.context.ux.props.cssClass}}"></fabric-mat-sidemenu>
     </mat-sidenav>
     <mat-sidenav opened mode="side" position="end" class="fabric-end-nav"></mat-sidenav>
-    <mat-sidenav-content class="fabric-main-content">      
-      <a href="javascript:void(0)" (click)="this.handleClick()" >Click</a>
+    <mat-sidenav-content class="fabric-main-content">     
         <ng-content select="[mainContent]"></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>

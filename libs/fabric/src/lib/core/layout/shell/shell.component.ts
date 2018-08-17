@@ -9,8 +9,7 @@ export class ShellMaterialComponent implements OnInit, AfterViewInit {
   @ViewChild('container') private _container;
   @ViewChild('sideNav') private _sideNav;
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
-  showFiller = false;  // cssClass = "experiment";
-  
+  showFiller = false;  // cssClass = "experiment";  
   constructor(public context: ApplicationContext) {
   }
   handleClick() {
@@ -20,14 +19,7 @@ export class ShellMaterialComponent implements OnInit, AfterViewInit {
     this.context.dispatch.emit(event);
   }
   
-  ngAfterViewInit() {
-    // setTimeout(() => {
-    // }, 0);
-    // this._container._ngZone.onMicrotaskEmpty.subscribe(() => {
-    //   this._container._updateStyles();
-    //   this._container._changeDetectorRef.markForCheck();
-    //   console.log("what is this")
-    // })
+  ngAfterViewInit() {  
   }
   ngOnInit() { }
 }
