@@ -8,7 +8,6 @@ import { ApplicationContext, MenuAction, ActionEmitter, Actions_UI } from '@hubx
 export class LayoutMaterialComponent {
   constructor(public ctx: ApplicationContext) {
     console.log(this.ctx)
-
    }
    onToggle() {   
     const event = new ActionEmitter(
