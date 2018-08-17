@@ -11,7 +11,8 @@ import { BusyDirective   } from './directives/busy.directive';
 import {
   ShellMaterialComponent    ,
   HeaderMaterialComponent   ,
-  SideMenuMaterialComponent
+  SideMenuMaterialComponent ,
+  ToolbarMaterialComponent
  } from './core/layout';
 
 import {
@@ -30,6 +31,7 @@ const COMPONENTS_LOCAL = [
   ShellMaterialComponent    ,
   HeaderMaterialComponent   ,
   SideMenuMaterialComponent ,
+  ToolbarMaterialComponent  ,
 ];
 
 const COMPONENTS_DIRECTIVES = [

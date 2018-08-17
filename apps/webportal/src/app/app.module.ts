@@ -13,19 +13,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 // @Collection Local Components
 import { AppRoutingModule } from './app-routing.material';
 import { AppComponent             } from './containers/app/app.component';
-import { ToolbarComponent         } from './toolbar/toolbar.component';// 
 import { DashboardComponent       } from './components/dashboard/dashboard.component';
-import { LayoutFiberComponent     } from './shared/layout/fabric/layout-fabric.component';
-import { LayoutMaterialComponent  } from './shared/layout/material/layout-material.component';
 import { LayoutHybridComponent    } from './shared/layout/hybrid/layout-fabric-mat.component';
-
+import { LOGGING_PROVIDERS} from './shared/util/logger.service';
 // 
   const COMPONENTS = [
-    AppComponent,
-    ToolbarComponent,
-    DashboardComponent,
-    LayoutFiberComponent,
-    LayoutMaterialComponent,
+    AppComponent,    
+    DashboardComponent,   
     LayoutHybridComponent];
 
   const COMPONENTS_INTERNAL = [
@@ -57,7 +51,7 @@ import { LayoutHybridComponent    } from './shared/layout/hybrid/layout-fabric-m
     COMPONENTS_MATERIAL,
     NxModule.forRoot()    
    ],
-  providers: [],
+  providers: [LOGGING_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
