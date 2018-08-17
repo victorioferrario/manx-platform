@@ -7,16 +7,17 @@ import { LayoutService } from '@hubx/services';
 })
 export class ShellComponent implements OnInit {
   isLoading = false;
-  constructor(public layoutService: LayoutService ) {
+  // public layoutService: LayoutService
+  constructor( ) {
   }
   ngOnInit() {
     const self = this;      
-    self.layoutService.startLoad();
+    // vself.layoutService.startLoad();
   }
 
   onClick(){
     const self = this;    
-    self.layoutService.startLoad();
+    // self.layoutService.startLoad();
   }
 
 }

@@ -10,13 +10,11 @@ export class DashboardComponent {
     ctx:ApplicationContext;
     item: Observable<any>;
     constructor(context:ApplicationContext){
-      this.ctx = context;
-      this.item = this.ctx.instanceObservable;
-      this.onHandleClick();    
-
+      this.ctx = context;      
+      this.onHandleClick();   
     }
 
     onHandleClick(){
-      this.ctx.appObserver.next(MenuAction.Resize);
+      // this.ctx.appObserver.next(MenuAction.Resize);
     }
 }

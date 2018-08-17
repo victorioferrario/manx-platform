@@ -16,7 +16,8 @@ export class SideMenuMaterialComponent implements OnInit {
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
 
   isFullText = true;
-  constructor(public layoutService: LayoutService) {    
+  constructor() {    
+    //public layoutService: LayoutService
    }
    showInfo(link){
 

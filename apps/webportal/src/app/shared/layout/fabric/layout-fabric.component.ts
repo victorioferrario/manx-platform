@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 export class LayoutFiberComponent {
     constructor(){}
     fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+
+    onToggle(){}
 }
