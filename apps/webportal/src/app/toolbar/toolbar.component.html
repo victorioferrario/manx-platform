@@ -8,7 +8,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav class="sidenav-ui" [opened]="this.layoutService.layout.sideNavigation"  [mode]="this.layoutService.layout.sideNavigationMode" [fixedInViewport]="true" [fixedTopGap]="148" [fixedBottomGap]="0">
+  <mat-sidenav #sidenav class="sidenav-ui" [opened]="this.ctx.ux.props.opened"  [mode]="this.ctx.ux.props.mode" 
+  [fixedInViewport]="true" [fixedTopGap]="148" [fixedBottomGap]="0">
     <mat-nav-list class="mat-nav-list-position">
       <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
     </mat-nav-list>

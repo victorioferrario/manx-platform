@@ -10,23 +10,25 @@ export class GenericList<T> {
       self.activeItem = t;
     }
   }
-  add(t:T){
+  add(t: T) {
     const self = this;
     self.items.push(t);
     self.activeItem = t;
   }
-  addRange(t:T, tl:T[]){
+  addRange(t: T, tl: T[]) {
     const self = this;
-    if(tl!== undefined && tl.length > 0){
-      tl.forEach((a: T)=>{
+    if (tl !== undefined && tl.length > 0) {
+      tl.forEach((a: T) => {
         self.items.push(a);
-      }); 
+      });
     }
     self.items.push(t);
     self.activeItem = t;
   }
 }
+
 const STORAGE_KEY = 'local_session';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,11 +42,11 @@ export class LocalStorageService<T> {
     const result = (this.storage.get(STORAGE_KEY) || []) as GenericList<T>;
     // push new task to array    
     console.log(result);
-    if(result){
-      this.localGenericList.addRange(t, result.items);  
-    }else{
-      this.localGenericList.add(t);      
-    }      
+    if (result) {
+      this.localGenericList.addRange(t, result.items);
+    } else {
+      this.localGenericList.add(t);
+    }
     this.storage.set(STORAGE_KEY, this.localGenericList);
     console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
   }

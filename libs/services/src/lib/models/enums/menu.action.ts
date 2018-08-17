@@ -1,8 +1,3 @@
-
-export enum MenuState { 
-    Open = 20,
-    Closed = 21    
-}
 export enum MenuAction {  
 
     State_Open = 20,
@@ -18,5 +13,5 @@ export enum MenuAction {
     SwitchMode_Over = 51,
     SwitchMode_Push = 52,
     SwitchMode_Side = 53
+    
   }
-  

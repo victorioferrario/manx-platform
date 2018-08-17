@@ -30,17 +30,17 @@
     font-weight: 400;
 }
 
-.experiment {
+.sidenav-root-large {
     background: #493b8d;
     width: 250px;
     display: block;
 }
 
-.experiment-small {
+.sidenav-root-small {
     background: #493b8d;
     width: 65px;
     display: block;
-     overflow:hidden;
+    overflow:hidden;
 }
 
 .example-container {

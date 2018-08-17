@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
-import { ApplicationContext, MenuAction } from '@hubx/services';
+import { ApplicationContext, MenuAction, ActionEmitter, Actions_UI } from '@hubx/services';
 @Component({
   selector: 'app-fab-material',
   templateUrl: './layout-fabric-mat.component.html',
   styleUrls: ['./layout-fabric-mat.component.css']
 })
 export class LayoutHybridComponent {
-
-  local_SwitchAction:MenuAction;
-  local_ToggleAction:MenuAction;
   constructor(public ctx: ApplicationContext) { 
-    const self = this;
-    self.local_SwitchAction = MenuAction.SwitchMode;
-    self.local_ToggleAction = MenuAction.State_Toggle;    
+    const self = this;     
   }
-  onToggle() {
-     
+  onToggle() {  
+    const event = new ActionEmitter(
+      Actions_UI.Menu, 
+      MenuAction.State_Toggle);    
+    this.ctx.dispatch.emit(event);     
   }
   onSwitchMode(){
-    const self = this;
-    // self.layoutService.layout.sideNavigationMode 
-    // = self.layoutService.layout.sideNavigationMode === "side" ? "over": "side";
-  }
+    const self = this;    
+    const event = new ActionEmitter(
+      Actions_UI.Mode, 
+      MenuAction.SwitchMode);    
+    this.ctx.dispatch.emit(event);         
+   }
 }

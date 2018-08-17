@@ -7,6 +7,6 @@ import { ApplicationContext, MenuAction } from '@hubx/services';
 })
 export class DashboardComponent {
     constructor(context:ApplicationContext){
-      context.dispatch(MenuAction.State_Close);
+      //context.dispatch(MenuAction.State_Close);
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { ApplicationContext } from '@hubx/services';
+import { ApplicationContext, ActionEmitter, Actions_UI, MenuAction , SizeEnum} from '@hubx/services';
 @Component({
   selector: 'fabric-mat-shell',
   templateUrl: './shell.component.html',
@@ -9,34 +9,25 @@ export class ShellMaterialComponent implements OnInit, AfterViewInit {
   @ViewChild('container') private _container;
   @ViewChild('sideNav') private _sideNav;
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
-  showFiller = false;
-  cssClass = "experiment";
-  width = '400px;';
-  changeCss() {
-    this._sideNav.close();
-    setTimeout(() => {
-      this.cssClass = this.cssClass === "experiment" ? "experiment-small" : "experiment";
-    }, this.cssClass === "experiment-small" ? 300 : 150);    
-    setTimeout(() => {
-      this._sideNav.open();
-    },this.cssClass !== "experiment-small" ? 400 : 300);
+  showFiller = false;  // cssClass = "experiment";
+  
+  constructor(public context: ApplicationContext) {
   }
-  constructor(public context: ApplicationContext) { }
-  //   ngAfterViewInit(): void {
-  //     const size = this.drawerState === 'open' ? 220 : 75;
-  //     setTimeout(() => {
-  //         this.sidenav.open();
-  //         this.cd.detectChanges();
-  //     }, size);
-  // }
+  handleClick() {
+    const event = new ActionEmitter(Actions_UI.Resize,
+       (this.context.ux.props.size === SizeEnum.large ) 
+       ? MenuAction.Resize_Small : MenuAction.Resize_Large);    
+    this.context.dispatch.emit(event);
+  }
+  
   ngAfterViewInit() {
-    setTimeout(() => {
-    }, 0);
-    this._container._ngZone.onMicrotaskEmpty.subscribe(() => {
-      this._container._updateStyles();
-      this._container._changeDetectorRef.markForCheck();
-      console.log("what is this")
-    })
-  };
+    // setTimeout(() => {
+    // }, 0);
+    // this._container._ngZone.onMicrotaskEmpty.subscribe(() => {
+    //   this._container._updateStyles();
+    //   this._container._changeDetectorRef.markForCheck();
+    //   console.log("what is this")
+    // })
+  }
   ngOnInit() { }
 }
