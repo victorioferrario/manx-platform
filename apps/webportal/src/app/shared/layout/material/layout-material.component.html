@@ -3,7 +3,7 @@
         <article class="item item-1" fxFlex="85%">
             <h3>Material</h3>
             <button mat-button (click)="onToggle()">Show/Hide Menu</button>
-            <button mat-button (click)="onSwitchMode()">Switch Mode</button>({{this.layoutService.layout.sideNavigationMode}})
+            <button mat-button (click)="onSwitchMode()">Switch Mode</button>({{this.ctx.ux.props.mode}})
         </article>
     </section>
     <section class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">

@@ -2,7 +2,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Subject, Observable } from 'rxjs';
-import { LayoutService } from '@hubx/services';
+import { LayoutService, ApplicationContext } from '@hubx/services';
 import { map } from 'rxjs/operators';
 
 
@@ -19,7 +19,7 @@ export class ToolbarComponent implements OnDestroy {
   layoutSubject: Subject<string>;
   layoutSizeObservale: Observable<string>;
   // 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public layoutService: LayoutService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public ctx: ApplicationContext) {
     const self = this;
     self.sidesetting = "side";
     self.isSideNavOpen = true;
@@ -44,6 +44,8 @@ export class ToolbarComponent implements OnDestroy {
   onToggle() {
     const self = this;
     self.isSideNavOpen = self.isSideNavOpen ? false: true;
+
+    
   }
   ngOnDestroy(): void {
     //  this.mobileQuery.removeListener(this._mobileQueryListener);

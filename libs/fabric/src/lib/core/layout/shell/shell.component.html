@@ -10,11 +10,11 @@
       [fixedTopGap] ="this.context.ux.props.fixedTopGap" 
       [fixedBottomGap] ="this.context.ux.props.fixedBottomGap"
       [fixedInViewport] ="this.context.ux.props.fixedInViewport" autosize>       
-        <fabric-mat-sidemenu class="{{this.cssClass}}"></fabric-mat-sidemenu>
+        <fabric-mat-sidemenu class="{{this.context.ux.props.cssClass}}"></fabric-mat-sidemenu>
     </mat-sidenav>
     <mat-sidenav opened mode="side" position="end" class="fabric-end-nav"></mat-sidenav>
     <mat-sidenav-content class="fabric-main-content">      
-      <a href="javascript:void(0)" (click)="changeCss()" >Click</a>
+      <a href="javascript:void(0)" (click)="this.handleClick()" >Click</a>
         <ng-content select="[mainContent]"></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>
