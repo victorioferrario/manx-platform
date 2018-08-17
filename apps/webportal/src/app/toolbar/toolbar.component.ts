@@ -19,18 +19,23 @@ export class ToolbarComponent implements OnDestroy {
   layoutSubject: Subject<string>;
   layoutSizeObservale: Observable<string>;
   // 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public ctx: ApplicationContext) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+     media: MediaMatcher, public ctx: ApplicationContext) {
     const self = this;
     self.sidesetting = "side";
     self.isSideNavOpen = true;
     self.layoutSubject = new Subject();
     self.layoutSubject.subscribe((data) => {
       self.layoutSidbarCSS = data;
+      console.log(data);
     });
     self.layoutSizeObservale = new Observable((observer) => {
+      console.log(observer);
       self.layoutSidbarCSS = "sidenav-ui"
-      observer.next("sidenav-ui");
+      observer.next("sidenav-ui");      
     });
+
   }
   //
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
