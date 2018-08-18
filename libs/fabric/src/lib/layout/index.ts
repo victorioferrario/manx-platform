@@ -1,9 +1,11 @@
-export { ItemComponent      } from './item/item.component';
-export { MainComponent      } from './main/main.component';
-export { ShellComponent     } from './shell/shell.component';
-export { HeaderComponent    } from './header/header.component';
-export { ContentComponent   } from './content/content.component';
-export { SidebarComponent   } from './sidebar/sidebar.component';
-export { FragmentComponent  } from './fragment/fragment.component';
-export { ContainerComponent } from './container/container.component';
-export { SubheaderComponent } from './subheader/subheader.component';
+export {    ViewComponent       ,
+            ItemComponent       ,
+            ChildComponent      ,
+            ContentComponent    ,
+            ElementComponent    ,
+            FragementComponent      } from './elements';
+export {    ShellComponent       ,
+            HeaderComponent      ,
+            SubHeaderComponent   ,
+            SideMenuComponent    ,
+            DevToolbarComponent         } from './template';

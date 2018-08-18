@@ -1,0 +1,121 @@
+
+
+
+
+.sub-header-col-right{    
+    right:4px;
+}
+
+.sub-header-col-left{
+    transition: all ease-in-out 300ms;
+    overflow:hidden;
+}
+.sub-header-col-left.large {
+    max-width: 268px;
+    min-width: 268px;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    background: #ff655b;
+    font: 500 14px/22px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0px;
+}
+.sub-header-col-left.large:after {
+    content: '';
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border-top: 24px solid #4d3b8b;
+    border-left: 13px solid #ff655b;
+    border-bottom: 24px solid #4c3b8c;
+}
+
+/*
+ accomidate for push
+*/
+.sub-header-col-left.large.push {
+    max-width: 68px;
+    min-width: 68px;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    background: #ff655b;
+    font: 500 14px/22px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0px;
+}
+.sub-header-col-left.large.push:after {
+    content: '';
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border-top: 24px solid #4d3b8b;
+    border-left: 13px solid #ff655b;
+    border-bottom: 24px solid #4c3b8c;
+}
+
+
+
+
+.label-left-col {
+    position: absolute;
+    font-weight: 400;
+    font-size: 18px;
+    left: 20px;
+    top: 12px;
+    opacity: 1;
+    transition: all ease-in-out 300ms;
+}
+.sub-header-col-left.small {
+    max-width: 72px;
+    min-width: 72px;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    background: #ff655b;
+    font: 500 14px/22px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0px;
+}
+.sub-header-col-left.small:after {
+    content: '';
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    border-top: 24px solid #4d3b8b;
+    border-left: 13px solid #ff655b;
+    border-bottom: 24px solid #4c3b8c;
+}
+.sub-header-col-left.small .label-left-col{
+    opacity: 0;
+}
+
+.sub-header-col-left.large.push .label-left-col{
+    opacity: 0;
+}
+

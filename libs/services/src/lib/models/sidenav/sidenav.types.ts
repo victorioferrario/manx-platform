@@ -10,6 +10,4 @@ export enum ModeEnum {
     push = "push",
     over = "over"
 }
-
-
 // { Mode, ModeEnum, Size, SizeEnum } 
