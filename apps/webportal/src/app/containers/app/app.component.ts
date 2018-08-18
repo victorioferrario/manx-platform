@@ -9,6 +9,5 @@ export class AppComponent implements OnInit  {
   constructor() {
     const self = this;    
   }
-  ngOnInit() {     
-  }
+  ngOnInit() {  }
 }

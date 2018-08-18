@@ -7,48 +7,52 @@ import { ServicesModule  } from '@hubx/services';
 import { LoaderComponent } from './components';
 // @Collection: Local Directives
 import { BusyDirective   } from './directives/busy.directive';
-
 import {
-  ShellMaterialComponent    ,
-  HeaderMaterialComponent   ,
-  SideMenuMaterialComponent ,
-  ToolbarMaterialComponent
- } from './core/layout';
-
+  ItemComponent       ,
+  ViewComponent       ,  
+  ChildComponent      ,  
+  ContentComponent    ,
+  ElementComponent    ,
+  FragementComponent  } from './layout';
 import {
-  ItemComponent,
-  MainComponent,  
-  ShellComponent,
-  HeaderComponent,
-  ContentComponent,  
-  SidebarComponent,
-  FragmentComponent,
-  ContainerComponent,
-  SubheaderComponent} from './layout';
-  
-const COMPONENTS_LOCAL = [
-  LoaderComponent           ,
-  ShellMaterialComponent    ,
-  HeaderMaterialComponent   ,
-  SideMenuMaterialComponent ,
-  ToolbarMaterialComponent  ,
+    ShellComponent        ,
+    HeaderComponent       ,
+    SubHeaderComponent    ,
+    SideMenuComponent     ,
+    DevToolbarComponent   } from './layout/template';
+/**
+ * @const: COMPONENT_ELEMENTS
+ * @description: elements reference array
+ */
+const COMPONENT_ELEMENTS = [ 
+  ViewComponent     ,
+  ItemComponent     ,
+  ChildComponent    ,
+  ContentComponent  ,
+  ElementComponent  ,
+  FragementComponent];  
+/**
+ * @const: COMPONENT_TEMPLATES
+ * @description: layout templates reference array
+ */  
+const COMPONENT_TEMPLATES = [
+  LoaderComponent     ,
+  ShellComponent      ,
+  HeaderComponent     ,
+  SideMenuComponent   ,
+  SubHeaderComponent  ,
+  DevToolbarComponent ,
 ];
-
+/**
+ * @const: COMPONENTS_DIRECTIVES
+ * @description: directive reference array
+ */
 const COMPONENTS_DIRECTIVES = [
   BusyDirective
 ];
-
-const COMPONENTS_LAYOUTS = [
-  ItemComponent,
-  MainComponent,
-  ShellComponent,
-  HeaderComponent,
-  ContentComponent,
-  SidebarComponent,  
-  FragmentComponent, 
-  ContainerComponent,  
-  SubheaderComponent];  
-
+/**
+ * Ng module
+ */
 @NgModule({
   imports: [
     CommonModule, 
@@ -56,11 +60,11 @@ const COMPONENTS_LAYOUTS = [
     MaterialModules],    
   exports: [
     MaterialModules,
-    COMPONENTS_LOCAL, 
-    COMPONENTS_LAYOUTS],
+    COMPONENT_ELEMENTS, 
+    COMPONENT_TEMPLATES],
   declarations: [
-    COMPONENTS_LOCAL,     
-    COMPONENTS_LAYOUTS,
+    COMPONENT_ELEMENTS,   
+    COMPONENT_TEMPLATES,
     COMPONENTS_DIRECTIVES]  
 })
 export class FabricModule { }

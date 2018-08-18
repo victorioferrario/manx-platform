@@ -65,4 +65,4 @@ export class SideNavProps implements ISideNavProps {
     }
 }
 
-// { ISideNavProps, SideNavProps }
+// { ISideNavProps, ISubHeaderProps }

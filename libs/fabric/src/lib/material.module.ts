@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-
 import {
     MatAutocompleteModule,
-    MatBadgeModule,
-    
+    MatBadgeModule,      
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -42,6 +40,7 @@ import {
     MatTreeModule
 } from '@angular/material';
 const MATERIAL__MODULES = [
+    OverlayModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
