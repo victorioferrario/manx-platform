@@ -1,35 +1,83 @@
 import { LoadProps, ILoadProps } from './load.props';
-import { ISideNavProps, SideNavProps } from '../sidenav/sidenav.props';
 import { ISubHeaderProps, SubHeaderProps } from '../subheader';
+import { ISideNavProps, SideNavProps, ModeEnum, SizeEnum } from '../sidenav';
+import { SubHeaderConfiguration as ConfigSubHeader } from '../subheader';
+import { MenuAction } from '../enums';
 export interface ILayoutProps {
-    load: ILoadProps;
-    props: ISideNavProps;
-    childProps: ISubHeaderProps;
+  load: ILoadProps;
+  props: ISideNavProps;
+  childProps: ISubHeaderProps;
+  transformMode() : void;
+  transformSize(resizeTo:MenuAction): void;
 }
 export class Layout implements ILayoutProps {
-    subProps
-    /**         
-    * @property: load
-    * @type: ILoadProps
-    */
-    public load: ILoadProps;
-    /**
-     * @property: props
-     * @type: ISideNavProps         
-     */
-    public props: ISideNavProps;
-    /**
-     * @property: childProps
-     * @type: ISubHeaderProps         
-     */
-    public childProps: ISubHeaderProps;
-    /**
-     * Creates an instance of layout.
-     * @param [autobind] 
-     */
-    constructor(autobind: boolean = true) {
-        this.load = new LoadProps();
-        this.props = new SideNavProps(autobind);
-        this.childProps = new SubHeaderProps(autobind);
-    }
+  /**
+   * @property: load
+   * @type: ILoadProps
+   */
+  public load: ILoadProps;
+  /**
+   * @property: props
+   * @type: ISideNavProps
+   */
+  public props: ISideNavProps;
+  /**
+   * @property: childProps
+   * @type: ISubHeaderProps
+   */
+  public childProps: ISubHeaderProps;
+  /**
+   * Creates an instance of layout.
+   * @param [autobind]
+   */
+  constructor(autobind: boolean = true) {
+    this.load = new LoadProps();
+    this.props = new SideNavProps(autobind);
+    this.childProps = new SubHeaderProps(autobind);
+  }
+  
+  /**
+   * Transforms mode
+   * @param mode 
+   */
+  transformMode() {
+    const self = this;
+    self.props.opened = false;
+    self.props.mode =
+      self.props.mode === ModeEnum.side 
+      ? ModeEnum.push : ModeEnum.side;
+    self.props.opened = self.props.mode === ModeEnum.side;
+    self.childProps.cssClass =
+      ConfigSubHeader.RootCssClass 
+        + self.props.size 
+        + ' ' + self.props.mode;
+  }
+  /**
+   * Transforms side menu
+   * @param toCss
+   * @param toCss2
+   * @param toSize
+   */
+  transformSize(resizeTo:MenuAction) {
+    const self = this;   
+    const toSize = (resizeTo === MenuAction.Resize_Small
+              ? SizeEnum.small
+              : SizeEnum.large);
+          const toCss = 'sidenav-root-' + toSize;
+          const toCss2 = ConfigSubHeader.RootCssClass + toSize;
+    self.props.opened = false;
+    // 
+    const _mode: ModeEnum = self.props.mode;
+    const _size: SizeEnum = self.props.size;
+
+    setTimeout(() => {
+      self.props.cssClass = toCss;
+      self.childProps.cssClass = toCss2 + ' ' + _mode;
+    }, _size === SizeEnum.small ? 300 : 150);
+
+    setTimeout(() => {
+      self.props.opened = true;
+      self.props.size = toSize;
+    }, _size === SizeEnum.small ? 400 : 300);
+  }
 }

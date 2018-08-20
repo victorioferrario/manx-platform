@@ -14,7 +14,5 @@ export class LoadProps implements ILoadProps {
         const self = this;
         self.state = LoadStateEnum.Loading;
         self.display = VisibleEnum.None;
-    }
-    
-
+    }   
 }
