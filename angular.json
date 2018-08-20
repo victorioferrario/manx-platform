@@ -23,6 +23,7 @@
               "apps/webportal/src/assets"
             ],
             "styles": [
+              "./node_modules/animate.css/animate.min.css",
               "apps/webportal/src/styles.css"
             ],
             "scripts": []

@@ -1,0 +1,24 @@
+<fabric-page-title class="container fadeInUp animated-500">
+        Buyers
+</fabric-page-title>
+<section class="container fadeInUp animated-500" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <article class="item item-1 card-white" fxFlex="20%" fxFlex>
+        <a href="javascript:void(0);" 
+            [routerLink]="['/buyer']" 
+            mat-button>Dashboard</a>
+    </article>
+    <article class="item item-2 card-white" fxFlex="20%" fxFlex>
+        <a href="javascript:void(0);" 
+            [routerLink]="['/buyer/cart']"
+            mat-button>Shopping Cart</a>
+    </article>
+    <article class="item item-3 card-white" fxFlex="20%" fxFlex>
+        <a href="javascript:void(0);" 
+            [routerLink]="['/buyer/profile']" 
+            mat-button>My Profile</a></article>
+    <article class="item item-3 card-white" fxFlex="20%" fxFlex>
+        <a href="javascript:void(0);" 
+            [routerLink]="['../vendor']" 
+            mat-button>Vedor</a></article>        
+</section>
+<router-outlet></router-outlet>

@@ -5,12 +5,14 @@ import { IActionEmitter, ActionEmitter } from './core/emitters';
 import { Actions_UI, MenuAction,Layout, ILayoutProps } from './models';
 import {LogLevel} from "typescript-logging";
 import { modelLogger, serviceLogger } from './util/logger/config';
+import { ISession, Session} from './models/session/session';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationContext implements IApplicationContext {
   ux: ILayoutProps;
+  session:ISession;
   dispatch: EventEmitter<IActionEmitter>;
   breakObserver: BreakpointObserver;
   /**
@@ -20,8 +22,9 @@ export class ApplicationContext implements IApplicationContext {
    */
   constructor(breakpointObserver: BreakpointObserver) {
     const self = this;
-    self.ux = new Layout(true);
+    self.ux = new Layout(true);   
     self.dispatch = new EventEmitter();
+    self.session = new Session(self);
     self.breakObserver = breakpointObserver;
     self.initializeDispatcher();
     self.initializeBreakPointObserver();

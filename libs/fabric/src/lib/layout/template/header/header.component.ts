@@ -3,12 +3,12 @@ import { ApplicationContext } from '@hubx/services'
 @Component({
     selector: 'fabric-header',
     template: `
-<mat-toolbar class="example-header">
+<mat-toolbar>
     <mat-toolbar-row class="header-toolbar-row-1">
         <ng-content select="[headerLogo]"></ng-content>
     </mat-toolbar-row> 
-    <mat-toolbar-row class="header-toolbar-row-2">   
-        <fabric-subheader SubHeaderTitle="{{this.SubHeaderTitle}}"></fabric-subheader>
+    <mat-toolbar-row class="header-toolbar-row-2" >   
+        <fabric-subheader SubHeaderTitle="{{this.SubHeaderTitle}}" *ngIf="this.ctx.session.isAuthenticated"></fabric-subheader>
     </mat-toolbar-row>
 </mat-toolbar>`,
     styleUrls: ['./header.component.css']

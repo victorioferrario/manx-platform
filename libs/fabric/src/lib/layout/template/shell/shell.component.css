@@ -18,6 +18,17 @@
     background: #fff;
 }
 
+.fabric-loader-content {
+    padding: 20px;
+    background: #ccc;
+    position: absolute;
+    left:0;
+    right:0;
+    top:148px;
+    bottom:0;
+    z-index:1000;
+}
+
 .hubx-logo {
     height: 45px;
     width: 160px;
