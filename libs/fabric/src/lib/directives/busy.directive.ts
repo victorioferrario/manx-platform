@@ -19,8 +19,7 @@ export class BusyDirective implements OnInit, OnChanges {
         }
     }
 
-    constructor(private vcRef: ViewContainerRef,
-        private renderer: Renderer2, ) { }
+    constructor(private vcRef: ViewContainerRef, private renderer: Renderer2, ) { }
 
     public ngOnChanges(changes: SimpleChanges): void {
         for (const propName in changes) {
