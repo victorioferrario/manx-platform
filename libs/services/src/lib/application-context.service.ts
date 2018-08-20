@@ -1,19 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable, of, Observer } from 'rxjs';
-import { Output, EventEmitter } from '@angular/core';
-import { IActionEmitter, ActionEmitter } from './core/emitters';
-import { Actions_UI, MenuAction, LoadStateEnum, ModeEnum } from './models';
-import { Layout, ILayoutProps, SizeEnum } from './models';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { SubHeaderConfiguration as ConfigSubHeader } from './models';
-import { Actions } from '@ngrx/effects';
-export interface IApplicationContext {
-  ux: ILayoutProps;
-  dispatch: EventEmitter<IActionEmitter>;
-  breakObserver: BreakpointObserver;
-  initializeDispatcher(): void;
-  initializeBreakPointObserver(): void;
-}
+import { IApplicationContext } from './interfaces/IApplicationContext';
+import { IActionEmitter, ActionEmitter } from './core/emitters';
+import { Actions_UI, MenuAction,Layout, ILayoutProps } from './models';
+import {LogLevel} from "typescript-logging";
+import { modelLogger, serviceLogger } from './util/logger/config';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +13,6 @@ export class ApplicationContext implements IApplicationContext {
   ux: ILayoutProps;
   dispatch: EventEmitter<IActionEmitter>;
   breakObserver: BreakpointObserver;
-
   /**
    * Creates an instance of
    * application context.
@@ -38,6 +28,7 @@ export class ApplicationContext implements IApplicationContext {
   }
   initializeDispatcher() {
     const self = this;
+    serviceLogger.info("initializeDispatcher");    
     self.dispatch.subscribe((event: IActionEmitter) => {
       switch (event.type) {
         case Actions_UI.Menu:
