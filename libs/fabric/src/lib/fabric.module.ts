@@ -1,8 +1,10 @@
+import { MainComponent } from './layout/template/main/main.component';
 import { NgModule        } from '@angular/core';
 import { CommonModule    } from '@angular/common';
 import { MaterialModules } from './material.module';
 // @Collection: Local Modules
 import { 
+  ApplicationContext,
   ServicesModule  
 } from '@hubx/services';
 // @Collection: Local Components
@@ -57,6 +59,7 @@ const COMPONENT_ELEMENTS = [
  */  
 const COMPONENT_TEMPLATES = [
   LoaderComponent     ,
+  MainComponent       ,
   ShellComponent      ,
   HeaderComponent     ,
   SideMenuComponent   ,
@@ -83,6 +86,7 @@ const COMPONENTS_DIRECTIVES = [
     COMPONENT_ELEMENTS, 
     COMPONENT_TEMPLATES,
     COMPONENTS_DIRECTIVES],
+  providers:[ApplicationContext ],
   declarations: [
     COMPONENT_ELEMENTS,   
     COMPONENT_TEMPLATES,

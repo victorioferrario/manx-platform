@@ -14,22 +14,6 @@ export class Session implements ISession {
   //dispatch:EventEmitter;
   constructor(parent: IApplicationContext) {
     const self = this;
-    self.container = parent;
-    self.container.dispatch.subscribe((event: IActionEmitter) => {
-      switch (event.type) {
-        case Actions_UI.Auth:
-            const subevent = event.subType as AuthAction;
-            switch(subevent){
-              case AuthAction.LoggingInComplete:
-              console.log("this!!", this);
-                self.isLoading = false;
-              break;
-              default:
-                self.isAuthenticated = subevent === AuthAction.Login;
-              break;
-            } 
-            break;
-      }
-    });
+    self.container = parent;    
   }
 }

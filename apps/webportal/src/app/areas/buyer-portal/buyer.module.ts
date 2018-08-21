@@ -1,9 +1,11 @@
+import { ApplicationContext } from '@hubx/services';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 //
 import { FabricModule } from '@hubx/fabric';
+
 /**
  * Components
  */
@@ -32,6 +34,7 @@ export const COMPONENTS_BUYER = [
     FabricModule,
     BuyerRoutingModule
   ],
+  providers:[ ApplicationContext],
   declarations: [
     COMPONENTS_BUYER],
   exports: [

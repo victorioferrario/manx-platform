@@ -9,6 +9,7 @@ export {    ViewComponent        ,
             SectionTitleComponent       } from './elements';
             
 export {    ShellComponent       ,
+            MainComponent        ,
             HeaderComponent      ,
             SubHeaderComponent   ,
             SideMenuComponent    ,

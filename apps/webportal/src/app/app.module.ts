@@ -13,7 +13,7 @@ import { NxModule } from '@nrwl/nx';
  */
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
-import { ServicesModule } from '@hubx/services';
+import {ApplicationContext, ServicesModule } from '@hubx/services';
 // @Collection : Components
 
 /**
@@ -65,7 +65,7 @@ import { LOGGING_PROVIDERS  } from './shared/util/logger.service';
     AppRoutingModule,
     NxModule.forRoot()
    ],
-  providers: [LOGGING_PROVIDERS],
+  providers: [LOGGING_PROVIDERS, ApplicationContext],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
