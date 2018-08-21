@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , HostBinding} from '@angular/core';
 @Component({
   selector: 'fabric-item',
   template: ` <ng-content></ng-content>`

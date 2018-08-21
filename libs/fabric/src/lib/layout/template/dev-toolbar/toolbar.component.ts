@@ -5,6 +5,8 @@ import {
   OnInit,
   Input
 } from '@angular/core';
+
+import { Router } from '@angular/router';
 import {
   ApplicationContext,
   Actions_UI,
@@ -19,7 +21,7 @@ import {
 })
 export class DevToolbarComponent implements OnDestroy, OnInit {
   @Input() SubHeaderTitle: string;
-  constructor(public ctx: ApplicationContext) {}
+  constructor(private router: Router, public ctx: ApplicationContext) {}
   ngOnInit(): void {}
   ngOnDestroy(): void {}
   onChangeMode(value: any) {
@@ -32,6 +34,9 @@ export class DevToolbarComponent implements OnDestroy, OnInit {
     const self = this;  
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Menu, MenuAction.State_Toggle));
+  }
+  onLogout(){    
+    this.router.navigate(["/logout"]);   
   }
   onSwitchMode() {
     const self = this;  

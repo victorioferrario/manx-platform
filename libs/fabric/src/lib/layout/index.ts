@@ -1,9 +1,12 @@
 export {    ViewComponent        ,
             ItemComponent        ,
+            TitleComponent       ,
             ChildComponent       ,
             ContentComponent     ,
             ElementComponent     ,
-            FragementComponent          } from './elements';
+            FragementComponent   ,    
+            PageTitleComponent   ,  
+            SectionTitleComponent       } from './elements';
             
 export {    ShellComponent       ,
             HeaderComponent      ,

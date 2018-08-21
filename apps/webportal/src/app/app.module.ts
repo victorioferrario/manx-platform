@@ -1,47 +1,60 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } 
+from '@angular/material';
 // @Collection : Modules
 import { NxModule } from '@nrwl/nx';
+/**
+ * hubx Modules
+ */
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
 import { ServicesModule } from '@hubx/services';
 // @Collection : Components
-import { LayoutModule } from '@angular/cdk/layout';
-// @Collection Local Components
-import { AppRoutingModule } from './app-routing.material';
-import { AppComponent             } from './containers/app/app.component';
-import { DashboardComponent       } from './components/dashboard/dashboard.component';
-import { LayoutHybridComponent    } from './shared/layout/hybrid/layout-fabric-mat.component';
-import { LOGGING_PROVIDERS} from './shared/util/logger.service';
+
+/**
+ * Local Components
+ */
+import { AppRoutingModule   } from './app-routing.module';
+import { MasterComponent    } from './shared/layout/master.component';
+import { AppComponent       } from './containers/app/app.component';
+import { LoginComponent     } from './areas/system/login/login.component';
+import { LogoutComponent    } from './areas/system/logout/logout.component';
+import { NoRouteComponent   } from './areas/system/no-route/noroute.component';
+import { LOGGING_PROVIDERS  } from './shared/util/logger.service';
+
 // 
   const COMPONENTS = [
-    AppComponent,    
-    DashboardComponent,   
-    LayoutHybridComponent];
+      AppComponent,    
+      MasterComponent,
+      LoginComponent,
+      LogoutComponent ,
+      NoRouteComponent];
 
   const COMPONENTS_INTERNAL = [
       BrowserModule, 
       BrowserAnimationsModule];
 
   const COMPONENTS_MATERIAL = [
-    LayoutModule, 
-    MatIconModule, 
-    MatListModule,
-    MatToolbarModule, 
-    MatButtonModule, 
-    MatSidenavModule,     
-    FlexLayoutModule];
+      LayoutModule, 
+      MatIconModule, 
+      MatListModule,
+      MatToolbarModule, 
+      MatButtonModule, 
+      MatSidenavModule,     
+      FlexLayoutModule];
 
   const COMPONENTS_SERVICES = [    
-    FiberModule,
-    FabricModule,
-    ServicesModule, 
-    AppRoutingModule];
-// Routing
-
+      FiberModule,
+      FabricModule,
+      ServicesModule];
+/**
+ * Ng module
+ */
 @NgModule({
   declarations: [
     COMPONENTS],
@@ -49,7 +62,8 @@ import { LOGGING_PROVIDERS} from './shared/util/logger.service';
     COMPONENTS_INTERNAL,
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
-    NxModule.forRoot()    
+    AppRoutingModule,
+    NxModule.forRoot()
    ],
   providers: [LOGGING_PROVIDERS],
   bootstrap: [AppComponent]

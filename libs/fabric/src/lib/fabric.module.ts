@@ -19,10 +19,14 @@ import {
 import {
   ItemComponent           ,
   ViewComponent           ,  
+  TitleComponent          ,
   ChildComponent          ,  
   ContentComponent        ,
   ElementComponent        ,
-  FragementComponent      } from './layout';
+  FragementComponent      ,
+  PageTitleComponent      ,  
+  SectionTitleComponent       
+} from './layout';
 /**
  * template components
  */
@@ -40,9 +44,12 @@ const COMPONENT_ELEMENTS = [
   ViewComponent       ,
   ItemComponent       ,
   ChildComponent      ,
+  TitleComponent      ,
   ContentComponent    ,
   ElementComponent    ,
   FragementComponent  ,
+  PageTitleComponent   ,  
+  SectionTitleComponent       
 ];  
 /**
  * COMPONENT_TEMPLATES
