@@ -16,7 +16,7 @@
 
 | Project                         |    Description               | Type|
 |---------------------------------|------------------------------|------|
-|[Web-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/web-portal)	|  main application |Application |
+|[Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)	|  main application |Application |
 |[Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)	| library that runs the buyer-portal under the main app. |Library |
 |[Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal)	| library that runs the vendor-portal under the main app. |Library |
 |[Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fabric)	| Contains the main ux templates and elements | Library |
