@@ -21,7 +21,10 @@ import {
 })
 export class DevToolbarComponent implements OnDestroy, OnInit {
   @Input() SubHeaderTitle: string;
-  constructor(private router: Router, public ctx: ApplicationContext) {}
+  @Input() ShowLogoutButton= false;
+  constructor(private router: Router, public ctx: ApplicationContext) {
+    
+  }
   ngOnInit(): void {}
   ngOnDestroy(): void {}
   onChangeMode(value: any) {

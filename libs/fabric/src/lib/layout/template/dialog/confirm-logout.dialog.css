@@ -1,0 +1,29 @@
+.card {
+    background: #ccc;
+    padding:15px;
+    margin-top:2px;
+}
+
+.title-box{
+    background-color: #493b8d;
+    padding:15px;
+    color:#fff;
+}
+.content-box{
+    padding-left:25px;
+    padding-top:0;
+}
+.actions-box{
+    border-top:solid 0 #ccc;
+}
+.p-text{
+    padding-left:15px;
+    padding-top:0;
+    font-size: 18px;
+}
+.mat-dialog-title{
+    background-color: #493b8d;
+}
+h1{
+    MARGIN-BOTTOM:0;
+}

@@ -24,6 +24,12 @@
       ],
       "@hubx/fiber": [
         "libs/fiber/src/index.ts"
+      ],
+      "@hubx/elements": [
+        "libs/elements/src/index.ts"
+      ],
+      "@hubx/system": [
+        "libs/system/src/index.ts"
       ]
     }
   },

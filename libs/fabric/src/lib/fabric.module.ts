@@ -1,14 +1,19 @@
+import { MainComponent } from './layout/template/main/main.component';
 import { NgModule        } from '@angular/core';
 import { CommonModule    } from '@angular/common';
 import { MaterialModules } from './material.module';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 // @Collection: Local Modules
 import { 
+  ApplicationContext,
   ServicesModule  
 } from '@hubx/services';
 // @Collection: Local Components
 import { 
   LoaderComponent 
 } from './components';
+import {ConfirmLogoutDialogComponent} from "./layout/template/dialog/confirm-logout.dialog";
 // @Collection: Local Directives
 import { 
   BusyDirective   
@@ -36,6 +41,9 @@ import {
     SubHeaderComponent    ,
     SideMenuComponent     ,
     DevToolbarComponent   } from './layout/template';
+
+    import { slideAnimation} from './layout/util/slide.animation';
+import { AnimationProvider } from './animations/animation.provider';
 /**
  * COMPONENT_ELEMENTS
  * @description: elements reference array
@@ -56,7 +64,9 @@ const COMPONENT_ELEMENTS = [
  * @description: layout templates reference array
  */  
 const COMPONENT_TEMPLATES = [
+  ConfirmLogoutDialogComponent,
   LoaderComponent     ,
+  MainComponent       ,
   ShellComponent      ,
   HeaderComponent     ,
   SideMenuComponent   ,
@@ -77,16 +87,19 @@ const COMPONENTS_DIRECTIVES = [
   imports: [
     CommonModule, 
     ServicesModule,
+    FlexLayoutModule,
     MaterialModules],    
-  exports: [
+  exports: [    
     MaterialModules,
     COMPONENT_ELEMENTS, 
     COMPONENT_TEMPLATES,
     COMPONENTS_DIRECTIVES],
+  providers:[ApplicationContext , AnimationProvider ],
   declarations: [
     COMPONENT_ELEMENTS,   
     COMPONENT_TEMPLATES,
-    COMPONENTS_DIRECTIVES]  
+    COMPONENTS_DIRECTIVES]  ,
+    entryComponents:[LoaderComponent, ConfirmLogoutDialogComponent]
 })
 export class FabricModule {   
 }

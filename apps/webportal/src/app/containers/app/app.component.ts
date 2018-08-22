@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     if (!this.ctx.session.isAuthenticated) {
-      this.router.navigate(['login']);
+    this.router.navigate(['login']);
     }
   }
 }

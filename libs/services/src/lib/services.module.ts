@@ -5,13 +5,17 @@ import { TimingInterceptor } from './core'
 import { LoggerService } from './util/logger.service';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { ApplicationContext } from './application-context.service';
+import { AuthService, AuthGuard } from './security/index';
+// import { NotificationService } from './core/notification.service';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
+    HttpClientModule,    
     StorageServiceModule],
   providers: [
-    LoggerService,
+    LoggerService,    
+    AuthService,
+    AuthGuard,
     ApplicationContext,
     {
       provide: HTTP_INTERCEPTORS,

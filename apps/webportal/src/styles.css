@@ -2,6 +2,8 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "styles-fabric.css";
+
+
 body{
     font:500 14px/22px Roboto,"Helvetica Neue",sans-serif;
     padding:0;
@@ -15,5 +17,6 @@ body{
     animation-fill-mode: both;
   }
 
+  
 
 

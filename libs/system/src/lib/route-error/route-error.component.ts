@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { Router } from "@angular/router";
 @Component({
-  selector: "app-error",
-  templateUrl: "./error.component.html",
-  styleUrls: ["./error.component.css"],
+  selector: "hubxsystem-error",
+  templateUrl: "./route-error.component.html",
+  styleUrls: ["./route-error.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ErrorComponent implements OnInit {
+export class RouteErrorComponent implements OnInit {
 
   constructor(private router: Router) { }
   ngOnInit() {

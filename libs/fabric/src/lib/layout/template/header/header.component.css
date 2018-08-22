@@ -5,11 +5,12 @@
     padding-bottom: 27px;
 }
 .header-toolbar-row-2 {
-    height: 68px;
-    min-height: 68px;
+    height: 48px;
+    min-height: 48px;
     background-color: #493b8d;
     position:absolute;
     top:102px;
+    z-index:1000;
 }
 
 .hubx-logo {

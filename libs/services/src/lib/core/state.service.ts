@@ -3,7 +3,7 @@ import { of as observableOf,  Observable,  BehaviorSubject } from 'rxjs';
 // import { ILayout, Layout } from '../models';
 
 import { Output, EventEmitter } from '@angular/core';
-import { catService, catProd } from '../util/CatLogger';
+
 @Injectable({
   providedIn: 'root'
 })

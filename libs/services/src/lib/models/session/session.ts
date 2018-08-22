@@ -1,35 +1,27 @@
 import { IActionEmitter, ActionEmitter } from '../../core/emitters';
 import { IApplicationContext } from '../../interfaces/IApplicationContext';
-import { Actions_UI, AuthAction } from '../enums';
+import { Actions_UI, AuthAction, UserIdentityRole } from '../enums';
+import { UserIdentity, IUserIdentity } from './user';
 export interface ISession {
   isAuthenticated: boolean;
-  isLoading:boolean;
+  isLoading: boolean;
   container: IApplicationContext;
+  userIdentity: IUserIdentity;  
+  authenticate(userRole: UserIdentityRole, isloggedIn: boolean): void;
 }
 
 export class Session implements ISession {
   isLoading = false;
   isAuthenticated = false;
   container: IApplicationContext;
-  //dispatch:EventEmitter;
+  userIdentity: IUserIdentity;
   constructor(parent: IApplicationContext) {
     const self = this;
     self.container = parent;
-    self.container.dispatch.subscribe((event: IActionEmitter) => {
-      switch (event.type) {
-        case Actions_UI.Auth:
-            const subevent = event.subType as AuthAction;
-            switch(subevent){
-              case AuthAction.LoggingInComplete:
-              console.log("this!!", this);
-                self.isLoading = false;
-              break;
-              default:
-                self.isAuthenticated = subevent === AuthAction.Login;
-              break;
-            } 
-            break;
-      }
-    });
+    self.userIdentity = new UserIdentity();
+  }
+  authenticate(userRole: UserIdentityRole, isloggedIn: boolean) {
+    const self = this;
+    self.isAuthenticated = self.userIdentity.authenticate(true, userRole);
   }
 }
