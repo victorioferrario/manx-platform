@@ -3,10 +3,14 @@ import { ISubHeaderProps, SubHeaderProps } from '../subheader';
 import { ISideNavProps, SideNavProps, ModeEnum, SizeEnum } from '../sidenav';
 import { SubHeaderConfiguration as ConfigSubHeader } from '../subheader';
 import { MenuAction } from '../enums';
+import { EventEmitter, Output } from '@angular/core';
+import { ILayoutAction, LayoutAction} from './layout.actions';
+import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
 export interface ILayoutProps {
   load: ILoadProps;
   props: ISideNavProps;
   childProps: ISubHeaderProps;
+  dispatch: EventEmitter<ILayoutAction>;
   transformMode() : void;
   transformSize(resizeTo:MenuAction): void;
 }
@@ -30,12 +34,14 @@ export class Layout implements ILayoutProps {
    * Creates an instance of layout.
    * @param [autobind]
    */
+  @Output()
+  public dispatch: EventEmitter<ILayoutAction>;
   constructor(autobind: boolean = true) {
     this.load = new LoadProps();
+    this.dispatch = new EventEmitter();
     this.props = new SideNavProps(autobind);
-    this.childProps = new SubHeaderProps(autobind);
-  }
-  
+    this.childProps = new SubHeaderProps(autobind);    
+  }  
   /**
    * Transforms mode
    * @param mode 

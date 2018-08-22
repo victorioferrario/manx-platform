@@ -14,6 +14,7 @@ import {
 import { LogLevel } from 'typescript-logging';
 import { modelLogger, serviceLogger } from './util/logger/config';
 import { ISession, Session } from './models/session/session';
+import { LayoutAction } from './models/ui/layout.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +35,10 @@ export class ApplicationContext implements IApplicationContext {
     self.dispatch = new EventEmitter();
     self.session = new Session(self);
     self.breakObserver = breakpointObserver;
-    self.initializeDispatcher();    
+    self.initializeDispatcher();
   }
   initializeDispatcher() {
-    const self = this;    
+    const self = this;
     self.dispatch.subscribe((event: IActionEmitter) => {
       switch (event.type) {
         case Actions_UI.Menu:
@@ -61,15 +62,16 @@ export class ApplicationContext implements IApplicationContext {
               self.session.isAuthenticated = true;
               break;
             case AuthAction.Logout:
+              self.ux.dispatch.emit(
+                new LayoutAction(Actions_UI.Auth, AuthAction.Logout)
+              );
               self.session.isAuthenticated = false;
               break;
             case AuthAction.Login_Buyer:
-              self.session.authenticate(
-                UserIdentityRole.Buyer, true);              
+              self.session.authenticate(UserIdentityRole.Buyer, true);
               break;
             case AuthAction.Login_Vendor:
-              self.session.authenticate(
-                UserIdentityRole.Vendor, true);
+              self.session.authenticate(UserIdentityRole.Vendor, true);
               break;
           }
           break;

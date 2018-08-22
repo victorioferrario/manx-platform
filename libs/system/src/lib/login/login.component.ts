@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     public ctx: ApplicationContext, 
     private auth:AuthService) {
     this.isLoggingIn = true;
+    this.ctx.session.isLogginOut = false;
   }
   ngOnInit() { }
 

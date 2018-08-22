@@ -1,4 +1,5 @@
-<mat-sidenav-container class="fabric-sidenav-container" #container>
+<fabric-fragment id="wrapperapp">
+<mat-sidenav-container class="fabric-sidenav-container" #container *ngIf="!this.ctx.session.isLogginOut">
         <ng-template cdk-portal ></ng-template>
         <mat-sidenav #sideNav class="fabric-color" *ngIf="this.ctx.session.isAuthenticated"
             [mode]="this.ctx.ux.props.mode" 
@@ -12,4 +13,4 @@
         <mat-sidenav-content class="fabric-main-content">            
             <ng-content select="[mainContent]"></ng-content>
         </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container></fabric-fragment>

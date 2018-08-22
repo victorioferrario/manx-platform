@@ -5,6 +5,7 @@ import { UserIdentity, IUserIdentity } from './user';
 export interface ISession {
   isAuthenticated: boolean;
   isLoading: boolean;
+  isLogginOut : boolean;
   container: IApplicationContext;
   userIdentity: IUserIdentity;  
   authenticate(userRole: UserIdentityRole, isloggedIn: boolean): void;
@@ -13,6 +14,7 @@ export interface ISession {
 export class Session implements ISession {
   isLoading = false;
   isAuthenticated = false;
+  isLogginOut = false;
   container: IApplicationContext;
   userIdentity: IUserIdentity;
   constructor(parent: IApplicationContext) {
