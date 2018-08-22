@@ -25,5 +25,3 @@ export class UserIdentity implements IUserIdentity {
     return self.isAuthenticated;
   }
 }
-// export { UserIdentityRole } from './lib/models/enum';
-// export { IUserIdentity, UserIdentity , } from
