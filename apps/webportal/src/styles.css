@@ -8,6 +8,7 @@ body{
     font:500 14px/22px Roboto,"Helvetica Neue",sans-serif;
     padding:0;
     margin:0;
+    overflow:hidden;
 }
 
 .animated-500 {
@@ -17,6 +18,12 @@ body{
     animation-fill-mode: both;
   }
 
+
+  .cdk-global-scrollblock {
+    position: fixed;
+    width: 100%;
+    overflow-y: hidden!important;
+}
   
 
 

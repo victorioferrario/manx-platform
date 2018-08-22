@@ -7,7 +7,7 @@ import { ApplicationContext } from '@hubx/services'
     <mat-toolbar-row class="header-toolbar-row-1">
         <ng-content select="[headerLogo]"></ng-content>
     </mat-toolbar-row> 
-    <mat-toolbar-row class="header-toolbar-row-2" >   
+    <mat-toolbar-row class="header-toolbar-row-2" *ngIf="this.ctx.session.isAuthenticated">   
     <fabric-subheader SubHeaderTitle="{{this.SubHeaderTitle}}" *ngIf="this.ctx.session.isAuthenticated"></fabric-subheader>
 </mat-toolbar-row>
 </mat-toolbar>`,

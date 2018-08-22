@@ -6,10 +6,13 @@ import { MenuAction } from '../enums';
 import { EventEmitter, Output } from '@angular/core';
 import { ILayoutAction, LayoutAction} from './layout.actions';
 import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
+import { IViewState, ViewState, ViewStateEnum } from '../view';
+
 export interface ILayoutProps {
   load: ILoadProps;
   props: ISideNavProps;
   childProps: ISubHeaderProps;
+  viewState: IViewState;
   dispatch: EventEmitter<ILayoutAction>;
   transformMode() : void;
   transformSize(resizeTo:MenuAction): void;
@@ -30,6 +33,7 @@ export class Layout implements ILayoutProps {
    * @type: ISubHeaderProps
    */
   public childProps: ISubHeaderProps;
+  public viewState: IViewState;
   /**
    * Creates an instance of layout.
    * @param [autobind]
@@ -38,9 +42,11 @@ export class Layout implements ILayoutProps {
   public dispatch: EventEmitter<ILayoutAction>;
   constructor(autobind: boolean = true) {
     this.load = new LoadProps();
+    this.viewState = new ViewState();
     this.dispatch = new EventEmitter();
     this.props = new SideNavProps(autobind);
-    this.childProps = new SubHeaderProps(autobind);    
+    this.childProps = new SubHeaderProps(autobind);   
+        //.fabric-sidenav-container
   }  
   /**
    * Transforms mode
