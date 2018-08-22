@@ -40,6 +40,10 @@ import {
   RouteErrorComponent   ,
   RouteNotFoundComponent } from '@hubx/system';
 
+  import {
+    LoaderComponent
+  } from '@hubx/fabric';
+
 import { AppRoutingModule } from './app-routing.module';
 import { MasterComponent } from './shared/layout/master.component';
 import { AppComponent } from './containers/app/app.component';
