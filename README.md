@@ -12,42 +12,43 @@
 - [ ] Bring in Authentication, and integrate with application Context.
 
 
-## Information
+## Angular Enterprise Application Architecture
 
 | Project                         |    Description               | Type|
 |---------------------------------|------------------------------|------|
 |[Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)	|  main application |Application |
-|[Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)	| library that runs the buyer-portal under the main app. |Library |
-|[Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal)	| library that runs the vendor-portal under the main app. |Library |
-|[Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fabric)	| Contains the main ux templates and elements | Library |
-|[Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fiber)	| state management | Library |
-|[Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/services)| Application Context	| Library |
-|[System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/system)| View library of shared components	| Library |
+| Sub Applications |||
+|[Buyer-Portal App ](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)	| library that runs the buyer-portal under the main app. |Library |
+|[Vendor-Portal App](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal)	| library that runs the vendor-portal under the main app. |Library |
+| Data |||
+| [ Domain-NA ] | To be created, then will be wired up inbetween Fiber & Services| |
+| Infrastructure |||
+|[Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fabric)	| GUI Provider Management | Library |
+| Shared  |||
+|[Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fiber)	| Application State Management | Library |
+|[Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/services)| Application Context Provider	| Library |
+|[System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/system)| Application Components of common functionality	| Library |
 
-Buyer-Portal - Lib
-
-
-
-## Lib Definetions
+## Lib Import Definitions
 ```json
-      "@hubx/fabric": [
-        "libs/fabric/src/index.ts"
-      ],
-      "@hubx/services": [
-        "libs/services/src/index.ts"
-      ],
-      "@hubx/fiber": [
-        "libs/fiber/src/index.ts"
-      ],
-      "@hubx/system": [
-        "libs/system/src/index.ts"
-      ],
       "@hubx/areas/buyers": [
         "libs/areas/buyer-portal/src/index.ts"
       ],
       "@hubx/areas/vendor": [
         "libs/areas/vendor-portal/src/index.ts"
       ]
+      "@hubx/fabric": [
+        "libs/fabric/src/index.ts"
+      ],
+       "@hubx/fiber": [
+        "libs/fiber/src/index.ts"
+      ],
+      "@hubx/services": [
+        "libs/services/src/index.ts"
+      ],     
+      "@hubx/system": [
+        "libs/system/src/index.ts"
+      ]     
 ```
 
 
