@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private ctx: ApplicationContext) {
     const self = this;
   }
+  toState = 'state1';
+  changeState(state: any) {
+    this.toState = this.toState ==="state1" ? "state2":"state1";
+  }
   ngOnInit() {
     if (!this.ctx.session.isAuthenticated) {
     this.router.navigate(['login']);

@@ -9,7 +9,7 @@ import { FabricModule } from '@hubx/fabric';
 import {OverlayContainer, FullscreenOverlayContainer, OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
 
-import { LoaderComponent} from '../../shared/components/loader/loader.component';
+
 /**
  * Components
  */
@@ -25,8 +25,7 @@ import {
  * @var: COMPONENTS_BUYER
  * @description: Array of buyer components.
  */
-export const COMPONENTS_BUYER = [
-  LoaderComponent,
+export const COMPONENTS_BUYER = [  
   BuyerMainComponent , 
   CartComponent      ,
   DashboardComponent ,

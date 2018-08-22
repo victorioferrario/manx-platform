@@ -14,7 +14,7 @@ import {
   import {ComponentPortal, Portal, CdkPortal} from '@angular/cdk/portal';
   import {Direction, Directionality} from '@angular/cdk/bidi';
   import {Overlay, OverlayConfig} from '@angular/cdk/overlay';
-  import { LoaderComponent } from '../../../../shared/components/loader/loader.component';
+  import { LoaderComponent } from '@hubx/fabric';
   import {ComponentType,  ScrollStrategy, BlockScrollStrategy} from '@angular/cdk/overlay';
 
   export const DIALOG_SCROLL_STRATEGY =

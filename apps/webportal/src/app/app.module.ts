@@ -30,6 +30,7 @@ import { FabricModule } from '@hubx/fabric';
 import { ApplicationContext, ServicesModule } from '@hubx/services';
 // @Collection : Components
 
+
 /**
  * Local Components
  */
@@ -63,17 +64,10 @@ const COMPONENTS = [
 const COMPONENTS_INTERNAL = [BrowserModule, BrowserAnimationsModule];
 
 const COMPONENTS_MATERIAL = [
-  LayoutModule,  
-  // MatIconModule,
-  // MatListModule,
-  // MatToolbarModule,
-  // MatButtonModule,
-  // MatSidenavModule,
+  LayoutModule,   
   FlexLayoutModule
 ];
-
 const COMPONENTS_SERVICES = [FiberModule, FabricModule, ServicesModule];
-
 /**
  * Ng module
  */
