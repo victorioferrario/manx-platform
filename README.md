@@ -12,6 +12,22 @@
 - [ ] Bring in Authentication, and integrate with application Context.
 
 
+## Information
+
+| Project                         |    Description               | Type|
+|---------------------------------|------------------------------|------|
+|[Web-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/web-portal)	|  main application |Application |
+|[Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)	| library that runs the buyer-portal under the main app. |Library |
+|[Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal)	| library that runs the vendor-portal under the main app. |Library |
+|[Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fabric)	| Contains the main ux templates and elements | Library |
+|[Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fiber)	| state management | Library |
+|[Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/services)| Application Context	| Library |
+|[System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/system)| View library of shared components	| Library |
+
+Buyer-Portal - Lib
+
+
+
 ## Lib Definetions
 ```json
       "@hubx/fabric": [
