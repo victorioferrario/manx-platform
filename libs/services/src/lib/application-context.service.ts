@@ -2,8 +2,16 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { IApplicationContext } from './interfaces/IApplicationContext';
 import { IActionEmitter, ActionEmitter } from './core/emitters';
-import { Actions_UI, MenuAction, Layout, ILayoutProps, AuthAction } from './models';
-import { LogLevel } from "typescript-logging";
+import {
+  Actions_UI,
+  MenuAction,
+  Layout,
+  ILayoutProps,
+  AuthAction,
+  UserIdentityRole
+} from './models';
+
+import { LogLevel } from 'typescript-logging';
 import { modelLogger, serviceLogger } from './util/logger/config';
 import { ISession, Session } from './models/session/session';
 
@@ -26,12 +34,10 @@ export class ApplicationContext implements IApplicationContext {
     self.dispatch = new EventEmitter();
     self.session = new Session(self);
     self.breakObserver = breakpointObserver;
-    self.initializeDispatcher();
-    self.initializeBreakPointObserver();
+    self.initializeDispatcher();    
   }
   initializeDispatcher() {
-    const self = this;
-    serviceLogger.info("initializeDispatcher");
+    const self = this;    
     self.dispatch.subscribe((event: IActionEmitter) => {
       switch (event.type) {
         case Actions_UI.Menu:
@@ -57,6 +63,14 @@ export class ApplicationContext implements IApplicationContext {
             case AuthAction.Logout:
               self.session.isAuthenticated = false;
               break;
+            case AuthAction.Login_Buyer:
+              self.session.authenticate(
+                UserIdentityRole.Buyer, true);              
+              break;
+            case AuthAction.Login_Vendor:
+              self.session.authenticate(
+                UserIdentityRole.Vendor, true);
+              break;
           }
           break;
         case Actions_UI.Resize:
@@ -64,6 +78,8 @@ export class ApplicationContext implements IApplicationContext {
           break;
       }
     });
+    // chained together
+    self.initializeBreakPointObserver();
   }
   /**
    * Initializes break point observer

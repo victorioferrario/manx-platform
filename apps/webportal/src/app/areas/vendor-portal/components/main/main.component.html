@@ -1,28 +1,6 @@
-<fabric-main>
-        <fabric-view mainContent>
-            <fabric-page-title class="container fadeInUp animated-500">
-                Vendors
-            </fabric-page-title>
-            <section class="container fadeInUp animated-500" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-                    <article class="item item-2 card-white" fxFlex="20%" fxFlex>
-                          <a href="javascript:void(0);" 
-                              [routerLink]="['/vendor']" 
-                              [queryParams]="{debug: true}" 
-                              mat-button>Dashboard</a>
-                      </article>
-                      <article class="item item-2 card-white" fxFlex="20%" fxFlex>
-                          <a href="javascript:void(0);" 
-                              [routerLink]="['/vendor/products']" 
-                              [queryParams]="{debug: true}" 
-                              mat-button>Products</a>
-                      </article>
-                      <article class="item item-2 card-white" fxFlex="20%" fxFlex>
-                          <a href="javascript:void(0);" 
-                              [routerLink]="['/buyer']" 
-                              [queryParams]="{debug: true}" 
-                              mat-button>Buyer</a>
-                      </article>        
-                  </section>
-            <router-outlet></router-outlet>
-        </fabric-view>
-    </fabric-main>
+<fabric-view mainContent>
+    <fabric-page-title class="container fadeInUp animated-500">
+        Vendors
+    </fabric-page-title>   
+    <router-outlet></router-outlet>
+</fabric-view>

@@ -1,4 +1,4 @@
-<section class="fabric-button-wrapper">
+<section class="fabric-button-wrapper" *ngIf="ShowLogoutButton">
         <button mat-button (click)="this.onLogout()" style="font-weight:300;">Logout</button> &nbsp;|&nbsp;<button mat-button (click)="this.onToggleMenu()" style="font-weight:300;">Show/Hide Menu</button>
 </section>
 <fabric-view class="fabric-label">

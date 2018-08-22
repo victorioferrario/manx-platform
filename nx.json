@@ -30,6 +30,12 @@
         "state",
         "data"
       ]
+    },
+    "elements": {
+      "tags": []
+    },
+    "system": {
+      "tags": []
     }
   }
 }

@@ -21,6 +21,7 @@ import {
 })
 export class DevToolbarComponent implements OnDestroy, OnInit {
   @Input() SubHeaderTitle: string;
+  @Input() ShowLogoutButton= false;
   constructor(private router: Router, public ctx: ApplicationContext) {
     
   }
