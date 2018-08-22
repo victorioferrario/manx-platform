@@ -7,11 +7,9 @@ import { FabricModule } from '@hubx/fabric';
 /**
  * Components
  */
-import { VendorRoutingModule } from './vendor-routing.module';
+import { VendorRoutingModule } from './vendor.routing.module';
 //
-import {
-  VendorMainComponent    
-} from './vendor-components';
+import { VendorMainComponent  } from './components/main/main.component';
 import {
   DashboardComponent   ,   
   OrdersComponent      ,   

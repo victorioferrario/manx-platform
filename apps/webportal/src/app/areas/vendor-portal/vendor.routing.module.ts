@@ -4,13 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
  * Components
  */
 import {
-  VendorMainComponent } from './vendor-components';
-
-import {
-  DashboardComponent   ,   
-  OrdersComponent      ,   
-  ProductsComponent    ,   
-  ProfileComponent       } from '@hubx/areas/vendor';
+          DashboardComponent    ,   
+          OrdersComponent       ,   
+          ProductsComponent     ,   
+          ProfileComponent      } from '@hubx/areas/vendor';
+/**
+ * @description:  Local Hook
+ */
+import { VendorMainComponent    } from './vendor-components';
 const routes: Routes = [  
   {
     path: '',   

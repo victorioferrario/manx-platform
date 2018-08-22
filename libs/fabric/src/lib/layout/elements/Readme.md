@@ -1,7 +1,8 @@
-# Element Styles
+# Fabric
+## Element Styles
 
 The css styles for the elements found under this lib are currently found here:
-`apps/webportal/src/styles-fabric.css`
+>`apps/webportal/src/styles-fabric.css`
 
 ```css
 fabric-page-title {
