@@ -25,11 +25,14 @@
       "@hubx/fiber": [
         "libs/fiber/src/index.ts"
       ],
-      "@hubx/elements": [
-        "libs/elements/src/index.ts"
-      ],
       "@hubx/system": [
         "libs/system/src/index.ts"
+      ],
+      "@hubx/areas/buyers": [
+        "libs/areas/buyer-portal/src/index.ts"
+      ],
+      "@hubx/areas/vendor": [
+        "libs/areas/vendor-portal/src/index.ts"
       ]
     }
   },

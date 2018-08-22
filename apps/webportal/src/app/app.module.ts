@@ -26,64 +26,58 @@ import { NxModule } from '@nrwl/nx';
  */
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
-
 import { ApplicationContext, ServicesModule } from '@hubx/services';
 // @Collection : Components
-
-
 /**
  * Local Components
  */
-
 import {
   LoginComponent        ,
   LogoutComponent       ,
   RouteErrorComponent   ,
   RouteNotFoundComponent } from '@hubx/system';
-
-  import {
-    LoaderComponent
-  } from '@hubx/fabric';
-
-import { AppRoutingModule } from './app-routing.module';
-import { MasterComponent } from './shared/layout/master.component';
-import { AppComponent } from './containers/app/app.component';
-
-import { LOGGING_PROVIDERS } from './shared/util/logger.service';
 //
-
+import {
+    LoaderComponent
+} from '@hubx/fabric';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './containers/app.component';
+//
 const COMPONENTS = [
-  AppComponent,
-  MasterComponent,
+  AppComponent,  
   LoginComponent        ,
   LogoutComponent       ,
   RouteErrorComponent   ,
   RouteNotFoundComponent 
 ];
-
-const COMPONENTS_INTERNAL = [BrowserModule, BrowserAnimationsModule];
-
+const COMPONENTS_INTERNAL = [
+  BrowserModule, 
+  BrowserAnimationsModule
+];
 const COMPONENTS_MATERIAL = [
   LayoutModule,   
   FlexLayoutModule
 ];
-const COMPONENTS_SERVICES = [FiberModule, FabricModule, ServicesModule];
+const COMPONENTS_SERVICES = [
+  FiberModule, 
+  FabricModule, 
+  ServicesModule
+];
 /**
  * Ng module
  */
 @NgModule({
   declarations: [COMPONENTS],
   imports: [
-    OverlayModule,    
-    PortalModule,
     COMPONENTS_INTERNAL,
+    OverlayModule,    
+    PortalModule,   
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
     AppRoutingModule,   
     NxModule.forRoot()
   ],
-  providers: [
-    LOGGING_PROVIDERS,
+  providers: [    
     ApplicationContext,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],

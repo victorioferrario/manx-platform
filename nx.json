@@ -31,11 +31,18 @@
         "data"
       ]
     },
-    "elements": {
-      "tags": []
-    },
     "system": {
       "tags": []
+    },
+    "areas-buyer-portal": {
+      "tags": [
+        "ux"
+      ]
+    },
+    "areas-vendor-portal": {
+      "tags": [
+        "ux"
+      ]
     }
   }
 }
