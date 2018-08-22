@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { LoginComponent} from './areas/system/login/login.component';
-// import { LogoutComponent} from './areas/system/logout/logout.component';
-// import { NoRouteComponent} from './areas/system/no-route/noroute.component';
 import {LoginComponent        ,
         LogoutComponent       ,
         RouteErrorComponent   ,
         RouteNotFoundComponent } from '@hubx/system';
-
 import { AuthGuard } from '@hubx/services'
-
 const routes: Routes = [  
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
@@ -24,6 +19,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-//apps\webportal\src\app\areas\buyer\buyer.module.ts

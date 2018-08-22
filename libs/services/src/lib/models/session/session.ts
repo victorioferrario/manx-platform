@@ -25,3 +25,5 @@ export class Session implements ISession {
     self.isAuthenticated = self.userIdentity.authenticate(true, userRole);
   }
 }
+
+// {Session, ISession} from './session'
