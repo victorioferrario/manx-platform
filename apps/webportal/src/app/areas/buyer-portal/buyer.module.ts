@@ -8,29 +8,38 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FabricModule } from '@hubx/fabric';
 import {OverlayContainer, FullscreenOverlayContainer, OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
-
-import { LoaderComponent} from '../../shared/components/loader/loader.component';
 /**
  * Components
  */
-import { BuyerRoutingModule } from './buyer-routing.module';
+import { 
+  BuyerRoutingModule 
+} from './buyer.routing.module';
+//
+import {
+  BuyerMainComponent    
+} from './components/main/main.component';
 ///
 import {
-  BuyerMainComponent  , 
-  CartComponent       ,    
+  CartComponent       ,
   DashboardComponent  ,
-  MyProfileComponent
-} from './buyer-components';
+  MyaccountComponent  ,
+  MyprofileComponent  ,
+  OrdersComponent     ,
+  OrderDetailComponent  } from '@hubx/areas/buyers'; 
+  
 /**
  * @var: COMPONENTS_BUYER
  * @description: Array of buyer components.
  */
-export const COMPONENTS_BUYER = [
-  LoaderComponent,
-  BuyerMainComponent , 
-  CartComponent      ,
-  DashboardComponent ,
-  MyProfileComponent ];
+export const COMPONENTS_BUYER = [  
+  BuyerMainComponent,
+  CartComponent       ,
+  DashboardComponent  ,
+  MyprofileComponent  ,
+  MyaccountComponent  ,
+  OrdersComponent     ,
+  OrderDetailComponent ];
+
 @NgModule({
   imports: [
     CommonModule,

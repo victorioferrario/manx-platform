@@ -27,11 +27,15 @@ import {
   LogoutComponent       ,
   RouteErrorComponent   ,
   RouteNotFoundComponent } from '@hubx/system';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './containers/app/app.component';
-import { LOGGING_PROVIDERS } from './shared/util/logger.service';
+
 //
-const COMPONENTS = [
+import {
+    LoaderComponent
+} from '@hubx/fabric';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './containers/app.component';
+//
+const COMPONENTS = [  
   AppComponent,
   LoginComponent        ,
   LogoutComponent       ,
@@ -40,13 +44,14 @@ const COMPONENTS = [
 ];
 const COMPONENTS_INTERNAL = [
   BrowserModule, 
-  BrowserAnimationsModule];
-const COMPONENTS_MATERIAL = [
-  LayoutModule, 
-  FlexLayoutModule
+  BrowserAnimationsModule
 ];
+const COMPONENTS_MATERIAL = [
+  LayoutModule,   
+  FlexLayoutModule,
+  BrowserAnimationsModule];
 const COMPONENTS_SERVICES = [
-  FiberModule, 
+  FiberModule,  
   FabricModule,
   ServicesModule
 ];
@@ -57,16 +62,15 @@ const COMPONENTS_SERVICES = [
   declarations: [
     COMPONENTS],
   imports: [
-    OverlayModule,    
-    PortalModule,
     COMPONENTS_INTERNAL,
+    OverlayModule,    
+    PortalModule,   
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
     AppRoutingModule,   
     NxModule.forRoot()
   ],
-  providers: [
-    LOGGING_PROVIDERS,
+  providers: [    
     ApplicationContext,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],

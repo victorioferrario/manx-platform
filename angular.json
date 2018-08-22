@@ -236,46 +236,6 @@
         }
       }
     },
-    "elements": {
-      "root": "libs/elements",
-      "sourceRoot": "libs/elements/src",
-      "projectType": "library",
-      "prefix": "hubx-libs/elements",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "libs/elements/tsconfig.lib.json",
-            "project": "libs/elements/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/fabric/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/elements/src/test.ts",
-            "tsConfig": "libs/elements/tsconfig.spec.json",
-            "karmaConfig": "libs/elements/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/elements/tsconfig.lib.json",
-              "libs/elements/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "system": {
       "root": "libs/system",
       "sourceRoot": "libs/system/src",
@@ -296,6 +256,62 @@
             "tsConfig": [
               "libs/system/tsconfig.lib.json",
               "libs/system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "areas-buyer-portal": {
+      "root": "libs/areas/buyer-portal",
+      "sourceRoot": "libs/areas/buyer-portal/src",
+      "projectType": "library",
+      "prefix": "buyer",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/areas/buyer-portal/src/test.ts",
+            "tsConfig": "libs/areas/buyer-portal/tsconfig.spec.json",
+            "karmaConfig": "libs/areas/buyer-portal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/areas/buyer-portal/tsconfig.lib.json",
+              "libs/areas/buyer-portal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "areas-vendor-portal": {
+      "root": "libs/areas/vendor-portal",
+      "sourceRoot": "libs/areas/vendor-portal/src",
+      "projectType": "library",
+      "prefix": "vendor",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/areas/vendor-portal/src/test.ts",
+            "tsConfig": "libs/areas/vendor-portal/tsconfig.spec.json",
+            "karmaConfig": "libs/areas/vendor-portal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/areas/vendor-portal/tsconfig.lib.json",
+              "libs/areas/vendor-portal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

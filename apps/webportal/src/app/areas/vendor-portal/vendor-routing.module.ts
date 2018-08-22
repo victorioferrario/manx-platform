@@ -4,17 +4,22 @@ import { Routes, RouterModule } from '@angular/router';
  * Components
  */
 import {
-  VendorMainComponent   ,  
-  DashboardComponent    ,
-  ProductsComponent     ,
-} from './vendor-components';
+  VendorMainComponent } from './vendor-components';
+
+import {
+  DashboardComponent   ,   
+  OrdersComponent      ,   
+  ProductsComponent    ,   
+  ProfileComponent       } from '@hubx/areas/vendor';
 const routes: Routes = [  
   {
     path: '',   
     component: VendorMainComponent,
     children: [
-      { path: '', component: DashboardComponent},
-      { path: 'products', component: ProductsComponent}
+      { path: '', component: DashboardComponent         },
+      { path: 'products', component: ProductsComponent  },
+      { path: 'orders', component: OrdersComponent      },
+      { path: 'profile' , component: ProfileComponent   }
     ]
   }
 ];

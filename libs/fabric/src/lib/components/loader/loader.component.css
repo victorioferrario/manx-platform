@@ -1,5 +1,15 @@
-.loader {
+.loader-componet-container{
     position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    
+    background-color:rgba(255, 101, 91, 1);
+    /* background-color:rgba(250, 48, 92, 0.92) #CCC; */
+}
+.loader {
+    position: absolute;    
     top: 40%;
     left: 50%;
     border-radius: 50%;
@@ -31,4 +41,12 @@
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
     }
+}
+
+.myblock {
+    background-color: green;
+    width: 300px;
+    height: 250px;
+    border-radius: 5px;
+    margin: 5rem;
 }

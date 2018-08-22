@@ -1,22 +1,26 @@
-<section class="container fadeInLeft animated-500" style="width:80%;" fxLayout fxLayout.xs="row" fxLayoutAlign="center"
-    fxLayoutGap="10px" fxLayoutGap.xs="0">
-    <article class="item" fxFlex="80%" fxFlex fxLayoutAlign="center">
-        <form class="main-login" *ngIf="this.isLoggingIn">
-            <div >
-                <fabric-page-title class="fadeInRight animated-500" >
-                    Buyers
-                </fabric-page-title>
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" tabindex="1" autofocus #email placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input (keyup.enter)="login(email.value, password.value)" tabindex="2" type="password" class="form-control" #password placeholder="Password">
-            </div>
-            <a (click)="login(email.value, password.value)" href="javascript:void(0)" class="link-button"><span>Log In</span></a>
-            <br />
-            <a (click)="loginVendor(email.value, password.value)" href="javascript:void(0)" class="link-button"><span>Log
-                    In Vendor</span></a>
+<section class="container fadeInUp animated-500" fxLayout fxLayoutAlign="center" style="padding-top:25px;" >
+  <mat-card style="width:400px;">
+    <mat-card-title>
+      Login
+    </mat-card-title>
+    <mat-card-content>
+      <article class="item" fxFlex="80%" fxFlex fxLayoutAlign="center">
+        <form class="main-login" *ngIf="this.isLoggingIn">          
+          <div class="form-group">
+            <input type="email" class="form-control" tabindex="1" autofocus #email placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input (keyup.enter)="login(email.value, password.value)" tabindex="2" type="password" class="form-control" #password placeholder="Password">
+          </div>
+          <a (click)="login(email.value, password.value)" href="javascript:void(0)" class="link-button">
+            <span>Log In</span>
+          </a>
+          <br />
+          <a (click)="loginVendor(email.value, password.value)" href="javascript:void(0)" class="link-button">
+            <span>Log In Vendor</span>
+          </a>
         </form>
-    </article>
+      </article>
+    </mat-card-content>
+  </mat-card>
 </section>

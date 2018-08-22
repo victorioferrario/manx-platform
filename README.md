@@ -12,6 +12,28 @@
 - [ ] Bring in Authentication, and integrate with application Context.
 
 
+## Lib Definetions
+```json
+      "@hubx/fabric": [
+        "libs/fabric/src/index.ts"
+      ],
+      "@hubx/services": [
+        "libs/services/src/index.ts"
+      ],
+      "@hubx/fiber": [
+        "libs/fiber/src/index.ts"
+      ],
+      "@hubx/system": [
+        "libs/system/src/index.ts"
+      ],
+      "@hubx/areas/buyers": [
+        "libs/areas/buyer-portal/src/index.ts"
+      ],
+      "@hubx/areas/vendor": [
+        "libs/areas/vendor-portal/src/index.ts"
+      ]
+```
+
 
 ng generate @angular/material:material-nav --name toolbar
 ## @Angular DevKit

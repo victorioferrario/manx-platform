@@ -13,5 +13,9 @@
     "**/*.ts"
   
     , "../libs/system/src/index.ts"
+
+    , "../libs/areas/buyer-portal/src/index.ts"
+
+    , "../libs/areas/vendor-portal/src/index.ts"
 ]
 }

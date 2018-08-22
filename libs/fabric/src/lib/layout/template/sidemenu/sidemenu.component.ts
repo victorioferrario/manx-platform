@@ -39,6 +39,14 @@ export class SideMenuComponent implements OnInit {
       path: '/buyer/profile'
     },
     {
+      label: 'My Orders',
+      path: '/buyer/orders'
+    },
+    {
+      label: 'Order Details',
+      path: '/buyer/orderdetail'
+    },
+    {
       label: 'Logout',
       path: 'DIALOG'
     }
