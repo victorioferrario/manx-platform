@@ -12,5 +12,4 @@ export class SideNavConfiguration {
     public static FixedInViewPort = true;
     public static CssClass="sidenav-root-large";
 }
-
 // ISideNavConfiguration, SideNavConfiguration

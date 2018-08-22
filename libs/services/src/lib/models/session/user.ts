@@ -25,3 +25,4 @@ export class UserIdentity implements IUserIdentity {
     return self.isAuthenticated;
   }
 }
+

@@ -8,18 +8,9 @@ import {
   FullscreenOverlayContainer,
   OverlayModule
 } from '@angular/cdk/overlay';
-
-
-import { PortalModule } from '@angular/cdk/portal';
-
-// import {
-//   MatToolbarModule,
-//   MatButtonModule,
-//   MatSidenavModule,
-//   MatIconModule,
-//   MatListModule
-// } from '@angular/material';
-// @Collection : Modules
+import { PortalModule 
+} from '@angular/cdk/portal';
+/// 
 import { NxModule } from '@nrwl/nx';
 /**
  * hubx Modules
@@ -36,6 +27,7 @@ import {
   LogoutComponent       ,
   RouteErrorComponent   ,
   RouteNotFoundComponent } from '@hubx/system';
+
 //
 import {
     LoaderComponent
@@ -43,8 +35,8 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './containers/app.component';
 //
-const COMPONENTS = [
-  AppComponent,  
+const COMPONENTS = [  
+  AppComponent,
   LoginComponent        ,
   LogoutComponent       ,
   RouteErrorComponent   ,
@@ -56,18 +48,19 @@ const COMPONENTS_INTERNAL = [
 ];
 const COMPONENTS_MATERIAL = [
   LayoutModule,   
-  FlexLayoutModule
-];
+  FlexLayoutModule,
+  BrowserAnimationsModule];
 const COMPONENTS_SERVICES = [
-  FiberModule, 
-  FabricModule, 
+  FiberModule,  
+  FabricModule,
   ServicesModule
 ];
 /**
  * Ng module
  */
 @NgModule({
-  declarations: [COMPONENTS],
+  declarations: [
+    COMPONENTS],
   imports: [
     COMPONENTS_INTERNAL,
     OverlayModule,    
