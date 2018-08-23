@@ -45,16 +45,14 @@ export class Layout implements ILayoutProps {
     this.viewState = new ViewState();
     this.dispatch = new EventEmitter();
     this.props = new SideNavProps(autobind);
-    this.childProps = new SubHeaderProps(autobind);   
-        //.fabric-sidenav-container
+    this.childProps = new SubHeaderProps(autobind);           
   }  
   /**
    * Transforms mode
    * @param mode 
    */
   transformMode() {
-    const self = this;
-    //self.props.opened = false;
+    const self = this;    
     self.props.mode = (self.props.mode === ModeEnum.side 
       ? ModeEnum.over : ModeEnum.side);
     self.props.opened = self.props.mode === ModeEnum.side;

@@ -5,7 +5,8 @@ import { IUserIdentity, UserIdentity } from '../models/session/user';
 import { UserIdentityRole } from '../models/enums';
 @Injectable()
 export class AuthService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+  private loggedIn: 
+  BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
 
@@ -14,6 +15,10 @@ export class AuthService {
   }
 
   constructor(private router: Router) {}
+
+  testLogin() {
+    this.loggedIn.next(true);
+  }
 
   login(user: IUserIdentity, role: UserIdentityRole) {
     if (user.userName !== '' && user.password !== '') {

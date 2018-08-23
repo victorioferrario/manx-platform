@@ -1,6 +1,6 @@
 # System
 
-> Directory: `libs/core/system/src/lib:`
+> Directory: `libs/areas/system/src/lib:`
 
 ## Project Structure
 

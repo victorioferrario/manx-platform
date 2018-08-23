@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   sectionTitle:string;  
   constructor() { }
   ngOnInit() {
-    this.sectionTitle = "Shopping Cart";
+    this.sectionTitle = "Dashboard";
     this.sectionText = `The ${this.sectionTitle} works!`;
   }
 }

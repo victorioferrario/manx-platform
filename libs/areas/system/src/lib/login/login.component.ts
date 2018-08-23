@@ -15,7 +15,7 @@ import {
 } from '@hubx/services';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
-  ApplicationContext,
+  ApplicationContext,ApplicationViewContext, AreaView, BuyerViewSection,
   Actions_UI,
   AuthAction,
   ActionEmitter
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     public ctx: ApplicationContext,
+    public vtx:ApplicationViewContext, 
     private auth: AuthService
   ) {
     this.isLoggingIn = true;
@@ -42,6 +43,8 @@ export class LoginComponent implements OnInit {
       hideRequired: false,
       floatLabel: 'auto'
     });    
+    const self = this;
+    self.vtx.activateView(AreaView.Login);
     
   }
 
@@ -51,25 +54,29 @@ export class LoginComponent implements OnInit {
     const self = this;
     //ToDo: Move this all out of here.
     const user = new UserIdentity();
+    self.router.navigate(['/buyer']);
     user.authenticate(true, UserIdentityRole.Buyer);
     user.name = 'Manny Buyer';
     self.auth.login(user, UserIdentityRole.Buyer);
+    self.vtx.activateView(AreaView.Buyer);
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Buyer)
     );
-    self.router.navigate(['/buyer']);
+    
   }
   loginVendor(username: string, password: string) {
     console.log(username, password);
     const self = this;
     //ToDo: Move this all out of here.
     const user = new UserIdentity();
+    self.router.navigate(['/vendor']);
     user.authenticate(true, UserIdentityRole.Vendor);
     user.name = 'Manny Vendor';
     self.auth.login(user, UserIdentityRole.Vendor);
+    self.vtx.activateView(AreaView.Vendor);
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
     );
-    self.router.navigate(['/vendor']);
+   
   }
 }

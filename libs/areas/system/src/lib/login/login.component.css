@@ -1,6 +1,6 @@
 .login-card {
     max-width: 600px;
-    margin-top:25px;
+    margin-top: 55px;
 }
 
 .login-title {
@@ -39,9 +39,6 @@ div.container>div.two {
     /** 10px is the missing margin of the missing box */
 }
 
-.two,
-.one {}
-
 .mat-fab.mat-primary,
 .mat-flat-button.mat-primary,
 .mat-mini-fab.mat-primary,
@@ -54,9 +51,10 @@ background-image: url(login-image@2x.0c7d2c6….png);
 background-position: center top;
 background-repeat: no-repeat;
 background-color: #493b8d; */
+
 section.main-login {
-    height:100%;
-    overflow:hidden!important;
+    height: 100%;
+    overflow: hidden !important;
     background-color: #493b8d;
 }
 

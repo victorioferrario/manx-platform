@@ -16,6 +16,7 @@ import {
   ActionEmitter,
   SizeEnum
 } from '@hubx/services';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,8 +37,8 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private ctx: ApplicationContext,
-    private rtx: ApplicationRoutingService,
-    private viewRef: ViewContainerRef) {
+    private viewRef: ViewContainerRef,
+    private rtx: ApplicationRoutingService) {
     const self = this;
     this.onResize();
   }

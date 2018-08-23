@@ -17,16 +17,16 @@
     "baseUrl": ".",
     "paths": {
       "@hubx/fabric": [
-        "libs/fabric/src/index.ts"
-      ],
-      "@hubx/services": [
-        "libs/services/src/index.ts"
+        "libs/core/fabric/src/index.ts"
       ],
       "@hubx/fiber": [
-        "libs/fiber/src/index.ts"
+        "libs/core/fiber/src/index.ts"
       ],
+      "@hubx/services": [
+        "libs/core/services/src/index.ts"
+      ],      
       "@hubx/system": [
-        "libs/system/src/index.ts"
+        "libs/areas/system/src/index.ts"
       ],
       "@hubx/areas/buyers": [
         "libs/areas/buyer-portal/src/index.ts"

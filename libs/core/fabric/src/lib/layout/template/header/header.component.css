@@ -4,13 +4,14 @@
     padding-top: 23px;
     padding-bottom: 27px;
 }
+
 .header-toolbar-row-2 {
     height: 48px;
     min-height: 48px;
     background-color: #493b8d;
-    position:absolute;
-    top:102px;
-    z-index:1000;
+    position: absolute;
+    top: 102px;
+    z-index: 1000;
 }
 
 .hubx-logo {
@@ -18,11 +19,25 @@
     width: 160px;
     margin-left: 9px;
 }
+
+.header-row-output-console {
+    position: absolute;
+    right:280px;
+    top: 47px;
+    padding: 2px;
+    padding-left: 9px;
+    font-size:14px;
+    font-weight:400;
+    width:180px;
+    border:solid 2px #493b8d;
+}
+
 /* 
 .header-toolbar-row-2 {
     height: 48px;
     min-height: 48px;
     background-color: #493b8d;} */
+
 /* }
 .fabric-mat-toolbar {
     position: absolute;

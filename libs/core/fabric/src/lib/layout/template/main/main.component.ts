@@ -6,6 +6,7 @@ import {
   QueryList,
   ViewChildren,
   ViewContainerRef,
+  ElementRef,
   ViewEncapsulation,
   Attribute
 } from '@angular/core';
@@ -42,6 +43,7 @@ import { MatSidenav } from '@angular/material';
 })
 export class MainComponent implements OnInit, AfterViewInit {
   nextPosition = 0;
+  cssWidth = ' small';
   isMenuOpen = false;
   @ViewChildren(TemplatePortalDirective)
   templatePortals: QueryList<Portal<any>>;
@@ -51,28 +53,33 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild('sideNav') private _sideNav: HTMLElement;
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
   showFiller = false; // cssClass = "experiment";
-    constructor(
+  constructor(
     public overlay: Overlay,
-    public viewContainerRef: ViewContainerRef,
-    public ctx: ApplicationContext
-  ) {
+    public ctx: ApplicationContext,
+    public viewContainerRef: ViewContainerRef) {
     const self = this;
     self.ctx.ux.dispatch.subscribe((event: ILayoutAction) => {
       switch (event.type) {
         case Actions_UI.Auth:
           const temp2 = event.subType as AuthAction;
           switch (temp2) {
-            case AuthAction.Logout:   
-            this.ctx.session.isLogginOut = true;           
-            this.ctx.session.isAuthenticated =false;
+            case AuthAction.Logout:
+              this.ctx.session.isLogginOut = true;
+              this.ctx.session.isAuthenticated = false;
               break;
           }
           break;
       }
     });
+    //this.openLoadingPanel();
   }
-  ngAfterViewInit() {}
+  onShowCart() {
+    const temp = this.cssWidth;
+    this.cssWidth = temp === ' big' ? ' small' : ' big';
+  }
+
   ngOnInit() {}
+  ngAfterViewInit() {}
   openLoadingPanel() {
     const config = new OverlayConfig();
     config.positionStrategy = this.overlay
@@ -84,13 +91,13 @@ export class MainComponent implements OnInit, AfterViewInit {
     config.hasBackdrop = true;
     const overlayRef = this.overlay.create(config);
     overlayRef.backdropClick().subscribe(() => {
-      //
       setTimeout(() => {
-        overlayRef.dispose();
-      }, 1000);
+        overlayRef.dispose();}, 300);
     });
     overlayRef.attach(
-      new ComponentPortal(LoaderComponent, this.viewContainerRef)
+      new ComponentPortal(
+        LoaderComponent, 
+        this.viewContainerRef)
     );
   }
 }

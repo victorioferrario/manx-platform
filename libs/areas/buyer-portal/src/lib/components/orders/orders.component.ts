@@ -11,7 +11,7 @@ export class OrdersComponent implements OnInit {
   sectionTitle:string;  
   constructor() { }
   ngOnInit() {
-    this.sectionTitle = "Shopping Cart";
+    this.sectionTitle = "Orders ";
     this.sectionText = `The ${this.sectionTitle} works!`;
   }
 }

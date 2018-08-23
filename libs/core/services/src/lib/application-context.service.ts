@@ -4,6 +4,7 @@ import { IApplicationContext } from './interfaces/IApplicationContext';
 import { IActionEmitter, ActionEmitter } from './core/emitters';
 import {
   Actions_UI,
+  ModeEnum,
   MenuAction,
   Layout,
   ILayoutProps,
@@ -11,8 +12,6 @@ import {
   UserIdentityRole
 } from './models';
 
-import { LogLevel } from 'typescript-logging';
-import { modelLogger, serviceLogger } from './util/logger/config';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
@@ -84,8 +83,7 @@ export class ApplicationContext implements IApplicationContext {
           self.ux.transformSize(event.subType as MenuAction);
           break;
       }
-    });
-    // chained together
+    });    
     self.initializeBreakPointObserver();
   }
   /**
@@ -98,9 +96,15 @@ export class ApplicationContext implements IApplicationContext {
       .subscribe(result => {
         let event: IActionEmitter;
         if (result.matches) {
-          event = new ActionEmitter(Actions_UI.Resize, MenuAction.Resize_Large);
+          //console.log("matches", result);
+          self.ux.transformMode();
+          event = new ActionEmitter(
+            Actions_UI.Mode,
+            MenuAction.SwitchMode_Over);
         } else {
-          event = new ActionEmitter(Actions_UI.Resize, MenuAction.Resize_Small);
+          event = new ActionEmitter(
+            Actions_UI.Mode, 
+            MenuAction.SwitchMode_Over);
         }
         self.dispatch.emit(event);
       });

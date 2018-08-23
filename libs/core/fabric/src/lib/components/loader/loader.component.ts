@@ -71,8 +71,8 @@ import {
 export class LoaderComponent implements OnInit {
   toState = 'state1';
   @Input() currentState;
-  changeState(state: any) {
-    this.toState = state;
+  changeState(tState: any) {
+    this.toState = tState;
   }
   ngOnInit() {
   }

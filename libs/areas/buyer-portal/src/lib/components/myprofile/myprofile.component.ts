@@ -10,7 +10,7 @@ export class MyprofileComponent implements OnInit {
   sectionTitle: string;
   constructor() { }
   ngOnInit() {
-    this.sectionTitle = "Shopping Cart";
+    this.sectionTitle = "My Profile";
     this.sectionText = `The ${this.sectionTitle} works!`;
   }
 }

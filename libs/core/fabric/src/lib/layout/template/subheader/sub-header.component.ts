@@ -18,8 +18,7 @@ export class SubHeaderComponent implements OnDestroy, OnInit {
     onToggleMenu(){
         const self = this;
         self.ctx.dispatch.emit(
-            new ActionEmitter(Actions_UI.Menu, MenuAction.State_Toggle));
-        
+            new ActionEmitter(Actions_UI.Menu, MenuAction.State_Toggle));        
     }
     ngOnInit(): void { }
     ngOnDestroy(): void { }
