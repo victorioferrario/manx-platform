@@ -11,8 +11,6 @@ import {
   UserIdentityRole
 } from './models';
 
-import { LogLevel } from 'typescript-logging';
-import { modelLogger, serviceLogger } from './util/logger/config';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
@@ -81,7 +79,8 @@ export class ApplicationContext implements IApplicationContext {
           }
           break;
         case Actions_UI.Resize:
-          self.ux.transformSize(event.subType as MenuAction);
+          self.ux.transformSize(
+            event.subType as MenuAction);
           break;
       }
     });
@@ -98,9 +97,13 @@ export class ApplicationContext implements IApplicationContext {
       .subscribe(result => {
         let event: IActionEmitter;
         if (result.matches) {
-          event = new ActionEmitter(Actions_UI.Resize, MenuAction.Resize_Large);
-        } else {
-          event = new ActionEmitter(Actions_UI.Resize, MenuAction.Resize_Small);
+          event = new ActionEmitter(
+            Actions_UI.Resize, 
+            MenuAction.Resize_Large);
+        } else {          
+          event = new ActionEmitter(
+            Actions_UI.Mode, 
+            MenuAction.SwitchMode_Over);
         }
         self.dispatch.emit(event);
       });

@@ -8,9 +8,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  sectionText:string;
+  sectionTitle:string;  
   constructor() { }
-
   ngOnInit() {
+    this.sectionTitle = "Profile";
+    this.sectionText = `The ${this.sectionTitle} works!`;
   }
 
 }

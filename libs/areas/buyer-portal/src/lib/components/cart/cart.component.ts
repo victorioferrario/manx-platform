@@ -6,7 +6,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+  sectionText:string;
+  sectionTitle:string;  
+  constructor() { }
+  ngOnInit() {
+    this.sectionTitle = "Shopping Cart";
+    this.sectionText = `The ${this.sectionTitle} works!`;
+  }
 }
