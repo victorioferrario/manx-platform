@@ -15,6 +15,7 @@ import { LogLevel } from 'typescript-logging';
 import { modelLogger, serviceLogger } from './util/logger/config';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
+import { ViewStateEnum } from './models/view';
 
 @Injectable({
   providedIn: 'root'
@@ -60,17 +61,21 @@ export class ApplicationContext implements IApplicationContext {
           switch (temp2) {
             case AuthAction.Login:
               self.session.isAuthenticated = true;
+              self.ux.viewState.active = ViewStateEnum.portal;
               break;
             case AuthAction.Logout:
               self.ux.dispatch.emit(
                 new LayoutAction(Actions_UI.Auth, AuthAction.Logout)
               );
               self.session.isAuthenticated = false;
+              self.ux.viewState.active = ViewStateEnum.login;              
               break;
             case AuthAction.Login_Buyer:
+              self.ux.viewState.active = ViewStateEnum.portal;
               self.session.authenticate(UserIdentityRole.Buyer, true);
               break;
             case AuthAction.Login_Vendor:
+              self.ux.viewState.active = ViewStateEnum.portal;
               self.session.authenticate(UserIdentityRole.Vendor, true);
               break;
           }

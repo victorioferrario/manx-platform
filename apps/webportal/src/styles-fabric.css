@@ -1,29 +1,41 @@
 fabric-page-title {
-  display: block;
-  font-size: 20px;
+    display: block;
+    font-size: 20px;
 }
 
 fabric-section-title {
-  display: block;
-  font-size: 18px;
+    display: block;
+    font-size: 18px;
 }
 
 fabric-title {
-  display: block;
-  font-size: 16px;
+    display: block;
+    font-size: 16px;
 }
 
 fabric-view {
-  display: block;
+    display: block;
 }
 
 fabric-item {
-  display: block;
+    display: block;
 }
 
 fabric-child {
-  display: block;
+    display: block;
 }
+
+fabric-main {
+    height: 100vh;
+    display: block;
+}
+
+app-vendor-main,
+app-buyer-main {
+    padding: 15px;
+    display: block;
+}
+
 /* 
 .mat-drawer-container {
   position: relative;

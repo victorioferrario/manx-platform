@@ -8,9 +8,8 @@ import {
   FullscreenOverlayContainer,
   OverlayModule
 } from '@angular/cdk/overlay';
-import { PortalModule 
-} from '@angular/cdk/portal';
-/// 
+import { PortalModule } from '@angular/cdk/portal';
+///
 import { NxModule } from '@nrwl/nx';
 /**
  * hubx Modules
@@ -23,54 +22,46 @@ import { ApplicationContext, ServicesModule } from '@hubx/services';
  * Local Components
  */
 import {
-  LoginComponent        ,
-  LogoutComponent       ,
-  RouteErrorComponent   ,
-  RouteNotFoundComponent } from '@hubx/system';
+  LoginComponent,
+  LogoutComponent,
+  RouteErrorComponent,
+  RouteNotFoundComponent
+} from '@hubx/system';
 
 //
-import {
-    LoaderComponent
-} from '@hubx/fabric';
+import { LoaderComponent } from '@hubx/fabric';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './containers/app.component';
 //
-const COMPONENTS = [  
+const COMPONENTS = [
   AppComponent,
-  LoginComponent        ,
-  LogoutComponent       ,
-  RouteErrorComponent   ,
-  RouteNotFoundComponent 
+  LoginComponent,
+  LogoutComponent,
+  RouteErrorComponent,
+  RouteNotFoundComponent
 ];
-const COMPONENTS_INTERNAL = [
-  BrowserModule, 
+const COMPONENTS_INTERNAL = [BrowserModule, BrowserAnimationsModule];
+const COMPONENTS_MATERIAL = [
+  LayoutModule,
+  FlexLayoutModule,
   BrowserAnimationsModule
 ];
-const COMPONENTS_MATERIAL = [
-  LayoutModule,   
-  FlexLayoutModule,
-  BrowserAnimationsModule];
-const COMPONENTS_SERVICES = [
-  FiberModule,  
-  FabricModule,
-  ServicesModule
-];
+const COMPONENTS_SERVICES = [FiberModule, FabricModule, ServicesModule];
 /**
  * Ng module
  */
 @NgModule({
-  declarations: [
-    COMPONENTS],
+  declarations: [COMPONENTS],
   imports: [
     COMPONENTS_INTERNAL,
-    OverlayModule,    
-    PortalModule,   
+    OverlayModule,
+    PortalModule,
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
-    AppRoutingModule,   
+    AppRoutingModule,
     NxModule.forRoot()
   ],
-  providers: [    
+  providers: [
     ApplicationContext,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],

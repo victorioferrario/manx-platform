@@ -1,3 +1,4 @@
+
 .fabric-sidenav-nav {
     display: flex;
     align-items: left;
@@ -13,9 +14,18 @@
     top: 148px;
 }
 
+.fabric-sidenav-container.login {
+    top: 98px;
+}
+
+
 .fabric-main-content {
-    padding: 20px;
+   
     background: #fff;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
 }
 
 .fabric-loader-content {
@@ -78,4 +88,9 @@
 .fabric-end-nav{
     border-left: solid 1px #ddd;
     background: #ccc;
+}
+
+
+.mat-drawer-content .login {
+    overflow:hidden!important;
 }

@@ -13,7 +13,9 @@ import {
 /**
  * @description:  Local Hook
  */
-import { BuyerMainComponent } from './components/main/main.component';
+import { 
+  BuyerMainComponent 
+} from './components/main/main.component';
 const routes: Routes = [
   {
     path: '',

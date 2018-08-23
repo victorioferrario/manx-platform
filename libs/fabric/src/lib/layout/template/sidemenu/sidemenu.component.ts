@@ -61,6 +61,14 @@ export class SideMenuComponent implements OnInit {
       path: '/vendor/products'
     },
     {
+      label: 'Orders',
+      path: '/vendor/orders'
+    },
+    {
+      label: 'My Profile',
+      path: '/vendor/profile'
+    },
+    {
       label: 'Logout',
       path: 'DIALOG'
     }
@@ -102,12 +110,18 @@ export class SideMenuComponent implements OnInit {
   onNavigate(arg: string) {
     const self = this;
     if (arg !== 'DIALOG') {
+
       if(self.ctx.ux.props.mode 
         === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over ){
         self.ctx.ux.props.opened = false;
       }
+
       self.router.navigate([arg]);
     } else {
+      if(self.ctx.ux.props.mode 
+        === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over ){
+        self.ctx.ux.props.opened = false;
+      }
       self.openDialog();
     }
   }
