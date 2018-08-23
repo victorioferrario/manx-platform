@@ -1,0 +1,30 @@
+<section class="fabric-button-wrapper" *ngIf="ShowLogoutButton">
+        <button mat-button (click)="this.onLogout()" style="font-weight:300;">Logout</button> &nbsp;|&nbsp;<button mat-button (click)="this.onToggleMenu()" style="font-weight:300;">Show/Hide Menu</button>
+</section>
+<fabric-view class="fabric-label">
+    <fabric-item class="mat-cb-wrapper">
+        <fabric-element class="fabric-label-dark-1">
+            <span class="fabric-label-accent">[ </span>
+            mode : </fabric-element>
+        <fabric-element class="fabric-toogle">
+            <mat-slide-toggle (change)="onChangeMode($event)">
+                <span class="fabric-control-label">
+                    {{ this.ctx.ux.props.mode }}</span>
+            </mat-slide-toggle>
+        </fabric-element>
+        <fabric-element class="fabric-label-middle-accent">
+            <fabric-fragment class="fabric-label-accent">|</fabric-fragment>
+        </fabric-element>
+    </fabric-item>
+    <fabric-item class="mat-cb-wrapper-2">
+        <fabric-element class="fabric-label-dark-2"> 
+            size : </fabric-element>
+        <fabric-element class="fabric-toogle-2">
+            <mat-slide-toggle (change)="onChangeSize($event)">
+                <span class="fabric-control-label">
+                    {{ this.ctx.ux.props.size }}</span>
+            </mat-slide-toggle>
+        </fabric-element>
+        <fabric-element class="fabric-label-accent-2">]</fabric-element>
+    </fabric-item>
+</fabric-view>

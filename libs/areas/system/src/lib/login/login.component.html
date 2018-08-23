@@ -1,0 +1,33 @@
+<section class="main-login" #loginPanel>
+  <section class="container " fxLayout fxLayoutAlign="center" style="padding-top:25px;">
+    <form [formGroup]="options" class="form-control">
+      <mat-card class="login-card fadeInUp animated-500">
+        <mat-card-title class="login-title"> Login</mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="login-form-field">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" #email tabindex="1" autofocus autocomplete="false" type="email">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>          
+          <mat-form-field appearance="outline" class="login-form-field">
+            <mat-label>Passord</mat-label>
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" #password tabindex="2" autocomplete="false">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions style="text-align:center;padding-top:0;padding-bottom:20px;">
+          <div fxLayout='row' fxLayoutAlign="space-around center">
+            <div fxFlex="45" [fxLayout]="direction" class="one">
+              <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="login(email.value, password.value)">Buyer
+                Login</a>
+            </div>
+            <div fxFlex="45" [fxLayout]="direction" class="two">
+              <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="loginVendor(email.value, password.value)">Vendor
+                Login</a>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </section>
+</section>

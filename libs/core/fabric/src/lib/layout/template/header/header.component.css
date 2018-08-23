@@ -1,0 +1,50 @@
+.header-toolbar-row-1 {
+    height: 100px;
+    background-color: #FFF;
+    padding-top: 23px;
+    padding-bottom: 27px;
+}
+.header-toolbar-row-2 {
+    height: 48px;
+    min-height: 48px;
+    background-color: #493b8d;
+    position:absolute;
+    top:102px;
+    z-index:1000;
+}
+
+.hubx-logo {
+    height: 45px;
+    width: 160px;
+    margin-left: 9px;
+}
+/* 
+.header-toolbar-row-2 {
+    height: 48px;
+    min-height: 48px;
+    background-color: #493b8d;} */
+/* }
+.fabric-mat-toolbar {
+    position: absolute;
+    right: 15px;
+    width: 50vw;
+    text-align: right;
+}
+
+.fabric-label {
+    font-weight: 300;
+    font-size: 14px;
+    color: #fff;
+}
+
+.fabric-label>.label-dark {
+    font-weight: 300;
+    font-size: 14px;
+    color: #9f95d1
+}
+
+ .fabric-label >.label-accent {
+    font-weight: 300;
+    font-size: 14px;
+    color: #ff655b
+} */

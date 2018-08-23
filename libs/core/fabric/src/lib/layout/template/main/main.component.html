@@ -1,0 +1,16 @@
+
+    <mat-sidenav-container class="fabric-sidenav-container {{this.ctx.ux.viewState.active}}" #container *ngIf="!this.ctx.session.isLogginOut">
+        <ng-template cdk-portal ></ng-template>
+        <mat-sidenav #sideNav class="fabric-color" *ngIf="this.ctx.session.isAuthenticated"
+            [mode]="this.ctx.ux.props.mode" 
+            [opened]="this.ctx.ux.props.opened" 
+            [fixedTopGap]="this.ctx.ux.props.fixedTopGap"
+            [fixedBottomGap]="this.ctx.ux.props.fixedBottomGap" 
+            [fixedInViewport]="this.ctx.ux.props.fixedInViewport" autosize>
+            <fabric-sidemenu class="{{this.ctx.ux.props.cssClass}}"></fabric-sidemenu>
+        </mat-sidenav>
+        <mat-sidenav opened mode="side" position="end" class="fabric-end-nav"></mat-sidenav>
+        <mat-sidenav-content class="fabric-main-content">
+            <ng-content select="[mainContent]"></ng-content>
+        </mat-sidenav-content>
+    </mat-sidenav-container>

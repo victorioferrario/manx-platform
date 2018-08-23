@@ -1,0 +1,21 @@
+<h1 mat-dialog-title class="title-box">Confirmation Required</h1>
+<div mat-dialog-content class="content-box">
+  <p class="p-text">Are you sure you want to logout?</p>
+</div>
+<div mat-dialog-actions class="actions-box hubx-light-theme">
+  <section fxLayout="row" fxLayout fxLayoutAlign="center" fxLayoutAlign="space-evenly stretch" style="width:100%;"
+    fxLayoutGap="1px">
+    
+    <article class="item item-2 card-white" flex-order="2" fxFlex="50" style="border-right:solid 0 #ccc;">
+        <button mat-flat-button color="accent" 
+        style="width:100%;color:#fff!important;" 
+        (click)="onNoClick()" cdkFocusInitial >No, Continue</button>     
+    </article>
+    <article fxFlex="10" flex-order="1">
+        &nbsp;</article>
+    <article class="item item-3 card-white" flex-order="3" fxFlex="40">
+        <button  mat-flat-button color="warn"  (click)="onYesClick()"
+        style="width:100%;color:#fff!important;" [mat-dialog-close]>Yes, Logout.</button>
+    </article>
+  </section>
+</div>
