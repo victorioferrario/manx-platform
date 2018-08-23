@@ -1,4 +1,4 @@
-import { Component,ViewChild, OnInit, Inject , ViewContainerRef} from '@angular/core';
+import { Component, ViewChild, OnInit, Inject, ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { LayoutService, ApplicationContext, UserIdentityRole, ModeEnum } from '@hubx/services';
@@ -74,27 +74,29 @@ export class SideMenuComponent implements OnInit {
     }
   ];
   fillerNav: IMenuItem[];
-    constructor(
-    public dialog: MatDialog,
+
+  constructor(
     private router: Router,
-    public viewContainerRef: ViewContainerRef,
-    public ctx: ApplicationContext) {   
+    public dialog: MatDialog,
+    public ctx: ApplicationContext,
+    public viewContainerRef: ViewContainerRef) {
     this.fillerNav =
       ctx.session.userIdentity.role === UserIdentityRole.Buyer
         ? this.menuBuyerArray
-        : this.menuVendorArray;        
+        : this.menuVendorArray;
   }
+
   openDialog(): void {
     const self = this;
     const dialogRef = this.dialog.open(
       ConfirmLogoutDialogComponent, {
-      width: '550px',
-      disableClose:true
-    });
-    dialogRef.beforeClose().subscribe((result:any)=>{
-      if(result===undefined){       
-       self.router.navigate(['/logout']);       
-      }     
+        width: '550px',
+        disableClose: true
+      });
+    dialogRef.beforeClose().subscribe((result: any) => {
+      if (result === undefined) {
+        setTimeout(()=>{self.router.navigate(['/logout']);}, 200);        
+      }
     });
     dialogRef.afterClosed().subscribe((result: IDialogActions) => {
       switch (result.action) {
@@ -106,20 +108,20 @@ export class SideMenuComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   onNavigate(arg: string) {
     const self = this;
     if (arg !== 'DIALOG') {
 
-      if(self.ctx.ux.props.mode 
-        === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over ){
+      if (self.ctx.ux.props.mode
+        === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over) {
         self.ctx.ux.props.opened = false;
       }
 
       self.router.navigate([arg]);
     } else {
-      if(self.ctx.ux.props.mode 
-        === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over ){
+      if (self.ctx.ux.props.mode
+        === ModeEnum.push || self.ctx.ux.props.mode === ModeEnum.over) {
         self.ctx.ux.props.opened = false;
       }
       self.openDialog();

@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
+  ApplicationRoutingService
+} from '../app-routing.service';
+import {
   ApplicationContext,
   Actions_UI,
   MenuAction,
@@ -20,7 +23,7 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'webportal';
-  style:string;
+  style: string;
   screenHeight: number;
   screenWidth: number;
   toState = 'state1';
@@ -30,11 +33,14 @@ export class AppComponent implements OnInit {
     this.screenWidth = window.innerWidth;
     this.style = 'height:' + this.screenHeight + 'px;';
   }
-  constructor(private router: Router, private ctx: ApplicationContext, private viewRef: ViewContainerRef) {
+  constructor(
+    private router: Router,
+    private ctx: ApplicationContext,
+    private rtx: ApplicationRoutingService,
+    private viewRef: ViewContainerRef) {
     const self = this;
     this.onResize();
   }
- 
   changeState(state: any) {
     this.toState = this.toState === 'state1' ? 'state2' : 'state1';
   }

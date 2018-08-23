@@ -53,12 +53,13 @@ export class Layout implements ILayoutProps {
    * @param mode 
    */
   transformMode() {
-    const self = this;
-    //self.props.opened = false;
+    const self = this;   
     self.props.mode = (self.props.mode === ModeEnum.side 
       ? ModeEnum.over : ModeEnum.side);
     self.props.opened = self.props.mode === ModeEnum.side;
-    self.childProps.cssClass = ConfigSubHeader.RootCssClass  + self.props.size + ' ' + self.props.mode;
+    self.childProps.cssClass = ConfigSubHeader.RootCssClass  
+    + self.props.size + ' ' 
+    + self.props.mode;
   }
   /**
    * Transforms side menu

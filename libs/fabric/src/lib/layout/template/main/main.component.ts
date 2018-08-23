@@ -42,6 +42,7 @@ import { MatSidenav } from '@angular/material';
 })
 export class MainComponent implements OnInit, AfterViewInit {
   nextPosition = 0;
+  cssWidth:string=" small";
   isMenuOpen = false;
   @ViewChildren(TemplatePortalDirective)
   templatePortals: QueryList<Portal<any>>;
@@ -54,8 +55,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     constructor(
     public overlay: Overlay,
     public viewContainerRef: ViewContainerRef,
-    public ctx: ApplicationContext
-  ) {
+    public ctx: ApplicationContext) {
     const self = this;
     self.ctx.ux.dispatch.subscribe((event: ILayoutAction) => {
       switch (event.type) {
@@ -70,9 +70,15 @@ export class MainComponent implements OnInit, AfterViewInit {
           break;
       }
     });
+  }  
+
+  onShowCart(){
+    const temp = this.cssWidth;
+    this.cssWidth = temp === " big" ? " small" : " big";    
+    
   }
-  ngAfterViewInit() {}
   ngOnInit() {}
+  ngAfterViewInit() {}
   openLoadingPanel() {
     const config = new OverlayConfig();
     config.positionStrategy = this.overlay
@@ -83,8 +89,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.nextPosition += 30;
     config.hasBackdrop = true;
     const overlayRef = this.overlay.create(config);
-    overlayRef.backdropClick().subscribe(() => {
-      //
+    overlayRef.backdropClick().subscribe(() => {   
       setTimeout(() => {
         overlayRef.dispose();
       }, 1000);

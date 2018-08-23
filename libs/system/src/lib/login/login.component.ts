@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   options: FormGroup;
   isLoggingIn: boolean;
 
-  constructor(    
+  constructor(
     public fb: FormBuilder,
     private router: Router,
     public ctx: ApplicationContext,
@@ -41,27 +41,33 @@ export class LoginComponent implements OnInit {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
-    });    
-    
+    });
+
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   login(username: string, password: string) {
     const self = this;
     //ToDo: Move this all out of here.
     const user = new UserIdentity();
+    self.router.navigate(['/buyer']);
+    setTimeout(() => {   
+
+    }, 200);
     user.authenticate(true, UserIdentityRole.Buyer);
     user.name = 'Manny Buyer';
-    self.auth.login(user, UserIdentityRole.Buyer);
+    self.auth.login(
+      user, UserIdentityRole.Buyer);
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Buyer)
     );
-    self.router.navigate(['/buyer']);
+
   }
   loginVendor(username: string, password: string) {
     console.log(username, password);
-    const self = this;
+    
+    const self = this;self.router.navigate(['/vendor']);
     //ToDo: Move this all out of here.
     const user = new UserIdentity();
     user.authenticate(true, UserIdentityRole.Vendor);
@@ -70,6 +76,9 @@ export class LoginComponent implements OnInit {
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
     );
-    self.router.navigate(['/vendor']);
+   
+    // setTimeout(() => {
+     
+    // }, 200);
   }
 }

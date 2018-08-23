@@ -16,6 +16,7 @@ import { NxModule } from '@nrwl/nx';
  */
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
+import { ApplicationRoutingService } from './app-routing.service';
 import { ApplicationContext, ServicesModule } from '@hubx/services';
 // @Collection : Components
 /**
@@ -32,13 +33,17 @@ import {
 import { LoaderComponent } from '@hubx/fabric';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './containers/app.component';
+import { DynamicComponent } from './components/dynamic.component';
+import { ConsumeDynamicComponent } from './containers/consume-dyn.componet';
 //
 const COMPONENTS = [
   AppComponent,
   LoginComponent,
   LogoutComponent,
   RouteErrorComponent,
-  RouteNotFoundComponent
+  RouteNotFoundComponent,
+  DynamicComponent,
+  ConsumeDynamicComponent
 ];
 const COMPONENTS_INTERNAL = [BrowserModule, BrowserAnimationsModule];
 const COMPONENTS_MATERIAL = [
@@ -61,8 +66,10 @@ const COMPONENTS_SERVICES = [FiberModule, FabricModule, ServicesModule];
     AppRoutingModule,
     NxModule.forRoot()
   ],
+  entryComponents: [DynamicComponent],
   providers: [
-    ApplicationContext,
+    ApplicationContext, 
+    ApplicationRoutingService,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],
   bootstrap: [AppComponent]

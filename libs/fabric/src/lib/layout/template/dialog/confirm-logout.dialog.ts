@@ -12,10 +12,10 @@ export interface DialogData {
 })
 export class ConfirmLogoutDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<ConfirmLogoutDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
-
+     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    public dialogRef: MatDialogRef<ConfirmLogoutDialogComponent>) {
+      
+  }
   onNoClick(): void {
     this.dialogRef.beforeClose();
     this.dialogRef.close({

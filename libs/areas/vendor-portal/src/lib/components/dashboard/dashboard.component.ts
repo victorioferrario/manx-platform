@@ -7,10 +7,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-
+  sectionText:string;
+  sectionTitle:string;  
   constructor() { }
-
   ngOnInit() {
+    this.sectionTitle = "Dashboard";
+    this.sectionText = `The ${this.sectionTitle} works!`;
   }
 
 }
