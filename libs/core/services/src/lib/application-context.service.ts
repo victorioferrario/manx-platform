@@ -24,7 +24,7 @@ export class ApplicationContext implements IApplicationContext {
   session: ISession;
   dispatch: EventEmitter<IActionEmitter>;
   breakObserver: BreakpointObserver;
-  /**
+  /** 
    * Creates an instance of
    * application context.
    * @param breakpointObserver
@@ -32,8 +32,8 @@ export class ApplicationContext implements IApplicationContext {
   constructor(breakpointObserver: BreakpointObserver) {
     const self = this;
     self.ux = new Layout(true);
-    self.dispatch = new EventEmitter();
     self.session = new Session(self);
+    self.dispatch = new EventEmitter();    
     self.breakObserver = breakpointObserver;
     self.initializeDispatcher();
   }
@@ -95,17 +95,12 @@ export class ApplicationContext implements IApplicationContext {
       .observe([Breakpoints.Web, Breakpoints.Medium])
       .subscribe(result => {
         let event: IActionEmitter;
-        if (result.matches) {
-          //console.log("matches", result);
-          self.ux.transformMode();
-          event = new ActionEmitter(
-            Actions_UI.Mode,
-            MenuAction.SwitchMode_Over);
-        } else {
-          event = new ActionEmitter(
-            Actions_UI.Mode, 
-            MenuAction.SwitchMode_Over);
-        }
+        if (result.matches) {          
+          self.ux.transformMode();          
+        } 
+        event = new ActionEmitter(
+          Actions_UI.Mode,
+          MenuAction.SwitchMode_Over);
         self.dispatch.emit(event);
       });
   }

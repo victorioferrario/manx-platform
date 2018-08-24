@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { ApplicationContext , ApplicationViewContext, IApplicationViewContext } from '@hubx/services'
-import {  } from '../../../../../../services/src/lib/application-viewmanager.service';
+
 @Component({
     selector: 'fabric-header',
     template: `
@@ -28,7 +28,3 @@ export class HeaderComponent implements OnDestroy, OnInit {
     ngOnInit(): void { }
     ngOnDestroy(): void { }
 }
-
-// <mat-toolbar-row class="header-toolbar-row-2">
-// <fabric-subheader></fabric-subheader>       
-// </mat-toolbar-row>
