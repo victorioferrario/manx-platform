@@ -12,5 +12,6 @@ export {    ShellComponent       ,
             MainComponent        ,
             HeaderComponent      ,
             SubHeaderComponent   ,
+            MenuComponent        ,
             SideMenuComponent    ,
             DevToolbarComponent         } from './template';

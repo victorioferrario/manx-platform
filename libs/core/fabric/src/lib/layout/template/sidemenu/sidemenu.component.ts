@@ -3,6 +3,7 @@ import {
   ViewChild,
   OnInit,
   Inject,
+  AfterViewInit,
   ViewContainerRef
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -17,6 +18,8 @@ import {
   VendorViewSection,
   AreaView
 } from '@hubx/services';
+
+import { MenuComponent } from './menuitem.component';
 import { RouterLink, Router } from '@angular/router';
 
 import { ConfirmLogoutDialogComponent } from '../dialog/confirm-logout.dialog';
@@ -32,15 +35,13 @@ export interface IMenuItem {
 @Component({
   selector: 'fabric-sidemenu',
   styleUrls: ['./sidemenu.component.css'],
-  template: `<mat-nav-list class="fabric-sidenav-list" #navlist>
-    <a mat-list-item *ngFor="let nav of fillerNav" class="item-color" routerLink="nav.path" (click)="onNavigate(nav.path, nav.section);">
-        <mat-icon mat-list-icon>folder</mat-icon>      
-        <h4 mat-line *ngIf="nav.label">{{nav.label}}</h4>
-    </a> 
-  </mat-nav-list>`
+  template: `
+  <fabric-menu></fabric-menu>
+  `
 })
-export class SideMenuComponent implements OnInit {
-  @ViewChild('navlist') private navlistInstance;
+export class SideMenuComponent implements OnInit, AfterViewInit {
+  @ViewChild(MenuComponent) menu: MenuComponent;
+
   menuBuyerArray: IMenuItem[] = [
     {
       label: 'Dashboard',
@@ -104,6 +105,7 @@ export class SideMenuComponent implements OnInit {
     }
   ];
   fillerNav: IMenuItem[];
+
   constructor(
     public dialog: MatDialog,
     private router: Router,
@@ -139,28 +141,34 @@ export class SideMenuComponent implements OnInit {
   ngOnInit() {}
   onNavigate(arg: string, section?: BuyerViewSection | VendorViewSection) {
     const self = this;
-    if (arg !== 'DIALOG') {
-      if (
-        self.ctx.ux.props.mode === ModeEnum.push ||
-        self.ctx.ux.props.mode === ModeEnum.over
-      ) {
-        self.ctx.ux.props.opened = false;
-      }
-      self.vtx.activateView(
-        this.ctx.session.userIdentity.role === UserIdentityRole.Buyer
-          ? AreaView.Buyer
-          : AreaView.Vendor,
-        section
-      );
-      self.router.navigate([arg]);
-    } else {
-      if (
-        self.ctx.ux.props.mode === ModeEnum.push ||
-        self.ctx.ux.props.mode === ModeEnum.over
-      ) {
-        self.ctx.ux.props.opened = false;
-      }
+    if (arg === 'DIALOG') {
       self.openDialog();
+    } else {
+      self.vtx.activateSection(section);
+      self.router.navigate([arg]);
     }
+    self.updateMenu();
+  }
+  protected updateMenu() {
+    const self = this;
+    self.ctx.ux.props.changeOpenedState();
+  }
+  ngAfterViewInit() {
+    const self = this;
+    self.menu.navigate.subscribe((event: IMenuItem) => {
+      self.onNavigate(event.path, event.section);
+    });
+    self.vtx.activateView(
+      this.ctx.session.userIdentity.role === UserIdentityRole.Buyer
+        ? AreaView.Buyer
+        : AreaView.Vendor
+    );
   }
 }
+
+// <mat-nav-list class="fabric-sidenav-list" #navlist>
+//     <a mat-list-item *ngFor="let nav of fillerNav" class="item-color" (click)="onNavigate(nav.path, nav.section);">
+//         <mat-icon mat-list-icon>folder</mat-icon>
+//         <h4 mat-line *ngIf="nav.label">{{nav.label}}</h4>
+//     </a>
+//   </mat-nav-list>

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnDestroy, OnInit {
     constructor(public ctx:ApplicationContext, public vtx:ApplicationViewContext){
         const self = this;
         self.SubHeaderTitle = "Trending Now..."
-        self.viewManagerOutputMessage = vtx.active.value;
+        self.viewManagerOutputMessage = vtx.view.active.value;        
     }
     ngOnInit(): void { }
     ngOnDestroy(): void { }

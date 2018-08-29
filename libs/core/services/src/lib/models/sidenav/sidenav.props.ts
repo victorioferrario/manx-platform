@@ -18,6 +18,7 @@ export interface ISideNavProps {
         fixedBottomGap?: number,
         fixedInViewport?: boolean): boolean;
     resize(toSize: SizeEnum): boolean;
+    changeOpenedState():void;
 }
 export class SideNavProps implements ISideNavProps {
     size: Size;
@@ -62,6 +63,10 @@ export class SideNavProps implements ISideNavProps {
         this.size = toSize;
         this.cssClass = Config.CssClass + this.size;      
         return true;
+    }
+    public changeOpenedState(){
+        const self =this;
+        self.opened = self.mode === ModeEnum.push || self.mode === ModeEnum.over ? false : true;  
     }
 }
 

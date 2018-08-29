@@ -39,6 +39,7 @@ import {
     ShellComponent        ,
     HeaderComponent       ,
     SubHeaderComponent    ,
+    MenuComponent         ,
     SideMenuComponent     ,
     DevToolbarComponent   } from './layout/template';
 
@@ -69,6 +70,7 @@ const COMPONENT_TEMPLATES = [
   MainComponent       ,
   ShellComponent      ,
   HeaderComponent     ,
+  MenuComponent       ,
   SideMenuComponent   ,
   SubHeaderComponent  ,
   DevToolbarComponent ,
