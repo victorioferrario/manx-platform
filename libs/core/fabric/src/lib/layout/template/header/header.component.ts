@@ -1,30 +1,25 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input, AfterViewInit,  ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ApplicationContext , ApplicationViewContext, IApplicationViewContext } from '@hubx/services'
 
 @Component({
     selector: 'fabric-header',
-    template: `
-<mat-toolbar>
-    <mat-toolbar-row class="header-toolbar-row-1">
-        <ng-content select="[headerLogo]"></ng-content>
-        <aside class="header-row-output-console">{{ this.vtx.active | async }} {{ this.vtx.activeSection | async }}</aside>
-    </mat-toolbar-row> 
-    <mat-toolbar-row class="header-toolbar-row-2 fadeIn animated-800" *ngIf="this.ctx.session.isAuthenticated">   
-        <fabric-subheader SubHeaderTitle="{{this.SubHeaderTitle}}" *ngIf="this.ctx.session.isAuthenticated"></fabric-subheader>
-</mat-toolbar-row>
-</mat-toolbar>`,
+    templateUrl: './header.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnDestroy, OnInit {
+export class HeaderComponent implements OnDestroy, OnInit , AfterViewInit{
     viewManagerOutputMessage:string;
     @Input()
-    SubHeaderTitle:string;
-
-    constructor(public ctx:ApplicationContext, public vtx:ApplicationViewContext){
-        const self = this;
-        self.SubHeaderTitle = "Trending Now..."
-        self.viewManagerOutputMessage = vtx.active.value;
+    SubHeaderTitle:string;  
+    constructor(public ctx:ApplicationContext, public vtx:ApplicationViewContext,  private cdr: ChangeDetectorRef){
+            
     }
     ngOnInit(): void { }
     ngOnDestroy(): void { }
+
+    ngAfterViewInit(){
+        const self = this;
+        self.SubHeaderTitle = "Trending Now..."
+        self.viewManagerOutputMessage = self.vtx.view.active.value;    
+    }
 }

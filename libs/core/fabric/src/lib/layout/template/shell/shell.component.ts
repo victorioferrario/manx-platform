@@ -1,24 +1,11 @@
 import {
   Component,
   OnInit,
-  ViewChild,
-  AfterViewInit,
-  QueryList,
-  ViewChildren,
-  ViewContainerRef,
-  ViewEncapsulation
+  AfterViewInit
 } from '@angular/core';
 import {
-  ApplicationContext,
-  IActionEmitter,
-  AuthAction,
-  ActionEmitter,
-  Actions_UI,
-  MenuAction,
-  SizeEnum
+  ApplicationContext
 } from '@hubx/services';
-
-
 
 @Component({
   selector: 'fabric-shell',

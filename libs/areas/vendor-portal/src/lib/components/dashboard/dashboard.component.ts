@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
+import  {ApplicationViewContext, VendorViewSection } from '@hubx/services';
 @Component({
   selector: 'vendor-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,10 +9,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class DashboardComponent implements OnInit {
   sectionText:string;
   sectionTitle:string;  
-  constructor() { }
+  constructor(public vtx: ApplicationViewContext) { }
   ngOnInit() {
-    this.sectionTitle = "Dashboard";
-    this.sectionText = `The ${this.sectionTitle} works!`;
+    const self = this;
+    self.sectionTitle = "Dashboard";
+    self.sectionText = `The ${self.sectionTitle} works!`;    
+    setTimeout(() => {
+      self.vtx.activateSection(
+        VendorViewSection.Dashboard);
+    }, 100);
   }
-
 }

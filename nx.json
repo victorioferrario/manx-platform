@@ -43,6 +43,16 @@
       "tags": [
         "ux"
       ]
+    },
+    "domain": {
+      "tags": [
+        "data"
+      ]
+    },
+    "infrastructure": {
+      "tags": [
+        "data"
+      ]
     }
   }
 }

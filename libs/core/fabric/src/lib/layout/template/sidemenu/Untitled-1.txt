@@ -1,0 +1,48 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AreaView, BuyerViewSection, VendorViewSection } from './models/enums';
+export interface IApplicationViewContext {
+  viewContext: IViewContext;
+}
+export interface IViewContext {
+  active: Observable<string>;
+  activeSection: Observable<BuyerViewSection | VendorViewSection>;
+  next(
+    newActive: AreaView,
+    newSection?: BuyerViewSection | VendorViewSection
+  ): void;
+}
+export class ViewContext implements IViewContext {
+  active: BehaviorSubject<AreaView> = new BehaviorSubject<AreaView>(
+    AreaView.Login
+  );
+  activeSection: BehaviorSubject<
+    BuyerViewSection | VendorViewSection
+  > = new BehaviorSubject<BuyerViewSection>(BuyerViewSection.Dashboard);
+  constructor() {
+    this.active.asObservable();
+    this.activeSection.asObservable();
+  }
+  next(newActive: AreaView, newSection?: BuyerViewSection | VendorViewSection) {
+    this.active.next(newActive);
+    this.activeSection.next(newSection);
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApplicationViewContext implements IApplicationViewContext {
+  viewContext: IViewContext;
+  constructor() {
+    this.viewContext = new ViewContext();
+  }
+  public activateView(
+    newActive: AreaView,
+    newSection?: BuyerViewSection | VendorViewSection
+  ) {
+    this.viewContext.next(newActive, newSection);
+  }
+}
+
+// { IViewContext, ViewContext }

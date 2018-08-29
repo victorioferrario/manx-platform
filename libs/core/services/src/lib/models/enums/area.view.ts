@@ -9,7 +9,8 @@ export enum AreaView {
     Account = 'Acount',
     Profile = 'Profile',
     Orders = 'Orders',
-    OrderDetails = 'OrderDetails'
+    OrderDetails = 'OrderDetails',
+    Logout = 'Logout'
   }
   export enum VendorViewSection {
     Dashboard = 'Dashboard',
@@ -17,7 +18,8 @@ export enum AreaView {
     Account = 'Acount',
     Profile = 'Profile',
     Orders = 'Orders',
-    OrderDetails = 'OrderDetails'
+    OrderDetails = 'OrderDetails',
+    Logout = 'Logout'
   }
 
 // export { AreaView  , BuyerViewSection, VendorViewSection}

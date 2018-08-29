@@ -46,9 +46,11 @@
     "@nrwl/nx": "6.2.1",
     "angular-webstorage-service": "^1.0.2",
     "animate.css": "^3.7.0",
+    "auth0-js": "^9.7.3",
     "core-js": "^2.5.4",
     "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
+    "jwt-decode": "^2.2.0",
     "rxjs": "^6.0.0",
     "typescript-logging": "^0.6.2",
     "zone.js": "^0.8.26"

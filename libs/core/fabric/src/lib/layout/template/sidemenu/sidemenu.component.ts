@@ -3,6 +3,7 @@ import {
   ViewChild,
   OnInit,
   Inject,
+  AfterViewInit,
   ViewContainerRef
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -17,6 +18,9 @@ import {
   VendorViewSection,
   AreaView
 } from '@hubx/services';
+
+import { MenuComponent } from '../../../components/menu/menu.component';
+
 import { RouterLink, Router } from '@angular/router';
 
 import { ConfirmLogoutDialogComponent } from '../dialog/confirm-logout.dialog';
@@ -32,135 +36,69 @@ export interface IMenuItem {
 @Component({
   selector: 'fabric-sidemenu',
   styleUrls: ['./sidemenu.component.css'],
-  template: `<mat-nav-list class="fabric-sidenav-list" #navlist>
-    <a mat-list-item *ngFor="let nav of fillerNav" class="item-color" routerLink="nav.path" (click)="onNavigate(nav.path, nav.section);">
-        <mat-icon mat-list-icon>folder</mat-icon>      
-        <h4 mat-line *ngIf="nav.label">{{nav.label}}</h4>
-    </a> 
-  </mat-nav-list>`
+  template: `
+  <fabric-menu></fabric-menu>
+  `
 })
-export class SideMenuComponent implements OnInit {
-  @ViewChild('navlist') private navlistInstance;
-  menuBuyerArray: IMenuItem[] = [
-    {
-      label: 'Dashboard',
-      path: '/buyer',
-      section: BuyerViewSection.Dashboard
-    },
-    {
-      label: 'Shopping Cart',
-      path: '/buyer/cart',
-      section: BuyerViewSection.Cart
-    },
-    {
-      label: 'My Account',
-      path: '/buyer/account',
-      section: BuyerViewSection.Account
-    },
-    {
-      label: 'My Profile',
-      path: '/buyer/profile',
-      section: BuyerViewSection.Profile
-    },
-    {
-      label: 'My Orders',
-      path: '/buyer/orders',
-      section: BuyerViewSection.Orders
-    },
-    {
-      label: 'My Order Details',
-      path: '/buyer/orderdetail',
-      section: BuyerViewSection.OrderDetails
-    },
-    {
-      label: 'Logout',
-      path: 'DIALOG'
-    }
-  ];
-  menuVendorArray: IMenuItem[] = [
-    {
-      label: 'Dashboard',
-      path: '/vendor',
-      section: VendorViewSection.Dashboard
-    },
-    {
-      label: 'Products',
-      path: '/vendor/products',
-      section: VendorViewSection.Products
-    },
-    {
-      label: 'Orders',
-      path: '/vendor/orders',
-      section: VendorViewSection.Orders
-    },
-    {
-      label: 'My Profile',
-      path: '/vendor/profile',
-      section: VendorViewSection.Profile
-    },
-    {
-      label: 'Logout',
-      path: 'DIALOG'
-    }
-  ];
-  fillerNav: IMenuItem[];
+export class SideMenuComponent implements OnInit, AfterViewInit {
+  @ViewChild(MenuComponent) menu: MenuComponent;
+
   constructor(
-    public dialog: MatDialog,
     private router: Router,
-    public viewContainerRef: ViewContainerRef,
+    public dialog: MatDialog,
     public ctx: ApplicationContext,
     public vtx: ApplicationViewContext
-  ) {
-    this.fillerNav =
-      ctx.session.userIdentity.role === UserIdentityRole.Buyer
-        ? this.menuBuyerArray
-        : this.menuVendorArray;
-  }
+  ) {}
   openDialog(): void {
     const self = this;
-    const dialogRef = this.dialog.open(ConfirmLogoutDialogComponent, {
+    const dialogRef = self.dialog.open(ConfirmLogoutDialogComponent, {
       width: '550px',
       disableClose: true
     });
     dialogRef.beforeClose().subscribe((result: any) => {
+      if (result && result.action) {
+        switch (result.action) {
+          case 'continue':
+            self.updateMenu();
+            break;
+        }
+      }
       if (result === undefined) {
         self.router.navigate(['/logout']);
       }
     });
-    dialogRef.afterClosed().subscribe((result: IDialogActions) => {
-      switch (result.action) {
-        case 'logout':
-          break;
-        case 'continue':
-          break;
-      }
-    });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    const self = this;
+    self.vtx.activateView(
+      self.ctx.session.userIdentity.role === UserIdentityRole.Buyer
+        ? AreaView.Buyer
+        : AreaView.Vendor
+    );
+  }
   onNavigate(arg: string, section?: BuyerViewSection | VendorViewSection) {
     const self = this;
-    if (arg !== 'DIALOG') {
-      if (
-        self.ctx.ux.props.mode === ModeEnum.push ||
-        self.ctx.ux.props.mode === ModeEnum.over
-      ) {
-        self.ctx.ux.props.opened = false;
-      }
-      self.vtx.activateView(
-        this.ctx.session.userIdentity.role === UserIdentityRole.Buyer
-          ? AreaView.Buyer
-          : AreaView.Vendor,
-        section
-      );
-      self.router.navigate([arg]);
-    } else {
-      if (
-        self.ctx.ux.props.mode === ModeEnum.push ||
-        self.ctx.ux.props.mode === ModeEnum.over
-      ) {
-        self.ctx.ux.props.opened = false;
-      }
+    if (arg === 'DIALOG') {
       self.openDialog();
+    } else {
+      self.vtx.navigate(arg, section);
     }
   }
+  protected updateMenu() {
+    const self = this;
+    self.ctx.ux.props.changeOpenedState();
+  }
+  ngAfterViewInit() {
+    const self = this;
+    self.menu.navigate.subscribe((event: IMenuItem) => {
+      self.onNavigate(event.path, event.section);
+    });       
+  }
 }
+
+// <mat-nav-list class="fabric-sidenav-list" #navlist>
+//     <a mat-list-item *ngFor="let nav of fillerNav" class="item-color" (click)="onNavigate(nav.path, nav.section);">
+//         <mat-icon mat-list-icon>folder</mat-icon>
+//         <h4 mat-line *ngIf="nav.label">{{nav.label}}</h4>
+//     </a>
+//   </mat-nav-list>
