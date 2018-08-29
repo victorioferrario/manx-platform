@@ -7,6 +7,8 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { HostListenerDirective } from './components/dashboard/directives/click.directive';
+import { AlertComponent } from './components/dashboard/alert.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,20 +17,24 @@ import { MyprofileComponent } from './components/myprofile/myprofile.component';
     ])
   ],
   declarations: [
+    AlertComponent,
     CartComponent,
     DashboardComponent,
     MyaccountComponent,
     OrdersComponent,
     OrderDetailComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    HostListenerDirective
   ],
   exports: [
+    AlertComponent,
     CartComponent,
     DashboardComponent,
     MyaccountComponent,
     OrdersComponent,
     OrderDetailComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    HostListenerDirective
   ]
 })
 export class AreasBuyerPortalModule {}

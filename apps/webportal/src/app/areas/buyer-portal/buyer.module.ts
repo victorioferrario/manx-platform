@@ -8,6 +8,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FabricModule } from '@hubx/fabric';
 import {OverlayContainer, FullscreenOverlayContainer, OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
+
 /**
  * Components
  */
@@ -20,6 +21,8 @@ import {
 } from './components/main/main.component';
 ///
 import {
+  AlertComponent,
+  HostListenerDirective,
   CartComponent       ,
   DashboardComponent  ,
   MyaccountComponent  ,
@@ -27,11 +30,14 @@ import {
   OrdersComponent     ,
   OrderDetailComponent  } from '@hubx/areas/buyers'; 
   
+  
 /**
  * @var: COMPONENTS_BUYER
  * @description: Array of buyer components.
  */
 export const COMPONENTS_BUYER = [  
+  AlertComponent,
+  HostListenerDirective,
   BuyerMainComponent,
   CartComponent       ,
   DashboardComponent  ,
@@ -48,6 +54,7 @@ export const COMPONENTS_BUYER = [
     FabricModule,
     OverlayModule,
     PortalModule,
+    // COMPONENTS_BUYER,
     BuyerRoutingModule
   ],
   providers:[ ApplicationContext],

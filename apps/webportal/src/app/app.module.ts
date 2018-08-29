@@ -15,10 +15,15 @@ import { NxModule } from '@nrwl/nx';
 /**
  * hubx Modules
  */
+
+
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
 import { ApplicationRoutingService } from './app-routing.service';
+
 import { ApplicationContext, AuthService, ServicesModule } from '@hubx/services';
+
+
 // @Collection : Components
 /**
  * Local Components
