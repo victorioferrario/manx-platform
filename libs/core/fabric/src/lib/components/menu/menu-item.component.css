@@ -1,0 +1,10 @@
+
+.item-color{
+    color:#fff;   
+
+}
+
+.item-selected{
+    color:#ddd;
+    background:rgba(13, 8, 39, 0.25);
+}

@@ -8,8 +8,11 @@ export {
   ApplicationViewContext,
   IApplicationViewContext, 
   IViewContext, ViewContext
+ 
   // IViewContext, ViewContext 
 } from './lib/application-viewmanager.service';
+
+
 
 export { ApplicationContext } from './lib/application-context.service';
 export * from './lib/services.module';

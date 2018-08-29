@@ -19,7 +19,8 @@ import {
   AreaView
 } from '@hubx/services';
 
-import { MenuComponent } from './menuitem.component';
+import { MenuComponent } from '../../../components/menu/menu.component';
+
 import { RouterLink, Router } from '@angular/router';
 
 import { ConfirmLogoutDialogComponent } from '../dialog/confirm-logout.dialog';
@@ -42,112 +43,46 @@ export interface IMenuItem {
 export class SideMenuComponent implements OnInit, AfterViewInit {
   @ViewChild(MenuComponent) menu: MenuComponent;
 
-  menuBuyerArray: IMenuItem[] = [
-    {
-      label: 'Dashboard',
-      path: '/buyer',
-      section: BuyerViewSection.Dashboard
-    },
-    {
-      label: 'Shopping Cart',
-      path: '/buyer/cart',
-      section: BuyerViewSection.Cart
-    },
-    {
-      label: 'My Account',
-      path: '/buyer/account',
-      section: BuyerViewSection.Account
-    },
-    {
-      label: 'My Profile',
-      path: '/buyer/profile',
-      section: BuyerViewSection.Profile
-    },
-    {
-      label: 'My Orders',
-      path: '/buyer/orders',
-      section: BuyerViewSection.Orders
-    },
-    {
-      label: 'My Order Details',
-      path: '/buyer/orderdetail',
-      section: BuyerViewSection.OrderDetails
-    },
-    {
-      label: 'Logout',
-      path: 'DIALOG'
-    }
-  ];
-  menuVendorArray: IMenuItem[] = [
-    {
-      label: 'Dashboard',
-      path: '/vendor',
-      section: VendorViewSection.Dashboard
-    },
-    {
-      label: 'Products',
-      path: '/vendor/products',
-      section: VendorViewSection.Products
-    },
-    {
-      label: 'Orders',
-      path: '/vendor/orders',
-      section: VendorViewSection.Orders
-    },
-    {
-      label: 'My Profile',
-      path: '/vendor/profile',
-      section: VendorViewSection.Profile
-    },
-    {
-      label: 'Logout',
-      path: 'DIALOG'
-    }
-  ];
-  fillerNav: IMenuItem[];
-
   constructor(
-    public dialog: MatDialog,
     private router: Router,
-    public viewContainerRef: ViewContainerRef,
+    public dialog: MatDialog,
     public ctx: ApplicationContext,
     public vtx: ApplicationViewContext
-  ) {
-    this.fillerNav =
-      ctx.session.userIdentity.role === UserIdentityRole.Buyer
-        ? this.menuBuyerArray
-        : this.menuVendorArray;
-  }
+  ) {}
   openDialog(): void {
     const self = this;
-    const dialogRef = this.dialog.open(ConfirmLogoutDialogComponent, {
+    const dialogRef = self.dialog.open(ConfirmLogoutDialogComponent, {
       width: '550px',
       disableClose: true
     });
     dialogRef.beforeClose().subscribe((result: any) => {
+      if (result && result.action) {
+        switch (result.action) {
+          case 'continue':
+            self.updateMenu();
+            break;
+        }
+      }
       if (result === undefined) {
         self.router.navigate(['/logout']);
       }
     });
-    dialogRef.afterClosed().subscribe((result: IDialogActions) => {
-      switch (result.action) {
-        case 'logout':
-          break;
-        case 'continue':
-          break;
-      }
-    });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    const self = this;
+    self.vtx.activateView(
+      self.ctx.session.userIdentity.role === UserIdentityRole.Buyer
+        ? AreaView.Buyer
+        : AreaView.Vendor
+    );
+  }
   onNavigate(arg: string, section?: BuyerViewSection | VendorViewSection) {
     const self = this;
     if (arg === 'DIALOG') {
       self.openDialog();
     } else {
-      self.vtx.activateSection(section);
-      self.router.navigate([arg]);
+      self.vtx.navigate(arg, section);
     }
-    self.updateMenu();
   }
   protected updateMenu() {
     const self = this;
@@ -157,12 +92,7 @@ export class SideMenuComponent implements OnInit, AfterViewInit {
     const self = this;
     self.menu.navigate.subscribe((event: IMenuItem) => {
       self.onNavigate(event.path, event.section);
-    });
-    self.vtx.activateView(
-      this.ctx.session.userIdentity.role === UserIdentityRole.Buyer
-        ? AreaView.Buyer
-        : AreaView.Vendor
-    );
+    });       
   }
 }
 

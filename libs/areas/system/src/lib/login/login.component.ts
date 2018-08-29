@@ -7,6 +7,8 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { AuthenticationDataContext } from '@hubx/domain';
 import {
   AuthService,
   IUserIdentity,
@@ -27,6 +29,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
+  email:string;
+  password:string;
   options: FormGroup;
   isLoggingIn: boolean;
 
@@ -35,7 +39,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public ctx: ApplicationContext,
     public vtx:ApplicationViewContext, 
-    private auth: AuthService
+    private auth: AuthenticationDataContext
   ) {
     this.isLoggingIn = true;
     this.ctx.session.isLogginOut = false;
@@ -53,15 +57,18 @@ export class LoginComponent implements OnInit {
   login(username: string, password: string) {
     const self = this;
     //ToDo: Move this all out of here.
-    const user = new UserIdentity();
-    self.router.navigate(['/buyer']);
-    user.authenticate(true, UserIdentityRole.Buyer);
-    user.name = 'Manny Buyer';
-    self.auth.login(user, UserIdentityRole.Buyer);
-    self.vtx.activateView(AreaView.Buyer);
-    self.ctx.dispatch.emit(
-      new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Buyer)
-    );
+    // const user = new UserIdentity();
+    // self.router.navigate(['/buyer']);
+    // user.authenticate(true, UserIdentityRole.Buyer);
+    // user.name = 'Manny Buyer';
+
+    if(self.auth.login(username, password)){
+      console.log("AUTHENTICATRD")
+    }
+    // self.vtx.activateView(AreaView.Buyer);
+    // self.ctx.dispatch.emit(
+    //   new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Buyer)
+    // );
     
   }
   loginVendor(username: string, password: string) {
@@ -72,11 +79,11 @@ export class LoginComponent implements OnInit {
     self.router.navigate(['/vendor']);
     user.authenticate(true, UserIdentityRole.Vendor);
     user.name = 'Manny Vendor';
-    self.auth.login(user, UserIdentityRole.Vendor);
-    self.vtx.activateView(AreaView.Vendor);
-    self.ctx.dispatch.emit(
-      new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
-    );
+    // self.auth.login(user, UserIdentityRole.Vendor);
+    // self.vtx.activateView(AreaView.Vendor);
+    // self.ctx.dispatch.emit(
+    //   new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
+    // );
    
   }
 }

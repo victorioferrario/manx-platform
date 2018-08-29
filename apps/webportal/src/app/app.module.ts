@@ -20,8 +20,9 @@ import { NxModule } from '@nrwl/nx';
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
 import { ApplicationRoutingService } from './app-routing.service';
-
-import { ApplicationContext, AuthService, ServicesModule } from '@hubx/services';
+import { DomainModule         } from '@hubx/domain';
+import { InfrastructureModule } from '@hubx/infrastructure';
+import { ApplicationContext, ServicesModule } from '@hubx/services';
 
 
 // @Collection : Components
@@ -66,6 +67,8 @@ const COMPONENTS_MATERIAL =
     OverlayModule,
     FlexLayoutModule, 
     BrowserAnimationsModule  ];
+
+    import { AuthenticationDataContext } from '@hubx/domain';
 //
 /**
  * Ng module
@@ -78,13 +81,14 @@ const COMPONENTS_MATERIAL =
     COMPONENTS_INTERNAL,  
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
-    COMPONENTS_SERVICES   
+    COMPONENTS_SERVICES   ,     
+    InfrastructureModule
   ],
   entryComponents: [ ],
-  providers: [
-    AuthService,
+  providers: [   
     ApplicationContext, 
     ApplicationRoutingService,
+    AuthenticationDataContext,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],
   bootstrap: [AppComponent]

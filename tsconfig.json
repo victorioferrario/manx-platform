@@ -24,7 +24,7 @@
       ],
       "@hubx/services": [
         "libs/core/services/src/index.ts"
-      ],      
+      ],
       "@hubx/system": [
         "libs/areas/system/src/index.ts"
       ],
@@ -33,6 +33,12 @@
       ],
       "@hubx/areas/vendor": [
         "libs/areas/vendor-portal/src/index.ts"
+      ],
+      "@hubx/domain": [
+        "libs/shared/domain/src/index.ts"
+      ],
+      "@hubx/infrastructure": [
+        "libs/shared/infrastructure/src/index.ts"
       ]
     }
   },

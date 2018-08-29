@@ -19,7 +19,7 @@ export class ConfirmLogoutDialogComponent {
   onNoClick(): void {
     this.dialogRef.beforeClose();
     this.dialogRef.close({
-      action: 'stay logged in'
+      action: 'continue'
     });
   }
   onYesClick() {
