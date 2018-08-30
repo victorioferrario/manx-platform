@@ -1,7 +1,7 @@
 <mat-toolbar>
     <mat-toolbar-row class="header-toolbar-row-1">
         <ng-content select="[headerLogo]"></ng-content>
-        <aside class="header-row-output-console">{{ this.vtx.active | async }} {{ this.vtx.activeSection | async }}</aside>
+        <aside class="header-row-output-console">{{ this.vtx.view.active | async }} {{ this.vtx.view.activeSection | async }}</aside>
     </mat-toolbar-row> 
     <mat-toolbar-row class="header-toolbar-row-2 fadeIn animated-800" *ngIf="this.ctx.session.isAuthenticated">   
         <fabric-subheader SubHeaderTitle="{{this.SubHeaderTitle}}" *ngIf="this.ctx.session.isAuthenticated"></fabric-subheader>

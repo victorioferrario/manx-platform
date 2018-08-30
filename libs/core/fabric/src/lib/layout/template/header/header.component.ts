@@ -11,15 +11,16 @@ export class HeaderComponent implements OnDestroy, OnInit , AfterViewInit{
     viewManagerOutputMessage:string;
     @Input()
     SubHeaderTitle:string;  
-    constructor(public ctx:ApplicationContext, public vtx:ApplicationViewContext,  private cdr: ChangeDetectorRef){
-            
-    }
+    constructor(public ctx:ApplicationContext, public vtx:ApplicationViewContext){
+                }
     ngOnInit(): void { }
     ngOnDestroy(): void { }
 
     ngAfterViewInit(){
         const self = this;
-        self.SubHeaderTitle = "Trending Now..."
+        self.SubHeaderTitle = "Trending Now...";
+        console.log(self.vtx.view.active.value);
+
         self.viewManagerOutputMessage = self.vtx.view.active.value;    
     }
 }

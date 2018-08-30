@@ -1,20 +1,17 @@
 import {
-  Component,
   OnInit,
-  HostListener,
-  ViewChild,
+  Component,  
+  HostListener,  
   ViewContainerRef
 } from '@angular/core';
 import { Router } from '@angular/router';
+
 import {
   ApplicationRoutingService
 } from '../app-routing.service';
+
 import {
-  ApplicationContext,
-  Actions_UI,
-  MenuAction,
-  ActionEmitter,
-  SizeEnum
+  ApplicationContext  
 } from '@hubx/services';
 
 @Component({
@@ -36,9 +33,7 @@ export class AppComponent implements OnInit {
   }
   constructor(
     private router: Router,
-    private ctx: ApplicationContext,
-    private viewRef: ViewContainerRef,
-    private rtx: ApplicationRoutingService) {
+    private ctx: ApplicationContext) {
     const self = this;
     this.onResize();
   }
