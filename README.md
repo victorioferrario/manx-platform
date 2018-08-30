@@ -24,12 +24,12 @@
 
 ## Angular Enterprise Application Architecture
 
-|                                                   Project                                                   |                                           Description                                           |    Type     |
+|                                                   Project Library                                                   |                                           Description                                           |    Type     |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
 | [Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)                   | main application                                                                                | Application |
 | Areas                                                                                                       |                                                                                                 |             |
 | [Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)  | library that runs the buyer-portal under the main app.                                          | Library     |
-| [System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system)                   | Application Components of common functionality                                                  | Library     |
+| [System &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system)                   | Application Components of common functionality                                                  | Library     |
 | [Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal) | library that runs the vendor-portal under the main app.                                         | Library     |
 | Core                                                                                                        |                                                                                                 |             |
 | [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                    | Application UI Management & Core Components                                                     | Library     |
