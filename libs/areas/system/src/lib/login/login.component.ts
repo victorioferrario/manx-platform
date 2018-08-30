@@ -5,20 +5,25 @@ import {
   OnInit,
   ChangeDetectionStrategy  
 } from '@angular/core';
+
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 import { Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '@hubx/infrastructure';
+import { AuthenticationService, AUTH_CONFIG } from '@hubx/infrastructure';
 import {
   AuthService,
   IUserIdentity,
-  UserIdentity,
+  UserIdentitySessionObject,
   UserIdentityRole
 } from '@hubx/services';
 
 import {
-  ApplicationContext,ApplicationViewContext, AreaView,
+  ApplicationContext,
+  ApplicationViewContext, 
+  AreaView,
   Actions_UI,
   AuthAction,
   ActionEmitter
@@ -66,62 +71,63 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
-    this.username.setValue("admin@hubx.com") ;
     this.password.setValue("Abcd123$") ;
-    self.auth.dispatch.subscribe((event: any) => {
-      const role =
+    this.username.setValue("admin@hubx.com") ;
+    self.auth.dispatch.subscribe((event: any) => {     
+       const role =
         event.role === 'ADMIN'
           ? UserIdentityRole.Vendor
-          : UserIdentityRole.Buyer;          
+          : UserIdentityRole.Buyer;    
+      //           
       const route = event.role === 'ADMIN' ? '/vendor' : '/buyer';
-      const user = new UserIdentity();
-      // do route
-      console.log(route);
-
-      self.router.navigate([route]);
-
-      user.authenticate(true, role);
+      //ToDo: Remove this stuff.
+      const user = new UserIdentitySessionObject();    
+      //
       user.name = 'Manny Vendor';
-     // self.ctx.identity.authenticate(true, role);      
+      user.authenticate(true, role);      
+      /**
+       * TODO: Investigate this call, 
+        this commented out stopped the entire app from routing.
+      */ 
+      self.ctx.identity.login(user, role); 
+      //     
       self.vtx.activateView(
         role === UserIdentityRole.Buyer ? AreaView.Buyer : AreaView.Vendor
       );
+      /**
+       * /@question: why is this event dispatched.
+       */
       self.ctx.dispatch.emit(
         new ActionEmitter(
           Actions_UI.Auth,
           role === UserIdentityRole.Buyer
             ? AuthAction.Login_Buyer
-            : AuthAction.Login_Vendor
-        )
+            : AuthAction.Login_Vendor)
       );
-      self.vtx.navigate(route, role === UserIdentityRole.Buyer 
-        ? BuyerViewSection.Dashboard : VendorViewSection.Dashboard);
+      /**
+       * This is the ApplicationViewContext taking over routing.
+       */
+      self.vtx.navigate(route, 
+        role === UserIdentityRole.Buyer  ? BuyerViewSection.Dashboard : VendorViewSection.Dashboard);
     });
   }
 
   login(username: string, password: string) {
     const self = this;
-    //ToDo: Move this all out of here.
-    // const user = new UserIdentity();
-    // self.router.navigate(['/buyer']);
-    // user.authenticate(true, UserIdentityRole.Buyer);
-    // user.name = 'Manny Buyer';
-    if(self.auth.login(username, password)){
-      console.log("AUTHENTICATRD")
-    }    
-  }
-  loginVendor(username: string, password: string) {
-    console.log(username, password);
-    const self = this;
-    //ToDo: Move this all out of here.
-    const user = new UserIdentity();
-    self.router.navigate(['/vendor']);
-    user.authenticate(true, UserIdentityRole.Vendor);
-    user.name = 'Manny Vendor';
-    // self.auth.login(user, UserIdentityRole.Vendor);
-    // self.vtx.activateView(AreaView.Vendor);
-    // self.ctx.dispatch.emit(
-    //   new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
-    // );   
+    localStorage.clear();
+    sessionStorage.clear();   
+    if(this.username.valid && this.password.valid){
+      self.auth.login(
+        username, password);
+    }else{
+      this.username.invalid;
+    }
+  }  
+  getErrorMessage() {
+    return this.username.hasError('required')
+      ? 'You must enter a value'
+      : this.username.hasError('email')
+        ? 'Not a valid email'
+        : '';
   }
 }

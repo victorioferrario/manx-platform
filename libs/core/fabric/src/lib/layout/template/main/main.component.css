@@ -81,21 +81,29 @@
 
 .fabric-end-nav{
     border-left: solid 1px #666;
-    background: #ccc;   
+    background: #fff;  
+    transition: all  cubic-bezier(.25,.8,.25,1) 400ms;
+}
+.fabric-end-nav.small{
+    width:20px;
+    border-left: solid 1px #666;
+    background: #fff;  
+    transition: all  cubic-bezier(.25,.8,.25,1) 400ms;
 }
 .fabric-end-nav.big{
+    width:205px;
     border-left: solid 1px #666;
     background: #ccc;   
 }
 .cart-gutter{
-    background: #ccc;
+    background: #fff;
     transition-duration: .4s;
     transition-timing-function: cubic-bezier(.25,.8,.25,1);
     transition-property: transform,width;
 }
 .cart-gutter.small {
     border-left: solid 1px #ddd;
-    background: #ccc;
+    background: #fff;
     width:20px;
 }
 .cart-gutter.big {

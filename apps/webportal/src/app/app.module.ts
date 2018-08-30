@@ -1,66 +1,82 @@
-import { NgModule                            } from '@angular/core';
-import { ReactiveFormsModule                 } from '@angular/forms';       
-import { LayoutModule                        } from '@angular/cdk/layout';
-import { FlexLayoutModule                    } from '@angular/flex-layout';
-import { BrowserModule                       } from '@angular/platform-browser';
-import { BrowserAnimationsModule             } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-//
-import { PortalModule                 } from '@angular/cdk/portal';
-import { OverlayModule,
-         OverlayContainer,  
-         FullscreenOverlayContainer   } from '@angular/cdk/overlay';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import {
+  OverlayContainer,
+  FullscreenOverlayContainer,
+  OverlayModule
+} from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 ///
 import { NxModule } from '@nrwl/nx';
 /**
  * hubx Modules
  */
-import { AuthenticationDataContext } from '@hubx/domain';
-import { ApplicationRoutingService } from './app-routing.service';
 
-// import { DomainModule                       } from '@hubx/domain';
-import { FiberModule                        } from '@hubx/fiber';
-import { FabricModule                       } from '@hubx/fabric';
+
+import { FiberModule } from '@hubx/fiber';
+import { FabricModule } from '@hubx/fabric';
+import { ApplicationRoutingService } from './app-routing.service';
+import { DomainModule         } from '@hubx/domain';
+//
+ import { AuthenticationTokenInterceptor,  AuthenticationService  } from '@hubx/infrastructure';
 import { ApplicationContext, ServicesModule } from '@hubx/services';
-import { InfrastructureModule               } from '@hubx/infrastructure';
-// 
-import { TimingInterceptor} from '@hubx/services';
+
+// providers: [
+//   {
+//     multi: true,
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: AuthenticationTokenInterceptor      
+//   },
+//   AuthenticationService]
 // @Collection : Components
 /**
  * Local Components
  */
 import {
   LoginComponent,
-  LogoutComponent, 
+  LogoutComponent,  
   RouteErrorComponent,
-  RouteNotFoundComponent } from '@hubx/system';
-import { LoaderComponent } from '@hubx/fabric';
+  RouteNotFoundComponent
+} from '@hubx/system';
 //
+import { LoaderComponent } from '@hubx/fabric';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './containers/app.component';
+
+//
 const COMPONENTS = 
-[   AppComponent,    
+[   AppComponent,
     LoginComponent,
-    LogoutComponent,       
+    LogoutComponent,   
     RouteErrorComponent,
     RouteNotFoundComponent  ];
+//
 const COMPONENTS_INTERNAL =
 [   BrowserModule, 
     BrowserAnimationsModule ];
+//
 const COMPONENTS_SERVICES = 
 [   FiberModule, 
     FabricModule, 
     ServicesModule,         
     AppRoutingModule,
-    HttpClientModule,
     NxModule.forRoot(),
     ReactiveFormsModule     ];
+//
 const COMPONENTS_MATERIAL = 
 [   LayoutModule, 
     PortalModule, 
     OverlayModule,
     FlexLayoutModule, 
-    BrowserAnimationsModule  ];    
+    BrowserAnimationsModule  ];
+
+   // import { AuthenticationDataContext } from '@hubx/domain';
 //
 /**
  * Ng module
@@ -74,21 +90,21 @@ const COMPONENTS_MATERIAL =
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
     COMPONENTS_SERVICES,    
-    // DomainModule, 
-    InfrastructureModule
   ],
   entryComponents: [ ],
-  providers: [   
-    ApplicationContext, 
-    ApplicationRoutingService,
-    AuthenticationDataContext,
+  providers: [       
     { 
       provide: OverlayContainer, 
-      useClass: FullscreenOverlayContainer },{
-      provide: HTTP_INTERCEPTORS,
-      useClass: TimingInterceptor,
-      multi: true
-    }     
+      useClass: FullscreenOverlayContainer 
+    },
+    {
+          multi: true,
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthenticationTokenInterceptor      
+    },
+    ApplicationContext, 
+    AuthenticationService,
+    ApplicationRoutingService      
   ],
   bootstrap: [AppComponent]
 })

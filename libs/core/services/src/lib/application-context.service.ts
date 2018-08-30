@@ -1,4 +1,4 @@
-import { UserIdentity } from './models/session/user';
+import { UserIdentitySessionObject } from './models/session/user';
 
 
 
@@ -17,7 +17,7 @@ import {
   AuthAction,
   UserIdentityRole
 } from './models';
-
+import { AuthService} from './security/auth.service';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
@@ -45,8 +45,7 @@ import { ViewStateEnum } from './models/view';
 })
 export class ApplicationContext implements IApplicationContext {
   ux: ILayoutProps;
-  session: ISession;
-  identity:UserIdentity;
+  session: ISession;    
   dispatch: EventEmitter<IActionEmitter>;
   breakObserver: BreakpointObserver;
   /** 
@@ -54,7 +53,8 @@ export class ApplicationContext implements IApplicationContext {
    * application context.
    * @param breakpointObserver
    */
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver,
+     public identity :AuthService) {
     const self = this;
     self.ux = new Layout(true);
     self.session = new Session(self);

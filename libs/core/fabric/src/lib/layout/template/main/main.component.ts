@@ -27,6 +27,8 @@ import {
   OverlayRef
 } from '@angular/cdk/overlay';
 
+import { ILayoutAction } from '@hubx/services';
+
 import { LoaderComponent } from '../../../components/loader/loader.component';
 import {
   ApplicationContext,
@@ -35,7 +37,6 @@ import {
   ActionEmitter,
   Actions_UI,
   MenuAction,
-  ILayoutAction,
   SizeEnum
 } from '@hubx/services';
 import { MatSidenav } from '@angular/material';

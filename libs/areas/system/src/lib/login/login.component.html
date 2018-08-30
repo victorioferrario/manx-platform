@@ -21,21 +21,18 @@
         </mat-card-content>
         <mat-card-actions style="text-align:center;padding-top:0;padding-bottom:20px;">
           <div fxLayout='row' fxLayoutAlign="space-around center">
+              <!-- <div fxFlex="45" [fxLayout]="direction" class="two">
+                  <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="loginVendor(username.value, password.value)">Vendor
+                    Login</a>
+                </div> -->
             <div fxFlex="45" [fxLayout]="direction" class="one">
               <a mat-flat-button class="login-btn"
                href="javascript:void(0);" color="primary" (click)="login(username.value, password.value)">Buyer
                 Login</a>
-            </div>
-            <div fxFlex="45" [fxLayout]="direction" class="two">
-              <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="loginVendor(username.value, password.value)">Vendor
-                Login</a>
-            </div>
+            </div>            
           </div>
         </mat-card-actions>
       </mat-card>
     </form>
   </section>
 </section>
-<p>
-  Form Status: {{ options.status }}
-</p>

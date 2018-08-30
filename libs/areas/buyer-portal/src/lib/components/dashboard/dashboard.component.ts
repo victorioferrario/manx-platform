@@ -29,14 +29,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     public vtx: ApplicationViewContext
   ) {
     const self = this;
-    setTimeout(() => {
-      self.vtx.activateSection(
-        BuyerViewSection.Dashboard);
-    }, 100);
   }
   ngOnInit() {
-    this.sectionTitle = 'Dashboard';
-    this.sectionText = `The ${this.sectionTitle} works!`;
+    const self = this;
+    self.sectionTitle = 'Dashboard';
+    self.sectionText = `The ${this.sectionTitle} works!`;
+    
   }
   ngAfterViewInit() {}
 }

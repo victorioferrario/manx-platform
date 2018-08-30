@@ -1,0 +1,4 @@
+
+
+git config --global user.name "vmfdesign"
+git config --global user.email victorio.ferraro@gmail.com
