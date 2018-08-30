@@ -15,7 +15,7 @@ export const environment = {
   auth0_Domain: "hubx.auth0.com",
   auth0_ClientID: "rIeqroV4uPabecbaSNqm3OfH3ERaDK5e",
   auth0_realm: "Username-Password-Authentication",
-  auth0_RedirectUrl: "https://portal-dev.hubx.com/callback",
+  auth0_RedirectUrl: "http://localhost:4200/callback",
   auth0_RedirectUrl_LocalHost: "http://localhost:4200/callback",
   itemsInPage: 9999,
   globalSearchIndicator: "#"  ,

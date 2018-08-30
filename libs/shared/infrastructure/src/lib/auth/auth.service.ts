@@ -16,7 +16,7 @@ export interface IAuthResponse {
 }
 
 export interface IAuthenticationService {
-  login(email: string, password: string): boolean;
+  login(email: string, password: string): any;
   logout(): boolean;
   resetPassword(userEmail: string): boolean;
   setSession(authResult): void;
@@ -35,9 +35,15 @@ export interface IAuthenticationResult {
   expiresAt: Date;
 }
 
+export interface IUserIdentity {
+  role: any;
+  loggedIn: boolean;
+}
+
 @Injectable()
 export class AuthenticationService implements IAuthenticationService {
   userRole = '';
+  dispatch: EventEmitter<IUserIdentity>;
   refreshSubscription: any;
   roleChanged = new EventEmitter<string>();
   auth0 = new auth0.WebAuth({
@@ -48,9 +54,12 @@ export class AuthenticationService implements IAuthenticationService {
     responseType: 'token id_token',
     scope: 'openid profile offline_access'
   });
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.dispatch = new EventEmitter<IUserIdentity>();
+  }
 
-  public login(email: string, password: string): boolean {
+  public login(email: string, password: string) {
+    var result = false;
     this.auth0.client.login(
       {
         realm: AUTH_CONFIG.realm,
@@ -58,14 +67,12 @@ export class AuthenticationService implements IAuthenticationService {
         password: password
       },
       (err, authResult) => {
-        if (this.setSession(authResult)) {
-          this.auth0.authorize();
-          return true;
-        }
-      }
-    );
-    return false;
-  }
+        this.setSession(authResult);
+        const user_role = sessionStorage.getItem('user_role');
+        this.dispatch.emit({ role: user_role, loggedIn: true });        
+      });
+    return result;
+    }
 
   public logout(): boolean {
     this.clearSession();
