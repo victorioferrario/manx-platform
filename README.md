@@ -18,6 +18,8 @@
 
 
 ## Angular Enterprise Application Architecture
+![](workspace.png?raw=true)
+
 
 |                                                   Project                                                   |                                           Description                                           |    Type     |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
@@ -34,6 +36,8 @@
 | [Domain](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/domain)                  | To be created, then will be wired up inbetween Fiber & Services                                 | Library     |
 | [Infrastructure](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/infrastructure)  | Ideally these are low-level services, not consumed by ui components, but more over for services | Library     |
 
+
+![](ISideNavProps.png?raw=true)
 
 ## Lib Import Definitions
 ```json
@@ -62,6 +66,8 @@
         "libs/shared/infrastructure/src/index.ts"
       ] 
 ```
+
+![](IApplicationContext.png?raw=true)
 
 
 ng generate @angular/material:material-nav --name toolbar

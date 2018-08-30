@@ -1,3 +1,6 @@
+/**
+ * Major clean up required
+ */
 import {
   Component,
   OnInit,
@@ -36,6 +39,7 @@ import {
   SizeEnum
 } from '@hubx/services';
 import { MatSidenav } from '@angular/material';
+
 @Component({
   selector: 'fabric-main',
   templateUrl: './main.component.html',
