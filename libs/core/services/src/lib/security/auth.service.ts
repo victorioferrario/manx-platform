@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { IUserIdentity, UserIdentity } from '../models/session/user';
 import { UserIdentityRole } from '../models/enums';
+/**
+ * Will act as a facade between @hubx/domain
+ * @classdesc: It's a mess, don't hurt your eyes.
+ */
 @Injectable()
 export class AuthService {
   private loggedIn: 

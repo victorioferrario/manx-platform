@@ -1,3 +1,6 @@
+
+
+
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { IApplicationContext } from './interfaces/IApplicationContext';
@@ -16,6 +19,57 @@ import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
 
+/**
+ * ApplicationContext
+ * @description: The Class has two parts. 
+ * Class Instances: 
+ * @class:ux, 
+ * @type: ILayoutProps, ILayoutProps contains all the definitions 
+ * for the sideNav behavior, subheader, and viewstate;
+ * 
+ * @class:session,  
+ * @type:ISession;    
+ * 
+ * @class:breakObserver
+ * @type:BreakpointObserver;
+ * 
+ * The second part is the dispatcher.  This very important, 
+ * it is essentially the central routing station to handle broadcasted events from the components.
+ * For Example:
+ *    switch (event.type) {
+        case Actions_UI.Menu:          
+          switch (event.subType) {
+            case MenuAction.State_Toggle:              
+              break;
+            default:
+             // set menu to default state.              
+              break;
+          }
+          break;
+        case Actions_UI.Mode:
+          //switched menu mode from: side, over, push.
+          break;
+        case Actions_UI.Auth:
+          const temp2 = event.subType as AuthAction;
+          switch (temp2) {
+            case AuthAction.Login:
+              // sets some variables after login
+              break;
+            case AuthAction.Logout:
+              // clears variables after logout                       
+              break;
+            case AuthAction.Login_Buyer:
+              // sets properties to be consumed by `Application-viewmanager.service.ts` that are specific for a buyer.
+              break;
+            case AuthAction.Login_Vendor:
+              // sets properties to be consumed by `Application-viewmanager.service.ts`that are specific for a vendor.
+              break;
+          }
+          break;
+        case Actions_UI.Resize:
+          // this is broadcasted when the screen size changes. 
+          break;
+ */
 @Injectable({
   providedIn: 'root'
 })
