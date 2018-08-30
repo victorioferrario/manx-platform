@@ -1,3 +1,9 @@
+
+/**
+ * Under Heavy development @ApplicationViewContext.
+ * @classdesc: It's a mess, don't hurt your eyes.
+ */
+
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AreaView, BuyerViewSection, VendorViewSection } from './models/enums';
@@ -6,14 +12,14 @@ import { Router } from '@angular/router';
 export interface IViewContext {
   active: BehaviorSubject<AreaView>;
 }
+
 export class ViewContext implements IViewContext {
   active: BehaviorSubject<AreaView> = new BehaviorSubject<AreaView>(
     AreaView.Login
   );
 }
 
-export interface IApplicationViewContext {
-  
+export interface IApplicationViewContext {  
   active: Observable<string>;
   activeSection: Observable<BuyerViewSection | VendorViewSection>;
   activateView(
@@ -23,6 +29,12 @@ export interface IApplicationViewContext {
   activateSection(arg: BuyerViewSection | VendorViewSection): void;
   navigate(url:string, newSection?: BuyerViewSection | VendorViewSection):void;
 }
+/**
+ * Injectable @class of @ApplicationViewContext.
+ * @description:I believe i am going to extract all the route changing from the components, 
+ * and handle it all here. That way we have full control over slow loading items, 
+ * or need to change some global properties, we do it all here.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -49,7 +61,6 @@ export class ApplicationViewContext implements IApplicationViewContext {
   public activateSection(newSection: BuyerViewSection | VendorViewSection) {
     this.activeSection.next(newSection);
   }
-
   public navigate(url:string, newSection?: BuyerViewSection | VendorViewSection){
     this.router.navigate([url]);   
     if(newSection){
@@ -58,5 +69,3 @@ export class ApplicationViewContext implements IApplicationViewContext {
     this.ctx.ux.props.changeOpenedState();
   }
 }
-
-// IViewContext, ViewContext

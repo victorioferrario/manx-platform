@@ -16,4 +16,3 @@ export class SubHeaderProps implements ISubHeaderProps {
         self.cssClass = cssClass;return true;
     }
 }
-//{ SideNavProps, SubHeaderProps }

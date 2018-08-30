@@ -6,4 +6,4 @@ export {  MyaccountComponent    } from './lib/components/myaccount/myaccount.com
 export {  MyprofileComponent    } from './lib/components/myprofile/myprofile.component';
 export {  OrdersComponent       } from './lib/components/orders/orders.component';
 export {  OrderDetailComponent  } from './lib/components/order-detail/order-detail.component';
-export { HostListenerDirective } from './lib/components/dashboard/directives/click.directive';
+export {  HostListenerDirective } from './lib/components/dashboard/directives/click.directive';
