@@ -17,9 +17,12 @@
 
 
 
-## Angular Enterprise Application Architecture
-![](workspace.png?raw=true)
 
+
+
+# Workspace                                              
+
+## Angular Enterprise Application Architecture
 
 |                                                   Project                                                   |                                           Description                                           |    Type     |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
@@ -29,15 +32,14 @@
 | [System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system)                   | Application Components of common functionality                                                  | Library     |
 | [Vendor-Portal App](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal) | library that runs the vendor-portal under the main app.                                         | Library     |
 | Core                                                                                                        |                                                                                                 |             |
-| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                    | Application UI Management & Core Components                                                                    | Library     |
+| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                    | Application UI Management & Core Components                                                     | Library     |
 | [Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fiber)                      | Application State Management                                                                    | Library     |
 | [Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/services)                | Application Context Provider                                                                    | Library     |
 | Shared                                                                                                      |                                                                                                 | Library     |
 | [Domain](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/domain)                  | To be created, then will be wired up inbetween Fiber & Services                                 | Library     |
 | [Infrastructure](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/infrastructure)  | Ideally these are low-level services, not consumed by ui components, but more over for services | Library     |
 
-
-![](ISideNavProps.png?raw=true)
+# Angular Enterprise Application Symbols
 
 ## Lib Import Definitions
 ```json
@@ -66,9 +68,6 @@
         "libs/shared/infrastructure/src/index.ts"
       ] 
 ```
-
-![](IApplicationContext.png?raw=true)
-
 
 ng generate @angular/material:material-nav --name toolbar
 ## @Angular DevKit
