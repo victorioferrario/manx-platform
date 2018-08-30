@@ -3,31 +3,37 @@
 ## To-Do:
 - [x]  Auto-Switch - SideNav
 - [X] Need to remove the fabric, and material UI shells.
-- Need to clean up hybrid UI, move it fully into fabric lib.
+- [x] Need to clean up hybrid UI, move it fully into fabric lib.
 - [X] Automate or fix sub-header when collapsing.
 - [X] Clean up fabric
 - [X] Sunset alternative UIs
-- [  ] State Store
-- [  ] Create and build Fiber Lib.
-- [ ] Bring in Authentication, and integrate with application Context.
+- [x] Bring in Authentication
+- [ ] Clean Up module imports. Very messy at moment
+- [ ] Integrate Authentication with `services/models/session` with application Context.
+- [ ] State Store Integration of session or augmentation
+- [ ] Create and build Fiber Lib.
+- [ ] Bring in the rest of hubx-angular data services
+
+
 
 
 ## Angular Enterprise Application Architecture
 
-|                                                   Project                                                   |                           Description                           |    Type     |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ----------- |
-| [Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)                   | main application                                                | Application |
-| Sub Applications                                                                                            |                                                                 |             |
-| [Buyer-Portal App ](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)  | library that runs the buyer-portal under the main app.          | Library     |
-| [Vendor-Portal App](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal) | library that runs the vendor-portal under the main app.         | Library     |
-| Data                                                                                                        |                                                                 |             |
-| [ Domain-NA ]                                                                                               | To be created, then will be wired up inbetween Fiber & Services |             |
-| Infrastructure                                                                                              |                                                                 |             |
-| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fabric)                         | GUI Provider Management                                         | Library     |
-| Shared                                                                                                      |                                                                 |             |
-| [Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/fiber)                           | Application State Management                                    | Library     |
-| [Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/services)                     | Application Context Provider                                    | Library     |
-| [System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/system)                         | Application Components of common functionality                  | Library     |
+|                                                   Project                                                   |                                           Description                                           |    Type     |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
+| [Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)                   | main application                                                                                | Application |
+| Areas                                                                                                       |                                                                                                 |             |
+| [Buyer-Portal App ](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)  | library that runs the buyer-portal under the main app.                                          | Library     |
+| [System](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system)                   | Application Components of common functionality                                                  | Library     |
+| [Vendor-Portal App](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal) | library that runs the vendor-portal under the main app.                                         | Library     |
+| Core                                                                                                        |                                                                                                 |             |
+| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                    | Application UI Management & Core Components                                                                    | Library     |
+| [Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fiber)                      | Application State Management                                                                    | Library     |
+| [Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/services)                | Application Context Provider                                                                    | Library     |
+| Shared                                                                                                      |                                                                                                 | Library     |
+| [Domain](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/domain)                  | To be created, then will be wired up inbetween Fiber & Services                                 | Library     |
+| [Infrastructure](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/infrastructure)  | Ideally these are low-level services, not consumed by ui components, but more over for services | Library     |
+
 
 ## Lib Import Definitions
 ```json
@@ -48,7 +54,13 @@
       ],     
       "@hubx/system": [
         "libs/system/src/index.ts"
-      ]     
+      ] ,        
+      "@hubx/domain": [
+        "libs/shared/domain/src/index.ts"
+      ],
+      "@hubx/infrastructure": [
+        "libs/shared/infrastructure/src/index.ts"
+      ] 
 ```
 
 
