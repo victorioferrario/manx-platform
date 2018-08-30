@@ -10,7 +10,7 @@
             [fixedInViewport]="this.ctx.ux.props.fixedInViewport" autosize>
             <fabric-sidemenu class="{{this.ctx.ux.props.cssClass}}"></fabric-sidemenu>
         </mat-sidenav>
-        <mat-sidenav opened mode="side" position="end" class="fabric-end-nav"autosize 
+        <mat-sidenav opened mode="side" position="end" class="fabric-end-nav" autosize 
         *ngIf="this.ctx.session.isAuthenticated">
             <div class="cart-gutter {{this.cssWidth}}">
                 <a href="javascript:void(0);" (click)="onShowCart()"> [<] </a></div>

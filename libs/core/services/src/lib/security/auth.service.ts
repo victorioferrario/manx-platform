@@ -23,10 +23,7 @@ export class AuthService {
   login(user: IUserIdentity, role: UserIdentityRole) {
     if (user.userName !== '' && user.password !== '') {
       this.loggedIn.next(true);
-      user.authenticate(true, role);
-      // this.router.navigate([
-      //   role === UserIdentityRole.Buyer ? '/buyer' : '/vendor'
-      // ]);
+      user.authenticate(true, role);    
     }
   }
   logout() {
