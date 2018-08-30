@@ -69,7 +69,9 @@ export class AuthenticationService implements IAuthenticationService {
       (err, authResult) => {
         this.setSession(authResult);
         const user_role = sessionStorage.getItem('user_role');
-        this.dispatch.emit({ role: user_role, loggedIn: true });        
+        this.dispatch.emit({
+           role: user_role, loggedIn: true 
+          });        
       });
     return result;
     }

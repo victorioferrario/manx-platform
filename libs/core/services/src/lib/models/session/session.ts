@@ -1,7 +1,7 @@
 import { IActionEmitter, ActionEmitter } from '../../core/emitters';
 import { IApplicationContext } from '../../interfaces/IApplicationContext';
 import { Actions_UI, AuthAction, UserIdentityRole } from '../enums';
-import { UserIdentity, IUserIdentity } from './user';
+import { UserIdentitySessionObject, IUserIdentity } from './user';
 export interface ISession {
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -20,7 +20,7 @@ export class Session implements ISession {
   constructor(parent: IApplicationContext) {
     const self = this;
     self.container = parent;
-    self.userIdentity = new UserIdentity();
+    self.userIdentity = new UserIdentitySessionObject();
   }
   authenticate(userRole: UserIdentityRole, isloggedIn: boolean) {
     const self = this;

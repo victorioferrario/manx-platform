@@ -39,7 +39,6 @@ export class ApplicationViewContext implements IApplicationViewContext {
    * @param newSection 
    */
   public activateView(newActive: AreaView, newSection?: BuyerViewSection | VendorViewSection) {
-    console.log("hello", newActive, newSection);
     this.view.update(newActive, newSection);    
   }
   /**
@@ -56,8 +55,8 @@ export class ApplicationViewContext implements IApplicationViewContext {
    */
   public navigate(url: string, newSection?: BuyerViewSection | VendorViewSection) {
     const self = this;
-    if (newSection) {
-      this.view.update(null, newSection);        
+    if (newSection) {     
+      this.view.update(this.view.active.value, newSection);        
     }
     self.router.navigate([url]);
     self.ctx.ux.props.changeOpenedState();
