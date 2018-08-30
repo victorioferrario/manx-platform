@@ -61,15 +61,9 @@ export class LoginComponent implements OnInit {
     // self.router.navigate(['/buyer']);
     // user.authenticate(true, UserIdentityRole.Buyer);
     // user.name = 'Manny Buyer';
-
     if(self.auth.login(username, password)){
       console.log("AUTHENTICATRD")
-    }
-    // self.vtx.activateView(AreaView.Buyer);
-    // self.ctx.dispatch.emit(
-    //   new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Buyer)
-    // );
-    
+    }    
   }
   loginVendor(username: string, password: string) {
     console.log(username, password);
@@ -83,7 +77,6 @@ export class LoginComponent implements OnInit {
     // self.vtx.activateView(AreaView.Vendor);
     // self.ctx.dispatch.emit(
     //   new ActionEmitter(Actions_UI.Auth, AuthAction.Login_Vendor)
-    // );
-   
+    // );   
   }
 }
