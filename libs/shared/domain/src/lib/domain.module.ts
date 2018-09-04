@@ -5,6 +5,7 @@ import { AuthenticationDataContext } from './authentication/authentication.data.
   imports: [
     CommonModule
   ],
-  declarations:[AuthenticationDataContext] 
+  providers:[AuthenticationDataContext],
+  declarations:[] 
 })
 export class DomainModule {}

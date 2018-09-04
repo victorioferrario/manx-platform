@@ -14,10 +14,10 @@ import { AuthService, AuthGuard } from './security/index';
     HttpClientModule,    
     StorageServiceModule],
   providers: [
-    LoggerService,    
     AuthService,
-    AuthGuard,
-    StateService,
+     AuthGuard,
+    LoggerService,        
+    StateService,  
     ApplicationContext,
     {
       provide: HTTP_INTERCEPTORS,

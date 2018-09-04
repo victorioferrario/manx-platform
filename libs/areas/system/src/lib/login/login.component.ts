@@ -1,15 +1,11 @@
-import { DashboardComponent } from './../../../../buyer-portal/src/lib/components/dashboard/dashboard.component';
-import { BuyerViewSection, VendorViewSection } from '@hubx/services';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
+import { IAuthEvent } from '@hubx/domain';
+import { BuyerViewSection, VendorViewSection } from '@hubx/services';
+
 import { Validators } from '@angular/forms';
-
-import { Router } from '@angular/router';
-
-import { AuthenticationService, AUTH_CONFIG } from '@hubx/infrastructure';
-import { UserIdentitySessionObject, UserIdentityRole } from '@hubx/services';
+import { UserIdentityRole } from '@hubx/services';
 
 import {
   ApplicationContext,
@@ -27,46 +23,37 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  options: FormGroup;
-  // isLoggingIn: boolean;
+  options: FormGroup;  
   username: FormControl;
   password: FormControl = new FormControl('', Validators.required);
 
   constructor(
     public fb: FormBuilder,
     public ctx: ApplicationContext,
-    public vtx: ApplicationViewContext
-  ) {
-    const self = this;
-
-    // self.isLoggingIn = true;
+    public vtx: ApplicationViewContext) {
+    const self = this;   
     self.ctx.session.isLogginOut = false;
-
     self.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
-    });
-    
+    });    
     self.username = new FormControl('', [
       Validators.required,
       Validators.email
     ]);
-
     self.options = this.fb.group({
       hideRequired: false,
       floatLabel: 'auto'
     });
-
     self.vtx.activateView(AreaView.Login);
   }
-
   ngOnInit() {
     const self = this;
     //
     self.password.setValue('Abcd123$');
     self.username.setValue('admin@hubx.com');
     //
-    self.ctx.identity.dispatch.subscribe((event: any) => {
+    self.ctx.identity.dispatch.subscribe((event: IAuthEvent) => {
       const role = event.role ;
       self.vtx.activateView(
         role === UserIdentityRole.Buyer 
@@ -78,8 +65,7 @@ export class LoginComponent implements OnInit {
           role === UserIdentityRole.Buyer
             ? AuthAction.Login_Buyer
             : AuthAction.Login_Vendor
-        )
-      );       
+      ));
       self.vtx.navigate(
         event.route, event.role === UserIdentityRole.Buyer
           ? BuyerViewSection.Dashboard

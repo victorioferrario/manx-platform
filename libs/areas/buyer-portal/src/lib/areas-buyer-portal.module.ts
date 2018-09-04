@@ -12,8 +12,7 @@ import { AlertComponent } from './components/dashboard/alert.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+    RouterModule.forChild([    
     ])
   ],
   declarations: [

@@ -1,8 +1,3 @@
 <mat-nav-list class="fabric-sidenav-list" #navlist>
-    <fabric-menu-item *ngFor="let nav of fillerNav" [nav]="nav" [parent]="this"></fabric-menu-item>
-    <!-- <a mat-list-item *ngFor="let nav of fillerNav" id="{{nav.id}}" class="item-color" (click)="onNavigate(this,nav);">
-        <mat-icon mat-list-icon>folder</mat-icon>
-        <h4 mat-line *ngIf="nav.label">{{nav.label}}</h4>
-    </a> -->
+    <fabric-menu-item *ngFor="let nav of fillerNav" [nav]="nav" [parent]="this"></fabric-menu-item>    
 </mat-nav-list>
-<!-- isActive -->

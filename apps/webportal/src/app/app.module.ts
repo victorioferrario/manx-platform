@@ -21,9 +21,10 @@ import { NxModule } from '@nrwl/nx';
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
 import { ApplicationRoutingService } from './app-routing.service';
-import { DomainModule         } from '@hubx/domain';
+import { DomainModule   } from '@hubx/domain';
 //
- import { AuthenticationTokenInterceptor,  AuthenticationService  } from '@hubx/infrastructure';
+import { AuthenticationTokenInterceptor,  AuthenticationService  } from '@hubx/infrastructure';
+
 import { ApplicationContext, ServicesModule } from '@hubx/services';
 
 // providers: [
@@ -90,6 +91,7 @@ const COMPONENTS_MATERIAL =
     COMPONENTS_SERVICES,
     COMPONENTS_MATERIAL,
     COMPONENTS_SERVICES,    
+    DomainModule
   ],
   entryComponents: [ ],
   providers: [       

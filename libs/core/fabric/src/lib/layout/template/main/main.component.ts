@@ -84,7 +84,6 @@ export class MainComponent implements OnInit, AfterViewInit {
     const temp = this.cssWidth;
     this.cssWidth = temp === ' big' ? ' small' : ' big';
   }
-
   ngOnInit() {}
   ngAfterViewInit() {}
   openLoadingPanel() {

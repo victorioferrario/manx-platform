@@ -1,2 +1,6 @@
 export * from './lib/domain.module';
-export * from './lib/authentication/authentication.data.service';
+export * from './lib/vendors/models';
+export {
+    IAuthEvent, 
+    IAuthenticationDataContext,
+    AuthenticationDataContext} from './lib/authentication/authentication.data.service';

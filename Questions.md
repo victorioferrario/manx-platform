@@ -62,3 +62,42 @@ Provide Summary of open SOs.
 
 Questions:
 1) What consitutes a sales order being open?
+
+
+
+# Updates
+
+HUBX-2638 #time 0d 0h Message goes here.
+
+In order to complete the task assigned to me, I did the following:
+
+I updated ItemDTO, specifically I added a new property called 
+```csharp
+bool DescriptionCanEdit?
+```
+So now, when the front end call the endpoint:```https://vendor.hubx.com/Item/{itemId}```, the result will look as follows:
+```json 
+{
+    "vendorItemId": "39eb7891-ec9c-4790-aa9e-00d251f671b8",
+    "version": 27,
+    "name": "HP 14-AK040WM-S Chromebook Core™ i7-6700HQ 2.6GHz 1TB+8GB SSD 8GB 15.6\" (1920x1080) BT WIN10 Webcam ",
+    "description": "HP 14-AK040WM-S Chromebook Core™ i7-6700HQ 2.6GHz 1TB+8GB SSD 8GB 15.6\" (1920x1080) BT WIN10 Webcam NVIDIA® GTX 960M 4096MB GRAY Backlit Keyboard",
+    "descriptionCanEdit": true,
+    //...
+}
+```
+
+I updated  ```hubx.application.Item.Services.ItemService``` with two methods:
+```csharp
+private Guid PreferredVendorGuid();
+private Task<bool> CheckIfPreferredVendorOwnsDescription(Guid itemId)
+```
+
+I updated  ```hubx.application.Item.Services.VendorItemService``` with two methods:
+```csharp
+public Guid PreferredVendorGuid();
+public Task<bool> CheckIfPreferredVendorOwnsDescription(string vendorItemCode)
+```
+I also implemented the logic in the VendorItemController.
+
+
