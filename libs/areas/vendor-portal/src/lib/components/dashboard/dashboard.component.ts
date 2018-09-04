@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const self = this;
     self.sectionTitle = "Dashboard";
-    self.sectionText = `The ${self.sectionTitle} works!`;    
+    self.sectionText = `The ${self.sectionTitle} works!`;       
+    self.vtx.loading(false);
     setTimeout(() => {
       self.vtx.activateSection(
         VendorViewSection.Dashboard);

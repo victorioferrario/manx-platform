@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
-  ApplicationContext,
+  ApplicationContext,ApplicationViewContext,
   AuthAction,
   Actions_UI,
   ActionEmitter
@@ -20,7 +20,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuyerMainComponent implements OnInit {
-  constructor(private ctx: ApplicationContext, private _router: Router) {
+  constructor(private ctx: ApplicationContext, 
+    public vtx: ApplicationViewContext) {
     const self = this;
     // self._router.events.subscribe((event: Event) => {
     //   self.navigationInterceptor(event);
@@ -28,6 +29,7 @@ export class BuyerMainComponent implements OnInit {
   }
   ngOnInit() {
     const self = this;
+    self.vtx.loading(false);
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.LoggingInComplete)
     );

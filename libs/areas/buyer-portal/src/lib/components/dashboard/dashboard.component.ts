@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     const self = this;
     self.sectionTitle = 'Dashboard';
     self.sectionText = `The ${this.sectionTitle} works!`;
-    
+    self.vtx.loading(false);   
   }
   ngAfterViewInit() {}
 }

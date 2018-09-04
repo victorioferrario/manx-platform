@@ -11,7 +11,11 @@ export interface IAuthenticationDataContext{
   providedIn: 'root'
 })
 export class AuthenticationDataContext implements IAuthenticationDataContext {
-  constructor(public auth: AuthenticationService) {}
+  constructor(public auth: AuthenticationService) {
+
+
+    
+  }
   login(email: string, password: string) {
     const self = this;
     if (self.auth.clearSession()) {

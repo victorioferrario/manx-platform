@@ -70,3 +70,7 @@
     border-left: solid 1px #ddd;
     background: #ccc;
 }
+
+.loaderoverlay{
+    position: fixed; left:0; right:0;top:100px; z-index: 10000; bottom:0; background-color:#ccc;
+}

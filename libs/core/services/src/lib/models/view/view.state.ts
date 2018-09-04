@@ -4,4 +4,5 @@ export interface IViewState {
 }
 export class ViewState implements IViewState {
   active: ViewStateEnum = ViewStateEnum.login;
+  
 }

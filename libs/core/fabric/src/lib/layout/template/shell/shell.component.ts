@@ -4,7 +4,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import {
-  ApplicationContext
+  ApplicationContext, ApplicationViewContext
 } from '@hubx/services';
 
 @Component({
@@ -15,12 +15,11 @@ import {
 export class ShellComponent implements OnInit, AfterViewInit {
  
   constructor(    
-    public ctx: ApplicationContext
+    public ctx: ApplicationContext,
+    public vtx: ApplicationViewContext
   ) {
     const self = this;
-  }
-
- 
+  } 
   ngAfterViewInit() {}
   ngOnInit() {}
 }

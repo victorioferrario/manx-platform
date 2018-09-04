@@ -1,6 +1,6 @@
 
     <mat-sidenav-container class="fabric-sidenav-container {{this.ctx.ux.viewState.active}}"
-     #container *ngIf="!this.ctx.session.isLogginOut">
+       #container *ngIf="!this.ctx.session.isLogginOut">
         <ng-template cdk-portal ></ng-template>
         <mat-sidenav #sideNav class="fabric-color" *ngIf="this.ctx.session.isAuthenticated"
             [mode]="this.ctx.ux.props.mode" 

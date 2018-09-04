@@ -2,6 +2,7 @@
     <fabric-fragment headerLogo>
         <img src="../assets/images/logo.svg" class="hubx-logo" alt="HubX.com" /></fabric-fragment>
 </fabric-header>
-<fabric-main>
+<div class="loaderoverlay fadeIn animated-300" *ngIf="this.vtx.view.loading | async">Test{{this.vtx.view.loading | async}}</div>
+<fabric-main>    
     <ng-content mainContent></ng-content>
 </fabric-main>

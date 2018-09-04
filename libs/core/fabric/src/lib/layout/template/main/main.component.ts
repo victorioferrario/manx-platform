@@ -30,6 +30,7 @@ import {
 import { ILayoutAction } from '@hubx/services';
 
 import { LoaderComponent } from '../../../components/loader/loader.component';
+
 import {
   ApplicationContext,
   IActionEmitter,
@@ -63,7 +64,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     public ctx: ApplicationContext,
     public viewContainerRef: ViewContainerRef) {
     const self = this;
-    self.ctx.ux.dispatch.subscribe((event: ILayoutAction) => {
+    self.ctx.ux.dispatch.subscribe(
+      (event: ILayoutAction) => {
       switch (event.type) {
         case Actions_UI.Auth:
           const temp2 = event.subType as AuthAction;

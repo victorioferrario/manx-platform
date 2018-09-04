@@ -7,7 +7,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { BehaviorSubject } from 'rxjs';
 /**
  * Local Services
  */
@@ -24,7 +24,7 @@ import { AreaView, BuyerViewSection, VendorViewSection } from './models/enums';
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationViewContext implements IApplicationViewContext {  
+export class ApplicationViewContext implements IApplicationViewContext {    
   view: ViewContext;
   /**
    * @param ctx 
@@ -56,9 +56,17 @@ export class ApplicationViewContext implements IApplicationViewContext {
   public navigate(url: string, newSection?: BuyerViewSection | VendorViewSection) {
     const self = this;
     if (newSection) {     
-      this.view.update(this.view.active.value, newSection);        
+      self.view.update(
+        self.view.active.value, newSection);        
     }
     self.router.navigate([url]);
     self.ctx.ux.props.changeOpenedState();
+  }  
+  /**
+   * Loading application view context
+   * @param value 
+   */
+  loading(value:boolean){    
+    this.view.loading.next(value);
   }
 }
