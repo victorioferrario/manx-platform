@@ -14,8 +14,7 @@ import {
 })
 export class LogoutComponent implements OnInit {
   constructor(private router: Router, private ctx: ApplicationContext) {}
-  ngOnInit() {
-    console.log('Clear data');
+  ngOnInit() {    
     const self = this;
     self.ctx.dispatch.emit(
       new ActionEmitter(Actions_UI.Auth, AuthAction.Logout)

@@ -28,7 +28,7 @@ import {
 })
 export class LoginComponent implements OnInit {
   options: FormGroup;
-  isLoggingIn: boolean;
+  // isLoggingIn: boolean;
   username: FormControl;
   password: FormControl = new FormControl('', Validators.required);
 
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   ) {
     const self = this;
 
-    self.isLoggingIn = true;
+    // self.isLoggingIn = true;
     self.ctx.session.isLogginOut = false;
 
     self.options = fb.group({
@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const self = this;
     //
-    this.password.setValue('Abcd123$');
-    this.username.setValue('admin@hubx.com');
+    self.password.setValue('Abcd123$');
+    self.username.setValue('admin@hubx.com');
     //
     self.ctx.identity.dispatch.subscribe((event: any) => {
       const role = event.role ;
