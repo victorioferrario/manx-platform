@@ -81,22 +81,4 @@ export class VendorDataService implements IVendorDataService {
     return obs;
   }
 }
-export interface HttpOptions {
-  url: string;
-  body?: any;
-}
-export class GenericHttpClient {
-  constructor(private http: HttpClient) {}
-  get<T>(options: HttpOptions): Observable<T> {
-    return this.http.get<T>(options.url).pipe(share());
-  }
-  post<T>(options: HttpOptions): Observable<T> {
-    return this.http.post<T>(options.url, options.body).pipe(share());
-  }
-  put<T>(options: HttpOptions): Observable<T> {
-    return this.http.put<T>(options.url, options.body).pipe(share());
-  }
-  delete<T>(options: HttpOptions): Observable<T> {
-    return this.http.delete<T>(options.url).pipe(share());
-  }
-}
+
