@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthenticationDataContext } from './authentication/authentication.data.service'
+import { AuthDataContext } from './auth/auth.data.service';
 @NgModule({
   imports: [
     CommonModule
   ],
-  providers:[AuthenticationDataContext],
+  providers:[AuthDataContext],
   declarations:[] 
 })
 export class DomainModule {}

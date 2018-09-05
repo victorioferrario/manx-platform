@@ -1,6 +1,9 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
+import { Configuration as Config } from './vendor.config';
+import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from './../core/HttpBaseClient';
+
 import {
   IPo,
   IPoFilter,
@@ -10,14 +13,12 @@ import {
   IVendorSearch,
   IVendorItemRequest
 } from './models';
-import { HttpClient } from '@angular/common/http';
-export interface IVendorDataService {
+export interface IVendorDataContext {
   poFilters: IPoFilter;
   /**
    * @param id: number
    * @returns: Observable<IPo>;
    */
-
   getPoId(id: number): Observable<IPo>;
   /**
    *
@@ -49,36 +50,45 @@ export interface IVendorDataService {
 @Injectable({
   providedIn: 'root'
 })
-export class VendorDataService implements IVendorDataService {
-  constructor() {}
+export class VendorDataContext implements IVendorDataContext {
+  public options: IHttpBaseOptions;
+  constructor(private baseClient: HttpBaseClient) { }
   poFilters: IPoFilter = {
     status: { name: 'All' },
     vendor: {},
     searchString: ''
   };
-  getPoId(id: number): Observable<IPo> {
-    const obs = new Observable<IPo>();
-    return obs;
+  public getPoId(id: number): Observable<IPo> {
+    const self = this;
+    self.options.url = Config.GetPoUrl + id;
+    return self.baseClient.get<IPo>(self.options);
   }
-  getPos(sellerId?: string): Observable<IPoMain> {
-    const obs = new Observable<IPoMain>();
-    return obs;
+  public getPos(sellerId?: string): Observable<IPoMain> {
+    const self = this;
+    const params = sellerId ? '?sellerId=' + sellerId : '';    
+    self.options.url = Config.GetPoUrl + params;
+    return self.baseClient.get<IPoMain>(self.options);
   }
-  getPoPDF(docEntry: number): Observable<Blob> {
+  public getPoPDF(docEntry: number): Observable<Blob> {
     const obs = new Observable<Blob>();
     return obs;
   }
-  getItems(search: IVendorSearch): Observable<IVendorItem> {
-    const obs = new Observable<IVendorItem>();
-    return obs;
+  public getItems(search: IVendorSearch): Observable<IVendorItem> {
+    const self = this;
+    self.options.url = Config.GetPoUrl;
+    self.options.body = search;
+    return self.baseClient.post<IVendorItem>(self.options);
   }
-  getVendors(): Observable<IVendor[]> {
-    const obs = new Observable<IVendor[]>();
-    return obs;
+  public getVendors(): Observable<IVendor[]> {
+    const self = this;
+    self.options.url = Config.GetAllVendorsUrl;
+    return self.baseClient.get<IVendor[]>(self.options);
   }
-  updateVendorItems(vendorItems: IVendorItemRequest[]): Observable<null> {
+  public updateVendorItems(vendorItems: IVendorItemRequest[]): Observable<null> {
     const obs = new Observable<null>();
     return obs;
   }
 }
+
+
 

@@ -1,29 +1,13 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import {
-  AuthenticationService,
-  AUTH_CONFIG,
-  IAuthenticationService
+  AuthenticationService
 } from '@hubx/infrastructure';
-
-export enum UserIdentityRole {
-  Unknown = 0,
-  Buyer = 100,
-  Vendor = 200,
-  Admin = 300,
-  SuperAdmin = 400
-}
-export interface IAuthEvent {
-  role: UserIdentityRole;
-  route: string;
-}
-export interface IAuthenticationDataContext{
-  login(email: string, password: string): boolean;
-}
+import {IAuthEvent, IAuthDataContext, UserIdentityRole } from './models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationDataContext implements IAuthenticationDataContext {
+export class AuthDataContext implements IAuthDataContext {
   dispatch: EventEmitter<IAuthEvent>;
   constructor(public auth: AuthenticationService) {
     const self = this;    
