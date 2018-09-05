@@ -8,5 +8,3 @@ export interface IVendorItem {
     promos?: IVendorPromo[];
     pagination?: IPaginationResponse;
   }
-
-// export { IVendorItem } from './IVendorItem';

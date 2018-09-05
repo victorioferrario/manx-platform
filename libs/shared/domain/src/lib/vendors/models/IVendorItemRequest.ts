@@ -10,6 +10,3 @@ export interface IVendorItemRequest {
     pricing?: IPriceRequest;
     status?: IVendorStatusRequest;
 }
-
-// import { IVendorItemRequest} from './IVendorItemRequest';
-// export { IVendorItemRequest} from './IVendorItemRequest';

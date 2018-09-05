@@ -23,5 +23,3 @@ export interface IVendorSearch {
     filters: IFilters;
     pagination:IPagination; 
 }
-
-// export { IVendorSearch, IFilters, IPagination, IDateRange} from './IVendorSearch'

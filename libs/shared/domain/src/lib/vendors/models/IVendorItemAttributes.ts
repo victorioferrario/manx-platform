@@ -6,7 +6,4 @@ export interface IVendorItemAttributes {
     description ?: string;
     attrId?: string;
   }
-
-  // import { IVendorItemAttributes } from './IVendorItemAttributes';
-  // export  { IVendorItemAttributes } from './IVendorItemAttributes';
   

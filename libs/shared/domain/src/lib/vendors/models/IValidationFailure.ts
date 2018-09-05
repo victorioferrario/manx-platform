@@ -9,5 +9,3 @@ export interface IValidationFailure {
     formattedMessagePlaceholderValues?: any[]; // no custom object on swagger
     resourceName?: string;
 }
-// import { IValidationFailure } from './IValidationFailure';
-// export { IValidationFailure } from './IValidationFailure';

@@ -11,5 +11,3 @@ export interface IPoLines {
     unitPrice?: number;
     lineStatus?: string;
   }
-//   import { IPoLines } from './IPoLines';
-//   export { IPoLines } from './IPoLines';

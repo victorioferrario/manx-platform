@@ -4,4 +4,3 @@ export interface IVendorPOInventory {
     enRoute?: number;
     committed?: number;
   }
-  // export { IVendorPOInventory } from './IVendorPOInventory';

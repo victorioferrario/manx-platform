@@ -13,6 +13,3 @@ export interface IVendorItemInformationRequest {
     comment?: string;
     vendorAttributes?: IVendorItemAttributeRequest[];
 }
-
-// import { IVendorItemInformationRequest } from './IVendorItemInformationRequest';
-// export { IVendorItemInformationRequest } from './IVendorItemInformationRequest';

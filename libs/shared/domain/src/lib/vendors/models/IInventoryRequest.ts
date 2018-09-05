@@ -5,5 +5,3 @@ export interface IInventoryRequest  {
     onRoute?: number;
     leadTimeDays?: number;
   }
-// import { IInventoryRequest} from './IInventoryRequest';
-// export { IInventoryRequest} from './IInventoryRequest';

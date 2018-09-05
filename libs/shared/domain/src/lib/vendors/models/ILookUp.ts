@@ -7,6 +7,3 @@ export interface ILookupMain {
     name?: string;
     values?: ILookupItem[];
 }
-
-// export { ILookupItem, ILookupMain } from './ILookup';
-

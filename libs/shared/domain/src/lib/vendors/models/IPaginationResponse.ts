@@ -4,6 +4,3 @@ export interface IPaginationResponse {
     currentPage?: number;
     totalPages?: number;
 }
-
-// import { IPaginationResponse } from './IPaginationResponse';
-// export { IPaginationResponse } from './IPaginationResponse';

@@ -8,5 +8,3 @@ export interface IVendorSalesInfo {
     averageCost?: number;
     averagePrice?: number;
   }
- // import  { IVendorSalesInfo } from './IVendorSalesInfo';
-// export { IVendorSalesInfo } from './IVendorSalesInfo';

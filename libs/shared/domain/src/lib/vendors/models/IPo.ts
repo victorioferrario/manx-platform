@@ -32,6 +32,3 @@ export interface IPo {
     isModalShown?: boolean;
     isOnHover?: boolean;
   }
-
-//   import { IPo } from './IPo';
-//   export { IPo } from './IPo';

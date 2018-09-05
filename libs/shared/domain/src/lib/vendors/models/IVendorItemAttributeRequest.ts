@@ -5,6 +5,3 @@ export interface IVendorItemAttributeRequest {
     description ?: string;
     vendorItemAttributeId?: string;
 }
-
-// import { IVendorItemAttributeRequest } from './IVendorItemAttributeRequest';
-// export { IVendorItemAttributeRequest } from './IVendorItemAttributeRequest';

@@ -4,5 +4,3 @@ export interface IVendorItemStatus {
     vendorStatus: string;
     businessStatus: string;
   }
-  // import { IVendorItemStatus } from './IVendorItemStatus';
-  // export { IVendorItemStatus } from './IVendorItemStatus';

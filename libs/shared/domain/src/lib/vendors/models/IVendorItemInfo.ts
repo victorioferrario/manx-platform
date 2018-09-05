@@ -32,5 +32,3 @@ export interface IVendorItemInfo {
     manufacturerLogoUrl?: string;
     moq?: number;
   }
-//  import { IVendorItemInfo } from './IVendorItemInfo';
-  // export { IVendorItemInfo } from './IVendorItemInfo';

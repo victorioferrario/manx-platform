@@ -9,5 +9,3 @@ export interface IVendorSubCategory {
     categoryId?: string;
     name?: string;
 }
-
-// export { IVendorCategory, IVendorSubCategory } from './IVendorCategory'

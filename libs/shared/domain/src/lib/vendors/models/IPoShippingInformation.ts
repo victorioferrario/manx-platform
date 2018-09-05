@@ -7,5 +7,3 @@ export interface IPoShippingInformation {
     eta?: string;
     comments?: string;
   }
-//   import { IPoShippingInformation } from './IPoShippingInformation';
-//   export { IPoShippingInformation } from './IPoShippingInformation';

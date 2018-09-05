@@ -5,5 +5,3 @@ export interface IPoFilter {
     vendor?: IVendor;
     searchString?: string;
 }
-// import { IPoFilter } from './IPoFilter';
-// export { IPoFilter } from './IPoFilter';
