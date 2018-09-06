@@ -18,7 +18,6 @@ export interface IHttpBaseClient {
   put<T>(options: HttpBaseOptions): Observable<T>;
   delete<T>(options: HttpBaseOptions): Observable<T>;
 }
-
 @Injectable({
   providedIn: 'root'
 })

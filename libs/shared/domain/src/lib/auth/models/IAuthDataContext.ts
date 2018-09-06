@@ -1,3 +1,5 @@
 export interface IAuthDataContext {
-    login(email: string, password: string): boolean;
+    getAccessToken(): string ;
+    isAuthenticated(): boolean;    
+    login(email: string, password: string): boolean;    
 }

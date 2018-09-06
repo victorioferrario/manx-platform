@@ -22,6 +22,7 @@
 
 .header-row-output-console {
     position: absolute;
+    background:#fff;
     right:280px;
     top: 47px;
     padding: 2px;
@@ -30,8 +31,18 @@
     font-weight:400;
     width:180px;
     border:solid 2px #493b8d;
+    transition: all cubic-bezier(.25, .8, .25, 1) 200ms;
 }
 
+@media (max-width: 700px){
+    .header-row-output-console {
+        right:16px;
+        top: 3px;
+        width:234px;
+        transition: all cubic-bezier(.25, .8, .25, 1) 200ms;
+        
+    }
+}
 /* 
 .header-toolbar-row-2 {
     height: 48px;

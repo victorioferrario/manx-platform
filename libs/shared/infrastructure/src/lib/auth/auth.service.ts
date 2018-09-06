@@ -131,7 +131,8 @@ export class AuthenticationService implements IAuthenticationService {
   }
   public isAuthenticated(): boolean {
     if (sessionStorage.getItem('access_token')) {
-      const expiresAt = JSON.parse(sessionStorage.getItem('expires_at'));
+      const expiresAt = JSON.parse(
+        sessionStorage.getItem('expires_at'));
       return new Date().getTime() < expiresAt;
     }
     return false;

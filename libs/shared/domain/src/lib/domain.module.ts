@@ -4,8 +4,9 @@ import { AuthDataContext } from './auth/auth.data.service';
 @NgModule({
   imports: [
     CommonModule
-  ],
-  providers:[AuthDataContext],
+  ],   
+  providers:[
+    AuthDataContext,  ],
   declarations:[] 
 })
 export class DomainModule {}
