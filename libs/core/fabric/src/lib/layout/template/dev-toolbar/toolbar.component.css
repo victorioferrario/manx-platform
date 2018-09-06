@@ -81,6 +81,7 @@
 
 .fabric-button-wrapper{
     position: absolute;
+    background:#fff;
     border:solid 2px #493b8d;
     right:15px;
     top:-55px;    

@@ -13,6 +13,8 @@ import { trigger, state, animate, style, transition } from '@angular/animations'
 //   host: {'[@routerTransition]': ''}
 // })
 
+  
+
 export function routerTransition() {
   return routerTransition_SlideToLeft();
 }

@@ -1,4 +1,4 @@
 
 export * from './models';
+export { UserDataContext } from './user.data.service';
 export { IUserConfiguration, UserConfiguration } from './user.config';
-export { UserDataContext, IUserDataContext } from './user.data.service';

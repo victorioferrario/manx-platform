@@ -22,12 +22,20 @@ export class ViewContext implements IViewContext {
      */
     constructor() {
       const self = this;
+      
       self.loading = new BehaviorSubject<boolean>(false);
-      self.active = new BehaviorSubject<AreaView>(AreaView.Login);
-      self.activeSection = new BehaviorSubject<BuyerViewSection>(BuyerViewSection.Dashboard);
-      self.active.asObservable();
-      self.loading.asObservable();
+
+      self.active = new BehaviorSubject<AreaView>(
+        AreaView.Login);
+
+      self.activeSection = new BehaviorSubject<VendorViewSection>(
+        VendorViewSection.Dashboard);
+
+        self.loading.asObservable();
+
+      self.active.asObservable();    
       self.activeSection.asObservable();
+
     }
     update(newActive?: AreaView | null, newSection?: BuyerViewSection | VendorViewSection) {
       const self = this;

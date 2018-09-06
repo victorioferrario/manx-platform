@@ -32,16 +32,10 @@ import { ILayoutAction } from '@hubx/services';
 import { LoaderComponent } from '../../../components/loader/loader.component';
 
 import {
-  ApplicationContext,
-  IActionEmitter,
-  AuthAction,
-  ActionEmitter,
-  Actions_UI,
-  MenuAction,
-  SizeEnum
+  ApplicationContext,  
+  AuthAction,  
+  Actions_UI
 } from '@hubx/services';
-import { MatSidenav } from '@angular/material';
-
 @Component({
   selector: 'fabric-main',
   templateUrl: './main.component.html',
@@ -56,9 +50,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin;
   isLoading: boolean;
   @ViewChild('container') private _container;
-  @ViewChild('sideNav') private _sideNav: HTMLElement;
-  fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
-  showFiller = false; // cssClass = "experiment";
+  @ViewChild('sideNav') private _sideNav: HTMLElement;    
   constructor(
     public overlay: Overlay,
     public ctx: ApplicationContext,
@@ -77,8 +69,7 @@ export class MainComponent implements OnInit, AfterViewInit {
           }
           break;
       }
-    });
-    //this.openLoadingPanel();
+    });   
   }
   onShowCart() {
     const temp = this.cssWidth;

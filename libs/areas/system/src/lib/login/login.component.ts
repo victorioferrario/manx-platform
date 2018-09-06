@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     sessionStorage.clear();
     if (this.username.valid && this.password.valid) {
-      self.ctx.identity.loginCommand(username, password);
+      self.ctx.identity.login(username, password);
     } else {
       this.username.invalid;
     }

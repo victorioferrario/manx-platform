@@ -52,7 +52,9 @@ export interface IVendorDataContext {
 })
 export class VendorDataContext implements IVendorDataContext {
   public options: IHttpBaseOptions;
-  constructor(private baseClient: HttpBaseClient) { }
+  constructor(private baseClient: HttpBaseClient) { 
+    this .options = new HttpBaseOptions();
+  }
   poFilters: IPoFilter = {
     status: { name: 'All' },
     vendor: {},
