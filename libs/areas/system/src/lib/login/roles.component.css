@@ -1,0 +1,14 @@
+.roles-radio-group {
+    display: inline-flex;
+    flex-direction: row;
+    margin-top:  -15px;
+    margin-bottom:10px;
+  }
+  
+  .role-radio-button {
+    margin: 5px;
+  }
+  
+  .role-selected-value {
+    margin: 15px 0;
+  }

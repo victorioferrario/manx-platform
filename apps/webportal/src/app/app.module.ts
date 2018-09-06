@@ -18,10 +18,12 @@ import { NxModule } from '@nrwl/nx';
  */
 import { FiberModule } from '@hubx/fiber';
 import { FabricModule } from '@hubx/fabric';
+
 import {
   ServicesModule,
   ApplicationContext,
   ApplicationViewContext } from '@hubx/services';
+
 import {  
   DomainModule,
   AuthDataContext,
@@ -39,6 +41,7 @@ import { ApplicationRoutingService } from './app-routing.service';
  */
 import {
   LoginComponent,
+  RolesComponent,
   LogoutComponent,
   RouteErrorComponent,
   RouteNotFoundComponent
@@ -50,6 +53,7 @@ import { AppComponent } from './containers/app.component';
 //
 const COMPONENTS = [
   AppComponent,
+  RolesComponent,
   LoginComponent,
   LogoutComponent,
   RouteErrorComponent,

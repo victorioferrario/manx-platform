@@ -34,6 +34,18 @@ div.container>div:first-child {
     margin-left: 0;
 }
 
+div.login-button-wrapper{
+    border:solid 0 #493b8d;text-align:right;
+}
+div.one { 
+    padding:10px;
+    display:block;
+    margin-bottom:0;
+
+}
+div.three{
+    margin-top:18px;border:solid 0 #F15B5D;
+}
 div.container>div.two {
     flex: 2 2 calc(10em + 10px);
     /** 10px is the missing margin of the missing box */

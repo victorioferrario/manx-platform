@@ -1,0 +1,7 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center">
+<mat-radio-group class="roles-radio-group" [(ngModel)]="selectedRole" (change)="onChange()">  
+    <mat-radio-button class="role-radio-button" *ngFor="let role of roles" [value]="role">
+      {{role}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { routerTransition_SlideToLeft} from '@hubx/fabric';
 import { ApplicationViewContext, VendorViewSection } from '@hubx/services';
-import { VendorDataContext, IVendor } from '@hubx/domain';
+import {UserDataContext, VendorDataContext, IVendor, IBusinessProfile } from '@hubx/domain';
 @Component({
   selector: 'vendor-dashboard',
   templateUrl: './dashboard.component.html',
@@ -21,7 +21,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private cdr: ChangeDetectorRef,
     public vtx: ApplicationViewContext,
-    public dbx: VendorDataContext) {
+    public dbx: VendorDataContext,
+  public ubx:UserDataContext) {
    
   }
   ngOnInit() {    
@@ -34,6 +35,10 @@ export class DashboardComponent implements OnInit {
     this.dbx.getVendors().subscribe((arg: IVendor[]) => {
       console.log(arg);
       console.log('DoneLoading');
+    });
+    this.ubx.getBusinessProfile().subscribe((arg: IBusinessProfile) => {
+      console.log(arg);
+      console.log('DoneLoading-Business Partners');
     });
    
   }

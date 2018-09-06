@@ -23,7 +23,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  options: FormGroup;  
+  options: FormGroup;
   username: FormControl;
   password: FormControl = new FormControl('', Validators.required);
 
@@ -31,12 +31,12 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     public ctx: ApplicationContext,
     public vtx: ApplicationViewContext) {
-    const self = this;   
+    const self = this;
     self.ctx.session.isLogginOut = false;
     self.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
-    });    
+    });
     self.username = new FormControl('', [
       Validators.required,
       Validators.email
@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit {
     self.username.setValue('admin@hubx.com');
     //
     self.ctx.identity.dispatch.subscribe((event: IAuthEvent) => {
-      const role = event.role ;
+      const role = event.role;
       self.vtx.activateView(
-        role === UserIdentityRole.Buyer 
-        ? AreaView.Buyer : AreaView.Vendor
+        role === UserIdentityRole.Buyer
+          ? AreaView.Buyer : AreaView.Vendor
       );
       self.ctx.dispatch.emit(
         new ActionEmitter(
@@ -65,13 +65,13 @@ export class LoginComponent implements OnInit {
           role === UserIdentityRole.Buyer
             ? AuthAction.Login_Buyer
             : AuthAction.Login_Vendor
-      ));
+        ));
       self.vtx.navigate(
         event.route, event.role === UserIdentityRole.Buyer
           ? BuyerViewSection.Dashboard
           : VendorViewSection.Dashboard
       );
-    });    
+    });
   }
   login(username: string, password: string) {
     const self = this;
@@ -82,6 +82,27 @@ export class LoginComponent implements OnInit {
       self.ctx.identity.login(username, password);
     } else {
       this.username.invalid;
+    }
+  }
+  changeRole(eventArg: string) {
+    const self = this;
+    switch (eventArg) {
+      case "Buyer":
+        self.password.setValue('Abcd123$');
+        self.username.setValue('motty@hubx.com');
+        break;
+      case "Seller":
+        self.password.setValue('123456');
+        self.username.setValue('vivianne@laptopplaza.com');
+        break;
+      case "Admin":
+        self.password.setValue('Abcd123$');
+        self.username.setValue('admin@hubx.com');
+        break;
+      case "SuperAdmin":
+        self.password.setValue('Icsly5657');
+        self.username.setValue('Pattikchen@gmail.com');
+        break;
     }
   }
   getErrorMessage() {

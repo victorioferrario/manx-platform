@@ -95,8 +95,8 @@ export const slice = path =>
 @Injectable({
     providedIn: 'root'
   })
-  export class Store {
-    state: Observable<any>;
+  export class Store<T> {
+    state: Observable<T>;
     actions: Subject<Action> = new Subject();
     constructor() {
         this.state = this.actions.pipe(
