@@ -22,14 +22,14 @@
           <div fxLayout='row' fxLayoutAlign="space-around center">
             <div class="one">
               <hubx-roles  (dispatch)="changeRole($event)"></hubx-roles>
-            </div>          
+            </div>
           </div>
           <div fxLayout='row' fxLayoutAlign="space-around center">
           <mat-divider></mat-divider>
           </div><br />
           <div fxLayout='row' fxLayoutAlign="space-around right" class="login-button-wrapper">
-              <div fxFlex="45" [fxLayout]="direction" class="three">    
-               
+              <div fxFlex="45" [fxLayout]="direction" class="three">
+
               </div>
             <div fxFlex="45" [fxLayout]="direction" class="login-button-container">
               <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="login(username.value, password.value)">Login</a>

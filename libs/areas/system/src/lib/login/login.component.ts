@@ -23,6 +23,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
+  hide:boolean;
   options: FormGroup;
   username: FormControl;
   password: FormControl = new FormControl('', Validators.required);
@@ -55,22 +56,18 @@ export class LoginComponent implements OnInit {
     //
     self.ctx.identity.dispatch.subscribe((event: IAuthEvent) => {
       const role = event.role;
-      self.vtx.activateView(
-        role === UserIdentityRole.Buyer
-          ? AreaView.Buyer : AreaView.Vendor
-      );
       self.ctx.dispatch.emit(
         new ActionEmitter(
           Actions_UI.Auth,
           role === UserIdentityRole.Buyer
             ? AuthAction.Login_Buyer
             : AuthAction.Login_Vendor
-        ));
-      self.vtx.navigate(
-        event.route, event.role === UserIdentityRole.Buyer
-          ? BuyerViewSection.Dashboard
-          : VendorViewSection.Dashboard
-      );
+      ));
+      self.vtx.navigateUpdateView(
+        event.route,
+        role === UserIdentityRole.Buyer
+          ? AreaView.Buyer
+          : AreaView.Vendor);
     });
   }
   login(username: string, password: string) {

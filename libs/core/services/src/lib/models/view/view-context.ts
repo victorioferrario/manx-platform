@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IViewContext} from '../../interfaces';
 import { AreaView, BuyerViewSection, VendorViewSection } from '../../models/enums';
 export class ViewContext implements IViewContext {
@@ -22,7 +22,7 @@ export class ViewContext implements IViewContext {
      */
     constructor() {
       const self = this;
-      
+
       self.loading = new BehaviorSubject<boolean>(false);
 
       self.active = new BehaviorSubject<AreaView>(
@@ -33,7 +33,7 @@ export class ViewContext implements IViewContext {
 
         self.loading.asObservable();
 
-      self.active.asObservable();    
+      self.active.asObservable();
       self.activeSection.asObservable();
 
     }
