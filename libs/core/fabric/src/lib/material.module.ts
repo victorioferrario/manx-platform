@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
-import {OverlayModule} from '@angular/cdk/overlay';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { CdkTableModule } from '@angular/cdk/table';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
-    MatAutocompleteModule,    
-    MatBadgeModule,      
+    MatAutocompleteModule,
+    MatBadgeModule,
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -42,6 +42,7 @@ import {
     MatTooltipModule,
     MatTreeModule
 } from '@angular/material';
+
 const MATERIAL__MODULES = [
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
@@ -89,4 +90,3 @@ const MATERIAL__MODULES = [
         providers: []
 })
 export class MaterialModules { }
-

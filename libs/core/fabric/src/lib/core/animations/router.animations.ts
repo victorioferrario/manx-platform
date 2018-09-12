@@ -13,13 +13,13 @@ import { trigger, state, animate, style, transition } from '@angular/animations'
 //   host: {'[@routerTransition]': ''}
 // })
 
-  
+
 
 export function routerTransition() {
-  return routerTransition_SlideToLeft();
+  return AnimationSlideToLeft();
 }
 
-export function routerTransition_SlideToRight() {
+export function AnimationSlideToRight() {
   return trigger('routerTransition', [
     state('void', style({position: 'fixed', width: '40%'}) ),
     state('*', style({position: 'fixed', width: '0%'}) ),
@@ -34,7 +34,7 @@ export function routerTransition_SlideToRight() {
   ]);
 }
 
-export function routerTransition_SlideToLeft() {
+export function AnimationSlideToLeft() {
   return trigger('routerTransition', [
     state('void', style({position: 'fixed', width: '40%'}) ),
     state('*', style({position: 'fixed', width: '0%'}) ),
@@ -49,7 +49,7 @@ export function routerTransition_SlideToLeft() {
   ]);
 }
 
-export function routerTransition_SlideToBottom() {
+export function AnimationSlideToBottom() {
   return trigger('routerTransition', [
     state('void', style({position: 'fixed', width: '100%', height: '100%'}) ),
     state('*', style({position: 'fixed', width: '100%', height: '100%'}) ),
@@ -64,7 +64,7 @@ export function routerTransition_SlideToBottom() {
   ]);
 }
 
-export function routerTransition_SlideToTop() {
+export function AnimationSlideToTop() {
   return trigger('routerTransition', [
     state('void', style({position: 'fixed', width: '100%', height: '100%'}) ),
     state('*', style({position: 'fixed', width: '100%', height: '100%'}) ),

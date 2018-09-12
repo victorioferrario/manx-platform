@@ -9,7 +9,7 @@
   },
   "projects": {
     "webportal": {
-      "tags": []
+      "tags": ["ui"]
     },
     "webportal-e2e": {
       "tags": []
@@ -32,14 +32,14 @@
       ]
     },
     "system": {
-      "tags": []
+      "tags": ["ui"]
     },
-    "areas-buyer-portal": {
+    "buyer-portal": {
       "tags": [
         "ux"
       ]
     },
-    "areas-vendor-portal": {
+    "vendor-portal": {
       "tags": [
         "ux"
       ]

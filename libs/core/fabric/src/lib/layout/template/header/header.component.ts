@@ -7,6 +7,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef
 } from '@angular/core';
+
+import { UserDataContext } from '@hubx/domain';
+
 import {
   ApplicationContext,
   ApplicationViewContext,
@@ -27,6 +30,7 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
   @Input() SubHeaderTitle: string;
   constructor(
     private cdr: ChangeDetectorRef,
+    public dtx: UserDataContext,
     public ctx: ApplicationContext,
     public vtx: ApplicationViewContext) {
     const self = this;
@@ -41,17 +45,25 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
     //  //  //
   }
   ngOnInit(): void {
+
     const self = this;
+
     self.cdr.detectChanges();
+
     self.vtx.viewContext.active.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.areaInfo.next(arg);
       }
     });
+
     self.vtx.viewContext.activeSection.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.sectionInfo.next(arg);
       }
+    });
+    //
+    self.dtx.getUserProfile().subscribe((data:any)=>{
+      console.log(data);
     });
   }
   ngOnDestroy(): void {}

@@ -1,110 +1,42 @@
-import { MainComponent } from './layout/template/main/main.component';
-import { NgModule        } from '@angular/core';
-import { CommonModule    } from '@angular/common';
-import { MaterialModules } from './material.module';
+import { NgModule         } from '@angular/core';
+import { CommonModule     } from '@angular/common';
+import { MaterialModules  } from './material.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
-// @Collection: Local Modules
-import { 
+/**
+ * @desc: Collection of Local Componetes
+ */
+import { ContentComponent } from './layout/elements';
+import {
+  COLLECTION_CORE_ANIMATIONS,
+  COLLECTION_CORE_COMPONENTS,
+  COLLECTION_LAYOUT_ELEMENTS,
+  COLLECTION_LAYOUT_TEMPLATES,
+  COLLECTION_ENTRY_COMPONENTS, } from './fabric.constants';
+import {
   ApplicationContext,
-  ServicesModule  
+  ServicesModule
 } from '@hubx/services';
-
-// @Collection: Local Components
-import { 
-  MenuComponent,
-  MenuItemComponent,
-  LoaderComponent  
-} from './components';
-
-import {ConfirmLogoutDialogComponent} from "./layout/template/dialog/confirm-logout.dialog";
-// @Collection: Local Directives
-import { 
-  BusyDirective   
-} from './directives/busy.directive';
-/**
- * layout components
- */
-import {
-  ItemComponent           ,
-  ViewComponent           ,  
-  TitleComponent          ,
-  ChildComponent          ,  
-  ContentComponent        ,
-  ElementComponent        ,
-  FragementComponent      ,
-  PageTitleComponent      ,  
-  SectionTitleComponent       
-} from './layout';
-/**
- * template components
- */
-import {
-    ShellComponent        ,
-    HeaderComponent       ,
-    SubHeaderComponent    ,   
-    SideMenuComponent     ,
-    DevToolbarComponent   } from './layout/template';
-
-import { slideAnimation} from './layout/util/slide.animation';
-import { AnimationProvider } from './animations/animation.provider';
-/**
- * COMPONENT_ELEMENTS
- * @description: elements reference array
- */
-const COMPONENT_ELEMENTS = [ 
-  ViewComponent       ,
-  ItemComponent       ,
-  ChildComponent      ,
-  TitleComponent      ,
-  ContentComponent    ,
-  ElementComponent    ,
-  FragementComponent  ,
-  PageTitleComponent   ,  
-  SectionTitleComponent       
-];  
-/**
- * COMPONENT_TEMPLATES
- * @description: layout templates reference array
- */  
-const COMPONENT_TEMPLATES = [
-  ConfirmLogoutDialogComponent,
-  MenuComponent       ,
-  MenuItemComponent   ,
-  LoaderComponent     ,
-  MainComponent       ,
-  ShellComponent      ,
-  HeaderComponent     ,  
-  SideMenuComponent   ,
-  SubHeaderComponent  ,
-  DevToolbarComponent ,
-];
-/**
- * COMPONENTS_DIRECTIVES
- * @description: directive reference array
- */
-const COMPONENTS_DIRECTIVES = [
-  BusyDirective
-];
 /**
  * Ng module
  */
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     ServicesModule,
     FlexLayoutModule,
-    MaterialModules],    
-  exports: [    
+    MaterialModules],
+  exports: [
     MaterialModules,
-    COMPONENT_ELEMENTS, 
-    COMPONENT_TEMPLATES,
-    COMPONENTS_DIRECTIVES],
-  providers:[ApplicationContext , AnimationProvider ],
+    COLLECTION_CORE_COMPONENTS,
+    COLLECTION_LAYOUT_ELEMENTS,
+    COLLECTION_LAYOUT_TEMPLATES],
+  providers:[ApplicationContext],
   declarations: [
-    COMPONENT_ELEMENTS,   
-    COMPONENT_TEMPLATES,
-    COMPONENTS_DIRECTIVES]  ,
-    entryComponents:[LoaderComponent, ConfirmLogoutDialogComponent]
+    COLLECTION_CORE_COMPONENTS,
+    COLLECTION_LAYOUT_ELEMENTS,
+    COLLECTION_LAYOUT_TEMPLATES],
+  entryComponents:[
+    COLLECTION_ENTRY_COMPONENTS]
 })
-export class FabricModule {   
+export class FabricModule {
 }

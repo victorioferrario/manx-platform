@@ -19,7 +19,7 @@ import {
   AreaView
 } from '@hubx/services';
 
-import { MenuComponent } from '../../../components/menu/menu.component';
+import { MenuComponent } from '../../../core';
 
 import { RouterLink, Router } from '@angular/router';
 
@@ -91,8 +91,9 @@ export class SideMenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const self = this;
     self.menu.navigate.subscribe((event: IMenuItem) => {
-      self.onNavigate(event.path, event.section);
-    });       
+      self.onNavigate(
+        event.path, event.section);
+    });
   }
 }
 
