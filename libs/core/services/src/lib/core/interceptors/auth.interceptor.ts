@@ -18,6 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    console.dir("me-interceptor");
     return next.handle(request).pipe(
       tap(
         () => {},

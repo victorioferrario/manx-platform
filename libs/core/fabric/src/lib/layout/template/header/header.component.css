@@ -19,7 +19,12 @@
     width: 160px;
     margin-left: 9px;
 }
-
+.header-toolbar-userInfo{
+  position: absolute;
+  right:25px;
+  top:5px;
+  width:235px;
+}
 .header-row-output-console {
     position: absolute;
     background:#fff;

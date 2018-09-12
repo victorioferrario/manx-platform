@@ -1,7 +1,7 @@
 import {
   OnInit,
-  Component,  
-  HostListener,  
+  Component,
+  HostListener,
   ViewContainerRef
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import {
 } from '../app-routing.service';
 
 import {
-  ApplicationContext  
+  ApplicationContext
 } from '@hubx/services';
 
 @Component({
@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
     this.style = 'height:' + this.screenHeight + 'px;';
-    console.log(this.style);
   }
   constructor(
     private router: Router,

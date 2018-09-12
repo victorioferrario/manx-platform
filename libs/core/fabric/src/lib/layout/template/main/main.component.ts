@@ -29,11 +29,11 @@ import {
 
 import { ILayoutAction } from '@hubx/services';
 
-import { LoaderComponent } from '../../../components/loader/loader.component';
+import { LoaderComponent } from '../../../core';
 
 import {
-  ApplicationContext,  
-  AuthAction,  
+  ApplicationContext,
+  AuthAction,
   Actions_UI
 } from '@hubx/services';
 @Component({
@@ -50,7 +50,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin;
   isLoading: boolean;
   @ViewChild('container') private _container;
-  @ViewChild('sideNav') private _sideNav: HTMLElement;    
+  @ViewChild('sideNav') private _sideNav: HTMLElement;
   constructor(
     public overlay: Overlay,
     public ctx: ApplicationContext,
@@ -69,7 +69,7 @@ export class MainComponent implements OnInit, AfterViewInit {
           }
           break;
       }
-    });   
+    });
   }
   onShowCart() {
     const temp = this.cssWidth;
@@ -93,7 +93,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     });
     overlayRef.attach(
       new ComponentPortal(
-        LoaderComponent, 
+        LoaderComponent,
         this.viewContainerRef)
     );
   }

@@ -4,13 +4,14 @@ export {    ViewComponent        ,
             ChildComponent       ,
             ContentComponent     ,
             ElementComponent     ,
-            FragementComponent   ,    
-            PageTitleComponent   ,  
+            FragementComponent   ,
+            PageTitleComponent   ,
             SectionTitleComponent       } from './elements';
-            
+
 export {    ShellComponent       ,
             MainComponent        ,
             HeaderComponent      ,
-            SubHeaderComponent   ,            
             SideMenuComponent    ,
-            DevToolbarComponent         } from './template';
+            SubHeaderComponent   ,
+            DevToolbarComponent  ,
+            ConfirmLogoutDialogComponent     } from './template';

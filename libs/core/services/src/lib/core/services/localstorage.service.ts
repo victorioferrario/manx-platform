@@ -35,12 +35,12 @@ const STORAGE_KEY = 'local_session';
 export class LocalStorageService<T> {
   localGenericList: GenericList<T>;
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService) {
-    this.localGenericList = new GenericList();
+    this.localGenericList = new GenericList<T>();
   }
   public storeOnLocalStorage(t: T): void {
     //get array of tasks from local storage
     const result = (this.storage.get(STORAGE_KEY) || []) as GenericList<T>;
-    // push new task to array    
+    // push new task to array
     console.log(result);
     if (result) {
       this.localGenericList.addRange(t, result.items);

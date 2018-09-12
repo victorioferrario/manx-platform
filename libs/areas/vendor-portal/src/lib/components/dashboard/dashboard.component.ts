@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef
 } from '@angular/core';
-import { routerTransition_SlideToLeft} from '@hubx/fabric';
+import { AnimationSlideToLeft} from '@hubx/fabric';
 import { ApplicationViewContext, VendorViewSection } from '@hubx/services';
 import {UserDataContext, VendorDataContext, IVendor, IBusinessProfile } from '@hubx/domain';
 @Component({
@@ -23,9 +23,9 @@ export class DashboardComponent implements OnInit {
     public vtx: ApplicationViewContext,
     public dbx: VendorDataContext,
   public ubx:UserDataContext) {
-   
+
   }
-  ngOnInit() {    
+  ngOnInit() {
     const self = this;
     self.sectionTitle = 'Dashboard';
     self.sectionText = `The ${self.sectionTitle} works!`;
@@ -40,6 +40,6 @@ export class DashboardComponent implements OnInit {
       console.log(arg);
       console.log('DoneLoading-Business Partners');
     });
-   
+
   }
 }

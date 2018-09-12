@@ -6,7 +6,7 @@ import {
   transition,
   trigger
 } from '@angular/animations';
-export const slideAnimation = trigger('slideAnimation', [
+export const SlideAnimation = trigger('slideAnimation', [
   transition(
     ':increment',
     group([
