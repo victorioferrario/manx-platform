@@ -67,14 +67,20 @@ export class AuthenticationService implements IAuthenticationService {
         password: password
       },
       (err, authResult) => {
-        this.setSession(authResult);
+        if (authResult !== undefined) {
+          this.setSession(authResult);
+        }else{
+          console.warn(err);
+        }
+
         const user_role = sessionStorage.getItem('user_role');
+
         this.dispatch.emit({
-           role: user_role, loggedIn: true 
-          });        
+          role: user_role, loggedIn: true
+        });
       });
     return result;
-    }
+  }
 
   public logout(): boolean {
     this.clearSession();
@@ -107,16 +113,17 @@ export class AuthenticationService implements IAuthenticationService {
     };
   }
   public setSession(authResult: IAuthenticationResult): boolean {
-    const self = this;
+    const self = this;    
+    const xIn = authResult.expiresIn !== null ? authResult.expiresIn : 1000 + new Date().getTime();
     const expiresAt = JSON.stringify(
-      authResult.expiresIn * 1000 + new Date().getTime()
+      xIn * 1000 + new Date().getTime()
     );
     sessionStorage.setItem('expires_at', expiresAt);
     sessionStorage.setItem('id_token', authResult.idToken);
     sessionStorage.setItem('access_token', authResult.accessToken);
     const access_token_decoded = JWT(authResult.accessToken);
     self.userRole =
-      access_token_decoded['https://www.hubx.com/app_metadata']['Role'];
+      access_token_decoded['https://www.hubx.com/app_metadata']['Role'];      
     sessionStorage.setItem('user_role', self.userRole);
     self.roleChanged.emit(self.userRole);
     return true;

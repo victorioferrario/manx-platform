@@ -1,11 +1,11 @@
 import { IViewContext } from './IViewContext';
 import { AreaView, BuyerViewSection, VendorViewSection } from '../models/enums';
-export interface IApplicationViewContext {  
-    view:IViewContext;
+export interface IApplicationViewContext {
+    viewContext:IViewContext;
     /**
      * @method: activateView
-     * @param newActive 
-     * @param newSection 
+     * @param newActive
+     * @param newSection
      */
     activateView(
       newActive: AreaView,
@@ -13,13 +13,14 @@ export interface IApplicationViewContext {
     ): void;
     /**
      * @method: activateSection
-     * @param arg 
+     * @param arg
      */
     activateSection(arg: BuyerViewSection | VendorViewSection): void;
     /**
      * @method: navigate
-     * @param url 
-     * @param newSection 
+     * @param url
+     * @param newSection
      */
     navigate(url:string, newSection?: BuyerViewSection | VendorViewSection):void;
+    navigateUpdateView(url: string, newActive: AreaView):void
   }

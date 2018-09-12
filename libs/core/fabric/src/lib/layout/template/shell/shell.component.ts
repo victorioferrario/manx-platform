@@ -15,11 +15,13 @@ export class ShellComponent implements OnInit, AfterViewInit {
   ) {
     const self = this;
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
   ngOnInit() {
     const self = this;
-    self.dbx.getUserProfile().subscribe((result: IUserProfile) => {
-      console.log(result.firstName);
-    });
+    if (self.ctx.session.isAuthenticated) {
+      self.dbx.getUserProfile().subscribe((result: IUserProfile) => {
+        console.log(result.firstName);
+      });
+    }
   }
 }

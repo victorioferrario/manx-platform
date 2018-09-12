@@ -26,11 +26,10 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
   sectionInfo: BehaviorSubject<BuyerViewSection | VendorViewSection>;
   @Input() SubHeaderTitle: string;
   constructor(
+    private cdr: ChangeDetectorRef,
     public ctx: ApplicationContext,
-    public vtx: ApplicationViewContext,
-    private cdr: ChangeDetectorRef
-  ) {
-    const self = this;   
+    public vtx: ApplicationViewContext) {
+    const self = this;
     //  //  //
     self.areaInfo = new BehaviorSubject<AreaView>(AreaView.Login);
     self.areaInfo.asObservable();
@@ -44,12 +43,12 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
   ngOnInit(): void {
     const self = this;
     self.cdr.detectChanges();
-    self.vtx.view.active.subscribe((arg: any) => {
+    self.vtx.viewContext.active.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.areaInfo.next(arg);
       }
     });
-    self.vtx.view.activeSection.subscribe((arg: any) => {
+    self.vtx.viewContext.activeSection.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.sectionInfo.next(arg);
       }

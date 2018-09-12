@@ -51,12 +51,14 @@
 .sidenav-root-large {
   background: #493b8d;
   width: 256px;
+  height:100%;
   display: block;
 }
 
 .sidenav-root-small {
   background: #493b8d;
   width: 65px;
+  height:100%;
   display: block;
   overflow: hidden;
 }

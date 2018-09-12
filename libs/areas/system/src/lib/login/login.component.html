@@ -1,30 +1,39 @@
 <section class="main-login fadeIn animated-500" #loginPanel>
   <section class="container " fxLayout fxLayoutAlign="center" style="padding-top:25px;">
-    <form [formGroup]="options"  class="form-control">
+    <form [formGroup]="options" class="form-control">
       <mat-card class="login-card fadeInUp animated-300">
         <mat-card-title class="login-title"> Login</mat-card-title>
         <mat-card-content>
-          <mat-form-field appearance="outline" class="login-form-field" >
+          <mat-form-field appearance="outline" class="login-form-field">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" tabindex="1" autofocus autocomplete="false" type="email"
-            [formControl]="username"  required/>
-            <mat-icon matSuffix>email</mat-icon>            
+            <input matInput placeholder="Email" tabindex="1" autofocus autocomplete="false" type="email" [formControl]="username"
+              required />
+            <mat-icon matSuffix>email</mat-icon>
             <mat-error *ngIf="username.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>          
+          </mat-form-field>
           <mat-form-field appearance="outline" class="login-form-field">
             <mat-label>Passord</mat-label>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"  tabindex="2"
-             autocomplete="false"  [formControl]="password"  required/>
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>         
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" tabindex="2"
+              autocomplete="false" [formControl]="password" required />
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions style="text-align:center;padding-top:0;padding-bottom:20px;">
-          <div fxLayout='row' fxLayoutAlign="space-around center">             
-            <div fxFlex="45" [fxLayout]="direction" class="one">
-              <a mat-flat-button class="login-btn"
-               href="javascript:void(0);" color="primary" (click)="login(username.value, password.value)">Buyer
-                Login</a>
-            </div>            
+          <div fxLayout='row' fxLayoutAlign="space-around center">
+            <div class="one">
+              <hubx-roles  (dispatch)="changeRole($event)"></hubx-roles>
+            </div>
+          </div>
+          <div fxLayout='row' fxLayoutAlign="space-around center">
+          <mat-divider></mat-divider>
+          </div><br />
+          <div fxLayout='row' fxLayoutAlign="space-around right" class="login-button-wrapper">
+              <div fxFlex="45" [fxLayout]="direction" class="three">
+
+              </div>
+            <div fxFlex="45" [fxLayout]="direction" class="login-button-container">
+              <a mat-flat-button class="login-btn" href="javascript:void(0);" color="primary" (click)="login(username.value, password.value)">Login</a>
+            </div>
           </div>
         </mat-card-actions>
       </mat-card>

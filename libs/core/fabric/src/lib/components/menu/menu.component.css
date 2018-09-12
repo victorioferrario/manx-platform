@@ -1,15 +1,16 @@
 .fabric-sidenav-list{
     position: absolute;
-    top: -10px;
+    top: -0;
     left:0;
     width: 100%;
+    padding-top:0!important;
     overflow-y: auto;
     background: #493b8d;
     overflow-x:hidden!important;
 }
 
 .item-color{
-    color:#fff;    
+    color:#fff;
 }
 
 fabric-menu-item{
