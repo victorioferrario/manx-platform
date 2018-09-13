@@ -20,21 +20,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuyerMainComponent implements OnInit {
-  constructor(private ctx: ApplicationContext, 
+  constructor(private ctx: ApplicationContext,
     public vtx: ApplicationViewContext) {
     const self = this;
-    // self._router.events.subscribe((event: Event) => {
-    //   self.navigationInterceptor(event);
-    // });
   }
   ngOnInit() {
     const self = this;
     self.vtx.loading(false);
     self.ctx.dispatch.emit(
-      new ActionEmitter(Actions_UI.Auth, AuthAction.LoggingInComplete)
+      new ActionEmitter(
+        Actions_UI.Auth,
+        AuthAction.LoggingInComplete)
     );
   }
-  // navigationInterceptor(event: Event) {
-  //   console.log(event);
-  // }
 }

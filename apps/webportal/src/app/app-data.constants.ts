@@ -52,7 +52,8 @@ import { ApplicationRoutingService } from './app-routing.service';
 import {
   ServicesModule,
   ApplicationContext,
-  ApplicationViewContext } from '@hubx/services';
+  ApplicationViewContext,
+  NotificationApplicationService } from '@hubx/services';
 /**
  * @desc: export COMPONENTS_LOCAL
 */
@@ -75,7 +76,8 @@ export const COLLECTION_PROVIDERS = [
     {
       provide: OverlayContainer,
       useClass: FullscreenOverlayContainer
-    }
+    },
+    NotificationApplicationService
 ];
 /**
  * @desc: Export of const COMPONENTS_INTERNAL
@@ -85,7 +87,7 @@ export const COMPONENTS_INTERNAL = [
   BrowserAnimationsModule
 ];
 /**
- * @desc: Export of const COMPONENTS_INTERNAL
+ * @desc: Export of const COMPONENTS_MATERIAL:
  */
 export const COMPONENTS_MATERIAL = [
   LayoutModule,
@@ -93,6 +95,9 @@ export const COMPONENTS_MATERIAL = [
   OverlayModule,
   FlexLayoutModule
 ];
+/**
+ * @desc: Export of const COMPONENTS_SERVICES:
+ */
 export const COMPONENTS_SERVICES = [
   FiberModule,
   FabricModule,

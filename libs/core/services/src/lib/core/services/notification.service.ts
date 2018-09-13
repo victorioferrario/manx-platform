@@ -4,10 +4,10 @@ import { INotification } from '../models';
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationService {
+export class NotificationApplicationService {
   private subject = new Subject();
-  notifications$ = this.subject.asObservable();
-  dispatch(notification: INotification) {
+  public notifyObservales = this.subject.asObservable();
+  public dispatch(notification: INotification) {
     this.subject.next(notification);
   }
 }
