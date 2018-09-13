@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {
 
     const self = this;
+
     self.ctx.session.isLogginOut = false;
 
     self.options = fb.group({
@@ -99,11 +100,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   login(username: string, password: string) {
     const self = this;
-    self.vtx.loading(true);
     localStorage.clear();
     sessionStorage.clear();
+    self.vtx.loading(true);
     if (this.username.valid && this.password.valid) {
-      self.ctx.identity.login(username, password);
+      self.ctx.identity.login(
+        username, password);
     } else {
       if (this.username.invalid) {
         console.log('no good');

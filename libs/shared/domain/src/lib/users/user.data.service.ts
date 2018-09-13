@@ -3,7 +3,7 @@ import { IUserDataContext } from './models';
 import { UserConfiguration as Config } from './user.config';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { IBusinessProfile, ICustomer, IUserProfile } from './models';
-import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from './../core/HttpBaseClient';
+import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from './../core';
 @Injectable({
     providedIn: 'root'
   })

@@ -12,7 +12,7 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { StateService } from './core/services/state.service';
 import { ApplicationContext } from './application-context.service';
 import { AuthService, AuthGuard } from './security/index';
-import { LocalStorageService } from './core/services/localstorage.service';
+// import { LocalStorageService } from './core/services/localstorage.service';
 import { ApplicationInsightsService } from './application-insights.service';
 @NgModule({
   imports: [

@@ -2,14 +2,8 @@ import { UserDataContext } from '@hubx/domain';
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy,
-  ContentChild,
-  HostListener,
-  ViewChildren,
-  ViewChild,
-  ViewContainerRef,
-  QueryList,
-  AfterViewInit
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -30,16 +24,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor(
     public dtx: UserDataContext,
     public ctx: ApplicationContext,
-    public vtx: ApplicationViewContext
-  ) {
+    public vtx: ApplicationViewContext) {
     const self = this;
   }
   ngOnInit() {
     const self = this;
     self.sectionTitle = 'Dashboard';
-    self.dtx.getUserProfile().subscribe((data:any)=>{
-      console.log(data);
-      
+    self.ctx.session.IsAuthenticatedObservable.subscribe(arg => {
+      console.log(arg);
+      self.dtx.getUserProfile().subscribe((data: any) => {
+        console.log(data);
+      });
     });
     self.sectionText = `The ${this.sectionTitle} works!`;
     self.vtx.loading(false);

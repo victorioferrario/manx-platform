@@ -1,42 +1,40 @@
 import { Observable } from 'rxjs';
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { UserConfiguration as Config } from '../user.config';
+import { IHttpBaseOptions } from '../../core';
 import { IBusinessProfile, ICustomer, IUserProfile } from '../models';
-import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from '../../core/HttpBaseClient';
 export interface IUserDataContext {
-    /**
-     * Gets the jwt token
-     * @returns token 
-     */
-    token(): string;
-    /**
-     * Gets current logged in user role.
-     * @returns role 
-     */
-    getRole(): string;
     /**
      * @property: options
      * @type: IHttpBaseOption
      */
     options: IHttpBaseOptions;
     /**
+     * Gets the jwt token
+     * @returns token
+     */
+    token(): string;
+    /**
+     * Gets current logged in user role.
+     * @returns role
+     */
+    getRole(): string;
+    /**
      * UserProfile of user
-     * @returns user profile 
+     * @returns user profile
      */
     getUserProfile(): Observable<IUserProfile>;
-    /**     
-     * @param autoBind 
+    /**
+     * @param autoBind
      * @returns ICustomer [] | ICustomer
      */
     getCustomers(autoBind: boolean): Observable<ICustomer[] | ICustomer>
     /**
      * Select Customer
-     * @returns Observable<ICustomer> 
+     * @returns Observable<ICustomer>
      */
     selectCustomers(code: string): Observable<ICustomer>
     /**
      * Profile of business
-     * @returns Observable<IProfile> 
+     * @returns Observable<IProfile>
      */
-    getBusinessProfile(): Observable<IBusinessProfile>;    
+    getBusinessProfile(): Observable<IBusinessProfile>;
 }
