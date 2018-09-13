@@ -59,8 +59,9 @@ export class AuthenticationService implements IAuthenticationService {
   }
 
   public login(email: string, password: string) {
-    var result = false;
-    this.auth0.client.login(
+    const self = this;
+    const result = false;
+    self.auth0.client.login(
       {
         realm: AUTH_CONFIG.realm,
         username: email,
@@ -68,14 +69,13 @@ export class AuthenticationService implements IAuthenticationService {
       },
       (err, authResult) => {
         if (authResult !== undefined) {
-          this.setSession(authResult);
+          self.setSession(authResult);
         }else{
           console.warn(err);
         }
-
-        const user_role = sessionStorage.getItem('user_role');
-
-        this.dispatch.emit({
+        const user_role =
+        sessionStorage.getItem('user_role');
+        self.dispatch.emit({
           role: user_role, loggedIn: true
         });
       });
@@ -113,7 +113,7 @@ export class AuthenticationService implements IAuthenticationService {
     };
   }
   public setSession(authResult: IAuthenticationResult): boolean {
-    const self = this;    
+    const self = this;
     const xIn = authResult.expiresIn !== null ? authResult.expiresIn : 1000 + new Date().getTime();
     const expiresAt = JSON.stringify(
       xIn * 1000 + new Date().getTime()
@@ -123,7 +123,7 @@ export class AuthenticationService implements IAuthenticationService {
     sessionStorage.setItem('access_token', authResult.accessToken);
     const access_token_decoded = JWT(authResult.accessToken);
     self.userRole =
-      access_token_decoded['https://www.hubx.com/app_metadata']['Role'];      
+      access_token_decoded['https://www.hubx.com/app_metadata']['Role'];
     sessionStorage.setItem('user_role', self.userRole);
     self.roleChanged.emit(self.userRole);
     return true;

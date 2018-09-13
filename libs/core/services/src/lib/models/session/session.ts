@@ -1,13 +1,17 @@
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IActionEmitter, ActionEmitter } from '../../core/emitters';
 import { IApplicationContext } from '../../interfaces/IApplicationContext';
 import { Actions_UI, AuthAction, UserIdentityRole } from '../enums';
 import { UserIdentitySessionObject, IUserIdentity } from './user';
+
 export interface ISession {
   isAuthenticated: boolean;
   isLoading: boolean;
-  isLogginOut : boolean;
+  isLogginOut: boolean;
   container: IApplicationContext;
-  userIdentity: IUserIdentity;  
+  userIdentity: IUserIdentity;
+  IsLoggdedIn: BehaviorSubject<boolean>;
+  IsAuthenticatedObservable: Observable<boolean>;
   authenticate(userRole: UserIdentityRole, isloggedIn: boolean): void;
 }
 
@@ -17,14 +21,22 @@ export class Session implements ISession {
   isLogginOut = false;
   container: IApplicationContext;
   userIdentity: IUserIdentity;
+  IsLoggdedIn: BehaviorSubject<boolean>;
+  IsAuthenticatedObservable: Observable<boolean>;
   constructor(parent: IApplicationContext) {
     const self = this;
     self.container = parent;
     self.userIdentity = new UserIdentitySessionObject();
+    self.IsLoggdedIn = new BehaviorSubject<boolean>(false);
+    self.IsAuthenticatedObservable = self.IsLoggdedIn.asObservable();
   }
   authenticate(userRole: UserIdentityRole, isloggedIn: boolean) {
     const self = this;
+    self.IsLoggdedIn.next(true);
     self.isAuthenticated = self.userIdentity.authenticate(true, userRole);
+    self.IsLoggdedIn.subscribe(val => {
+      console.log(val);
+    });
   }
 }
 

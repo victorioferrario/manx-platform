@@ -2,7 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { Configuration as Config } from './vendor.config';
-import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from './../core/HttpBaseClient';
+import { HttpBaseClient, HttpBaseOptions, IHttpBaseOptions } from './../core';
 
 import {
   IPo,
@@ -52,7 +52,7 @@ export interface IVendorDataContext {
 })
 export class VendorDataContext implements IVendorDataContext {
   public options: IHttpBaseOptions;
-  constructor(private baseClient: HttpBaseClient) { 
+  constructor(private baseClient: HttpBaseClient) {
     this .options = new HttpBaseOptions();
   }
   poFilters: IPoFilter = {
@@ -67,7 +67,7 @@ export class VendorDataContext implements IVendorDataContext {
   }
   public getPos(sellerId?: string): Observable<IPoMain> {
     const self = this;
-    const params = sellerId ? '?sellerId=' + sellerId : '';    
+    const params = sellerId ? '?sellerId=' + sellerId : '';
     self.options.url = Config.GetPoUrl + params;
     return self.baseClient.get<IPoMain>(self.options);
   }

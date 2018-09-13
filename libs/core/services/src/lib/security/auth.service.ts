@@ -35,7 +35,8 @@ export class AuthService implements IAuthService {
   constructor(private router: Router, private authContext: AuthDataContext) {
     const self = this;
     self.dispatch = new EventEmitter();
-    self.authContext.dispatch.subscribe((event: IAuthEvent) => {
+    self.authContext.dispatch.subscribe(
+      (event: IAuthEvent) => {
       self.loggedIn.next(true);
       self.dispatch.emit(event);
     });

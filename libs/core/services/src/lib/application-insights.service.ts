@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../../apps/webportal/src/environments/environment';
+import { appSettings } from './appsettings';
 import { AppInsights } from 'applicationinsights-js';
-
-
 @Injectable()
 export class ApplicationInsightsService {
-
 	private config: Microsoft.ApplicationInsights.IConfig = {
-		instrumentationKey: environment.appInsights.instrumentationKey
+		instrumentationKey: appSettings.appInsights.instrumentationKey
 	};
 	constructor() {
 		if (!AppInsights.config) {

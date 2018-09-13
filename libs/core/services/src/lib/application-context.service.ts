@@ -122,3 +122,6 @@ export class ApplicationContext implements IApplicationContext {
       });
   }
 }
+export class ApplicationContextBaseService {
+
+}

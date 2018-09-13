@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@hubx/settings": [
+        "apps/webportal/src/environments/index.ts"
+      ],
       "@hubx/fabric": [
         "libs/core/fabric/src/index.ts"
       ],
