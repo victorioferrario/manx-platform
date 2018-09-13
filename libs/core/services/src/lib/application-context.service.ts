@@ -8,7 +8,8 @@ import {
   MenuAction,
   AuthAction,
   ILayoutProps,
-  UserIdentityRole   } from './models';
+  UserIdentityRole
+} from './models';
 import { AuthService } from './security/auth.service';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
@@ -44,7 +45,10 @@ export class ApplicationContext implements IApplicationContext {
    * application context.
    * @param breakpointObserver
    */
-  constructor(breakpointObserver: BreakpointObserver, public identity :AuthService) {
+  constructor(
+    breakpointObserver: BreakpointObserver,
+    public identity: AuthService
+  ) {
     const self = this;
     self.ux = new Layout(true);
     self.session = new Session(self);
@@ -86,13 +90,11 @@ export class ApplicationContext implements IApplicationContext {
               break;
             case AuthAction.Login_Buyer:
               self.ux.viewState.active = ViewStateEnum.portal;
-              self.session.authenticate(
-                UserIdentityRole.Buyer, true);
+              self.session.authenticate(UserIdentityRole.Buyer, true);
               break;
             case AuthAction.Login_Vendor:
               self.ux.viewState.active = ViewStateEnum.portal;
-              self.session.authenticate(
-                UserIdentityRole.Vendor, true);
+              self.session.authenticate(UserIdentityRole.Vendor, true);
               break;
           }
           break;
@@ -111,14 +113,12 @@ export class ApplicationContext implements IApplicationContext {
     self.breakObserver
       .observe([Breakpoints.Web, Breakpoints.Medium])
       .subscribe(result => {
-        let event: IActionEmitter;
         if (result.matches) {
           self.ux.transformMode();
         }
-        event = new ActionEmitter(
-          Actions_UI.Mode,
-          MenuAction.SwitchMode_Over);
-        self.dispatch.emit(event);
+        self.dispatch.emit(
+          new ActionEmitter(Actions_UI.Mode, MenuAction.SwitchMode_Over)
+        );
       });
   }
 }

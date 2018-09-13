@@ -1,2 +1,3 @@
+export { HttpBaseClient } from './HttpBaseClient';
 export { HttpAuthTokenInterceptor } from './HttpInterceptor';
-export { IHttpBaseClient, HttpBaseClient, IHttpBaseOptions, HttpBaseOptions} from './HttpBaseClient';
+export { IHttpBaseClient, IHttpBaseOptions, HttpBaseOptions }  from './models';
