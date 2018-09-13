@@ -1,23 +1,12 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-export interface IHttpBaseOptions {
-  url: string;
-  headers?: HttpHeaders | {};
-  body?: any;
-}
-export class HttpBaseOptions implements IHttpBaseOptions {
-  url: string;
-  headers?: HttpHeaders | {};
-  body?: any;
-}
-export interface IHttpBaseClient {
-  get<T>(options: HttpBaseOptions): Observable<T>;
-  post<T>(options: HttpBaseOptions): Observable<T>;
-  put<T>(options: HttpBaseOptions): Observable<T>;
-  delete<T>(options: HttpBaseOptions): Observable<T>;
-}
+import { HttpClient } from '@angular/common/http';
+import {HttpBaseOptions, IHttpBaseClient, IHttpBaseOptions } from './models';
+/**
+ * @class : HttpBaseClient
+ * @desc  : HttpBaseClient that provides http service to all domain logic services.
+ */
 @Injectable({
   providedIn: 'root'
 })
