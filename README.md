@@ -1,5 +1,10 @@
 # AppPlatform
 
+
+## GitHub
+
+- Start branching off develop.
+
 ## To-Do:
 - [x]  Auto-Switch - SideNav
 - [X] Need to remove the fabric, and material UI shells.
@@ -8,8 +13,8 @@
 - [X] Clean up fabric
 - [X] Sunset alternative UIs
 - [x] Bring in Authentication
-- [ ] Clean Up module imports. Very messy at moment
-- [ ] Integrate Authentication with `services/models/session` with application Context.
+- [X] Clean Up module imports. Very messy at moment
+- [X] Integrate Authentication with `services/models/session` with application Context.
 - [ ] State Store Integration of session or augmentation
 - [ ] Create and build Fiber Lib.
 - [ ] Bring in the rest of hubx-angular data services
