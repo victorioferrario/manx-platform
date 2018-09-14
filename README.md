@@ -1,6 +1,22 @@
 # AppPlatform
 
 
+## Log Rocket
+
+### Install LogRocket
+
+SDKs enable us to capture data from your application. No matter what framework you use, our libraries are lightweight, won’t affect performance, and are easy to install.
+
+1. Install thelogrocketmodule via NPM:
+```
+npm i --save logrocket
+```
+2. Import LogRocket and callLogRocket.initlike so:
+```
+import LogRocket from 'logrocket';
+LogRocket.init('l8park/hubx-platform');
+```
+
 ## GitHub
 
 - Start branching off develop.
