@@ -14,6 +14,70 @@ import { AuthService } from './security/auth.service';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
+
+export class ApplicationBaseContext {
+  ux: ILayoutProps;
+  session: ISession;
+  instance: ApplicationContext;
+  breakObserver: BreakpointObserver;
+  dispatch: EventEmitter<IActionEmitter>;
+  constructor(
+    public identity: AuthService,
+    breakpointObserver: BreakpointObserver
+  ) {
+    const self = this;
+    self.dispatchInit();
+    self.ux = new Layout(true);
+    self.breakObserver = breakpointObserver;
+
+  }
+  protected sessionInit(refApp: ApplicationContext) {
+    this.instance = refApp;
+    this.session = new Session(refApp);
+  }
+  /**
+   * @method: dispatchInit
+   * @description: The following method subscribes
+   * to the EventEmitter dispatch. Componets in the application
+   * fire off the event as
+   * @code: ctx.dispatch(event: IActionEmitter);
+  * @memberof ApplicationBaseContext
+   */
+  protected dispatchInit(): void {
+    const self = this;
+    self.dispatch = new EventEmitter();
+    self.dispatch.subscribe((event: IActionEmitter) => {
+      switch (event.type) {
+        case Actions_UI.Menu:
+          self.instance.processMenuAction(event.subType as MenuAction);
+          break;
+        case Actions_UI.Mode:
+          self.ux.transformMode();
+          break;
+        case Actions_UI.Auth:
+          self.instance.processAuthAction(event.subType as AuthAction);
+          break;
+        case Actions_UI.Resize:
+          self.ux.transformSize(event.subType as MenuAction);
+          break;
+      }
+    });
+  }
+  protected breakpointObserverInit(): void{
+    const self = this;
+    self.breakObserver
+      .observe([Breakpoints.Web, Breakpoints.Medium])
+      .subscribe(result => {
+        if (result.matches) {
+          self.ux.transformMode();
+        }
+        self.dispatch.emit(
+          new ActionEmitter(Actions_UI.Mode, MenuAction.SwitchMode_Over)
+        );
+      });
+  }
+}
+
 /**
  * ApplicationContext
  * @description: The Class has two parts.
@@ -35,27 +99,58 @@ import { ViewStateEnum } from './models/view';
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationContext implements IApplicationContext {
-  ux: ILayoutProps;
-  session: ISession;
-  dispatch: EventEmitter<IActionEmitter>;
-  breakObserver: BreakpointObserver;
+export class ApplicationContext extends ApplicationBaseContext
+  implements IApplicationContext {
+  child: ApplicationContext;
   /**
    * Creates an instance of
    * application context.
    * @param breakpointObserver
    */
   constructor(
-    breakpointObserver: BreakpointObserver,
-    public identity: AuthService
+    public identity: AuthService,
+    breakpointObserver: BreakpointObserver
   ) {
-    const self = this;
-    self.ux = new Layout(true);
-    self.session = new Session(self);
-    self.dispatch = new EventEmitter();
-    self.breakObserver = breakpointObserver;
-    self.initializeDispatcher();
+    super(identity, breakpointObserver);
+    this.sessionInit(this);
+   // this.initializeDispatcher();
   }
+  processAuthAction(action: AuthAction) {
+    const self = this;
+    switch (action) {
+      case AuthAction.Login:
+        self.session.isAuthenticated = true;
+        self.ux.viewState.active = ViewStateEnum.portal;
+        break;
+      case AuthAction.Logout:
+        self.ux.dispatch.emit(
+          new LayoutAction(Actions_UI.Auth, AuthAction.Logout)
+        );
+        self.session.isAuthenticated = false;
+        self.ux.viewState.active = ViewStateEnum.login;
+        break;
+      case AuthAction.Login_Buyer:
+        self.ux.viewState.active = ViewStateEnum.portal;
+        self.session.authenticate(UserIdentityRole.Buyer, true);
+        break;
+      case AuthAction.Login_Vendor:
+        self.ux.viewState.active = ViewStateEnum.portal;
+        self.session.authenticate(UserIdentityRole.Vendor, true);
+        break;
+    }
+  }
+  processMenuAction(action: MenuAction): void {
+    const self = this;
+    switch (action) {
+      case MenuAction.State_Toggle:
+        self.ux.props.opened = !self.ux.props.opened;
+        break;
+      default:
+        self.ux.props.opened = action === MenuAction.State_Open;
+        break;
+    }
+  }
+
   initializeDispatcher() {
     const self = this;
     self.dispatch.subscribe((event: IActionEmitter) => {
@@ -121,7 +216,4 @@ export class ApplicationContext implements IApplicationContext {
         );
       });
   }
-}
-export class ApplicationContextBaseService {
-
 }
