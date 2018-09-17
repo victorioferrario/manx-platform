@@ -14,7 +14,6 @@ import { AuthService } from './security/auth.service';
 import { ISession, Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
-
 export class ApplicationBaseContext {
   ux: ILayoutProps;
   session: ISession;
@@ -29,11 +28,14 @@ export class ApplicationBaseContext {
     self.dispatchInit();
     self.ux = new Layout(true);
     self.breakObserver = breakpointObserver;
-
   }
+  /**
+   * @method: sessionInit
+   * @param {ApplicationContext} refApp
+   * @memberof ApplicationBaseContext
+   */
   protected sessionInit(refApp: ApplicationContext) {
     this.instance = refApp;
-    this.session = new Session(refApp);
   }
   /**
    * @method: dispatchInit
@@ -41,7 +43,7 @@ export class ApplicationBaseContext {
    * to the EventEmitter dispatch. Componets in the application
    * fire off the event as
    * @code: ctx.dispatch(event: IActionEmitter);
-  * @memberof ApplicationBaseContext
+   * @memberof ApplicationBaseContext
    */
   protected dispatchInit(): void {
     const self = this;
@@ -63,7 +65,10 @@ export class ApplicationBaseContext {
       }
     });
   }
-  protected breakpointObserverInit(): void{
+  /**
+   * Initializes break point observer
+   */
+  protected breakpointObserverInit(): void {
     const self = this;
     self.breakObserver
       .observe([Breakpoints.Web, Breakpoints.Medium])
@@ -77,7 +82,6 @@ export class ApplicationBaseContext {
       });
   }
 }
-
 /**
  * ApplicationContext
  * @description: The Class has two parts.
@@ -99,21 +103,16 @@ export class ApplicationBaseContext {
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationContext extends ApplicationBaseContext
+export class ApplicationContext
+extends ApplicationBaseContext
   implements IApplicationContext {
   child: ApplicationContext;
-  /**
-   * Creates an instance of
-   * application context.
-   * @param breakpointObserver
-   */
   constructor(
     public identity: AuthService,
-    breakpointObserver: BreakpointObserver
-  ) {
+    breakpointObserver: BreakpointObserver) {
     super(identity, breakpointObserver);
     this.sessionInit(this);
-   // this.initializeDispatcher();
+    this.session = new Session(this);
   }
   processAuthAction(action: AuthAction) {
     const self = this;
@@ -149,71 +148,5 @@ export class ApplicationContext extends ApplicationBaseContext
         self.ux.props.opened = action === MenuAction.State_Open;
         break;
     }
-  }
-
-  initializeDispatcher() {
-    const self = this;
-    self.dispatch.subscribe((event: IActionEmitter) => {
-      switch (event.type) {
-        case Actions_UI.Menu:
-          const temp = event.subType as MenuAction;
-          switch (event.subType) {
-            case MenuAction.State_Toggle:
-              self.ux.props.opened = !self.ux.props.opened;
-              break;
-            default:
-              self.ux.props.opened = temp === MenuAction.State_Open;
-              break;
-          }
-          break;
-        case Actions_UI.Mode:
-          self.ux.transformMode();
-          break;
-        case Actions_UI.Auth:
-          const temp2 = event.subType as AuthAction;
-          switch (temp2) {
-            case AuthAction.Login:
-              self.session.isAuthenticated = true;
-              self.ux.viewState.active = ViewStateEnum.portal;
-              break;
-            case AuthAction.Logout:
-              self.ux.dispatch.emit(
-                new LayoutAction(Actions_UI.Auth, AuthAction.Logout)
-              );
-              self.session.isAuthenticated = false;
-              self.ux.viewState.active = ViewStateEnum.login;
-              break;
-            case AuthAction.Login_Buyer:
-              self.ux.viewState.active = ViewStateEnum.portal;
-              self.session.authenticate(UserIdentityRole.Buyer, true);
-              break;
-            case AuthAction.Login_Vendor:
-              self.ux.viewState.active = ViewStateEnum.portal;
-              self.session.authenticate(UserIdentityRole.Vendor, true);
-              break;
-          }
-          break;
-        case Actions_UI.Resize:
-          self.ux.transformSize(event.subType as MenuAction);
-          break;
-      }
-    });
-    self.initializeBreakPointObserver();
-  }
-  /**
-   * Initializes break point observer
-   */
-  initializeBreakPointObserver() {
-    const self = this;
-    self.breakObserver
-      .observe([Breakpoints.Web, Breakpoints.Medium])
-      .subscribe(result => {
-        if (result.matches) {
-          self.ux.transformMode();
-        }
-        self.dispatch.emit(
-          new ActionEmitter(Actions_UI.Mode, MenuAction.SwitchMode_Over)
-        );
-      });
   }
 }

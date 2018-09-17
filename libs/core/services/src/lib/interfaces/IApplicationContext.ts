@@ -13,6 +13,4 @@ export interface IApplicationContext {
     dispatch: EventEmitter<IActionEmitter>;
     processAuthAction(action: AuthAction):void;
     processMenuAction(action: MenuAction): void;
-    initializeDispatcher(): void;
-    initializeBreakPointObserver(): void;
   }
