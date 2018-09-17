@@ -60,7 +60,7 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
       }
     });
     //
-    
+
     //
     self.dtx.getUserProfile().subscribe((data:any)=>{
       console.warn(data);
