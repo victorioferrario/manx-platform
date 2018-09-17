@@ -49,21 +49,21 @@ export class HeaderComponent implements OnDestroy, OnInit, AfterViewInit {
     const self = this;
 
     self.cdr.detectChanges();
-
     self.vtx.viewContext.active.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.areaInfo.next(arg);
       }
     });
-
     self.vtx.viewContext.activeSection.subscribe((arg: any) => {
       if (arg !== undefined) {
         self.sectionInfo.next(arg);
       }
     });
     //
+
+    //
     self.dtx.getUserProfile().subscribe((data:any)=>{
-      console.log(data);
+      console.warn(data);
     });
   }
   ngOnDestroy(): void {}

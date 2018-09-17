@@ -1,5 +1,26 @@
 # AppPlatform
 
+
+## Log Rocket
+
+### Install LogRocket
+
+SDKs enable us to capture data from your application. No matter what framework you use, our libraries are lightweight, won’t affect performance, and are easy to install.
+
+1. Install thelogrocketmodule via NPM:
+```
+npm i --save logrocket
+```
+2. Import LogRocket and callLogRocket.initlike so:
+```
+import LogRocket from 'logrocket';
+LogRocket.init('l8park/hubx-platform');
+```
+
+## GitHub
+
+- Start branching off develop.
+
 ## To-Do:
 - [x]  Auto-Switch - SideNav
 - [X] Need to remove the fabric, and material UI shells.
@@ -8,8 +29,8 @@
 - [X] Clean up fabric
 - [X] Sunset alternative UIs
 - [x] Bring in Authentication
-- [ ] Clean Up module imports. Very messy at moment
-- [ ] Integrate Authentication with `services/models/session` with application Context.
+- [X] Clean Up module imports. Very messy at moment
+- [X] Integrate Authentication with `services/models/session` with application Context.
 - [ ] State Store Integration of session or augmentation
 - [ ] Create and build Fiber Lib.
 - [ ] Bring in the rest of hubx-angular data services
