@@ -1,5 +1,5 @@
 {
-  "npmScope": "apworkspace",
+  "npmScope": "hubx-platform",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
