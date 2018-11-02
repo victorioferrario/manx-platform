@@ -5,8 +5,9 @@
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/infrastructure`
+
+> `@manx/infrastructure`
 
 ## Details
 
-This library will contains all the data services, for the `@hubx/domain` to consume.  No other component or library should call items here.
+This library will contains all the data services, for the `@hubx/domain` to consume. No other component or library should call items here.

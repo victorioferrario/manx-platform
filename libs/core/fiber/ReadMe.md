@@ -5,8 +5,9 @@
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/fiber`
+
+> `@manx/fiber`
 
 ## Details
 
-This library will contain all the state managemnet.  It is not started yet, and is coming soon.
+This library will contain all the state managemnet. It is not started yet, and is coming soon.

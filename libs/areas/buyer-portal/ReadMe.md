@@ -1,27 +1,24 @@
 # Buyer Portal
+
 > Directory: `libs/areas/buyer-portal/src/lib:`
 
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/areas/buyer`
 
-This library supports the `webportal`, and is wired-up to run under the application.  It uses lazy loading, and is wired up here:
+> `@manx/areas/buyer`
+
+This library supports the `webportal`, and is wired-up to run under the application. It uses lazy loading, and is wired up here:
 
 > `apps/webportal/src/app/areas/buyer-protal/buyer.routing.module.ts`
 
 It is configured as following:
+
 ```ts
 /**
  * @description:  Components
  */
-import {
-          CartComponent         ,
-          DashboardComponent    ,
-          MyaccountComponent    ,
-          MyprofileComponent    ,
-          OrdersComponent       ,
-          OrderDetailComponent  } from '@hubx/areas/buyers';
+import { CartComponent, DashboardComponent, MyaccountComponent, MyprofileComponent, OrdersComponent, OrderDetailComponent } from '@hubx/areas/buyers';
 /**
  * @description:  Local Hook
  */
@@ -41,4 +38,3 @@ const routes: Routes = [
   }
 ];
 ```
-

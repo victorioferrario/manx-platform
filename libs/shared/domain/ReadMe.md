@@ -5,7 +5,8 @@
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/domain`
+
+> `@manx/domain`
 
 ## Details
 

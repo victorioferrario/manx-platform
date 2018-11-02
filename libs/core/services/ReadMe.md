@@ -5,8 +5,9 @@
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/services`
+
+> `@manx/services`
 
 ## Details
 
-This library contains all the services related to the Application Context.  Yet to be determined if it will have our Domain Services, Most likly not. 
+This library contains all the services related to the Application Context. Yet to be determined if it will have our Domain Services, Most likly not.
