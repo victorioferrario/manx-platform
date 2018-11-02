@@ -92,7 +92,7 @@ export class ApplicationViewContext implements IApplicationViewContext {
   private processJWT() {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(this.ctx.identity.token());
-    this.itx.setAuthenticatedUserId(decodedToken['https://www.hubx.com/app_metadata'].UserId);
+    this.itx.setAuthenticatedUserId(decodedToken['https://www.manx.com/app_metadata'].UserId);
   }
   /**
    * Loading application view context

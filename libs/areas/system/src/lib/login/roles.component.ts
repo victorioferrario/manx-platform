@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
-    selector: 'hubxsystem-roles',
+    selector: 'manxsystem-roles',
     templateUrl: 'roles.component.html',
     styleUrls: ['roles.component.css'],
 })

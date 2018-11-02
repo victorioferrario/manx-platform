@@ -6,7 +6,7 @@
         <ul class="left-nav">
           <li class="menu-item" *ngFor="let parent of NavigationTree">
             <a class="menu-link {{isParentNavActive(parent)}}" id="{{ parent.navId }}" role="button" (click)="onParentNavClick(parent, $event)">
-              <img *ngIf="parent.iconUri" src="https://cdn.hubx.com{{parent.iconUri}}" alt="{{parent.navName}}" class="category-icon">
+              <img *ngIf="parent.iconUri" src="https://cdn.manx.com{{parent.iconUri}}" alt="{{parent.navName}}" class="category-icon">
               <span *ngIf="parent.navName.length>14" class="category-name">{{ parent.navName | slice:0:12}}...</span>
               <span *ngIf="parent.navName.length<=14" class="category-name">{{parent.navName}}</span>
               <span class="category-bage">{{parent.count}}</span></a>

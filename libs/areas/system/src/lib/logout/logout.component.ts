@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActionEmitter, Actions_UI, ApplicationContext, AuthAction } from '@manx/services';
 
 @Component({
-  selector: 'hubxsystem-logout',
+  selector: 'manxsystem-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

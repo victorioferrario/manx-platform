@@ -1,4 +1,4 @@
-{"realm":"Username-Password-Authentication","audience":"hubx_web_apis",
+{"realm":"Username-Password-Authentication","audience":"manx_web_apis",
 "client_id":"rIeqroV4uPabecbaSNqm3OfH3ERaDK5e","scope":"openid profile offline_access","grant_type":
 "http://auth0.com/oauth/grant-type/password-realm",
-"username":"admin@hubx.com","password":"Abcd123$"}
+"username":"admin@manx.com","password":"Abcd123$"}

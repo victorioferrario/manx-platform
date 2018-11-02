@@ -1,5 +1,5 @@
 {
-  "npmScope": "hubx-platform",
+  "npmScope": "manx-platform",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",

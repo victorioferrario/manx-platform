@@ -6,13 +6,13 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-$hubx-app-primary: mat-palette($mat-deep-purple, 700, 800, 600);
-$hubx-app-accent: mat-palette($mat-grey, A400, A700, 600);
-$hubx-app-warn: mat-palette($mat-red, 400, 400, 400);
+$manx-app-primary: mat-palette($mat-deep-purple, 700, 800, 600);
+$manx-app-accent: mat-palette($mat-grey, A400, A700, 600);
+$manx-app-warn: mat-palette($mat-red, 400, 400, 400);
 
-$hubx-app-theme: mat-light-theme($hubx-app-primary, $hubx-app-accent, $hubx-app-warn);
+$manx-app-theme: mat-light-theme($manx-app-primary, $manx-app-accent, $manx-app-warn);
 
-@include angular-material-theme($hubx-app-theme);
+@include angular-material-theme($manx-app-theme);
 
 // Define an alternate dark theme.
 $dark-primary: mat-palette($mat-blue-grey);
@@ -20,21 +20,21 @@ $dark-accent: mat-palette($mat-amber, A200, A100, A400);
 $dark-warn: mat-palette($mat-deep-orange);
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
-.hubx-light-theme {
-  @include angular-material-theme($hubx-app-theme);
+.manx-light-theme {
+  @include angular-material-theme($manx-app-theme);
 }
 
-.hubx-dark-theme {
+.manx-dark-theme {
   @include angular-material-theme($dark-theme);
 }
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Medium';
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Medium1.eot');
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Medium1.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Medium1.woff2') format('woff2'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Medium1.woff') format('woff'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Medium1.svg#HelveticaNeueCyr-Medium') format('svg');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Medium1.eot');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Medium1.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Medium1.woff2') format('woff2'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Medium1.woff') format('woff'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Medium1.svg#HelveticaNeueCyr-Medium') format('svg');
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -42,11 +42,11 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Bold';
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Bold1.eot');
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Bold1.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Bold1.woff2') format('woff2'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Bold1.woff') format('woff'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Bold1.svg#HelveticaNeueCyr-Medium') format('svg');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Bold1.eot');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Bold1.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Bold1.woff2') format('woff2'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Bold1.woff') format('woff'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Bold1.svg#HelveticaNeueCyr-Medium') format('svg');
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -54,9 +54,9 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Light';
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Light.eot');
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Light.svg#HelveticaNeueCyr-Medium') format('svg');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Light.eot');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Light.svg#HelveticaNeueCyr-Medium') format('svg');
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -64,11 +64,11 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Roman1';
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Roman1.eot');
-  src: url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Roman1.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Roman1.woff2') format('woff2'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Roman1.woff') format('woff'),
-    url('https://cdn.hubx.com/assets/fonts/HelveticaNeueCyr-Roman1.svg#HelveticaNeueCyr-Medium') format('svg');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Roman1.eot');
+  src: url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Roman1.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Roman1.woff2') format('woff2'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Roman1.woff') format('woff'),
+    url('https://cdn.manx.com/assets/fonts/HelveticaNeueCyr-Roman1.svg#HelveticaNeueCyr-Medium') format('svg');
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;

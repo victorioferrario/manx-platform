@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { Router } from "@angular/router";
 @Component({
-  selector: "hubxsystem-error",
+  selector: "manxsystem-error",
   templateUrl: "./route-error.component.html",
   styleUrls: ["./route-error.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush

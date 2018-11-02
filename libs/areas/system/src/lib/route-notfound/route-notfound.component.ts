@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { Router } from "@angular/router";
 @Component({
-  selector: "hubxsystem-notfound",
+  selector: "manxsystem-notfound",
   templateUrl: "./route-notfound.component.html",
   styleUrls: ["./route-notfound.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush

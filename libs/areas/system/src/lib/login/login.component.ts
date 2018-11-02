@@ -8,7 +8,7 @@ export class DataItem {
 }
 
 @Component({
-  selector: 'hubxsystem-login',
+  selector: 'manxsystem-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const self = this;
     self.password.setValue('Abcd123$');
-    self.username.setValue('admin@hubx.com');
+    self.username.setValue('admin@manx.com');
     self.subscription = self.ctx.identity.dispatch.subscribe(
       (event: IAuthEvent) => {
         const role = event.role;
@@ -79,20 +79,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     const self = this;
     switch (eventArg) {
       case 'Buyer':
-        self.password.setValue('Abcd123$');
-        self.username.setValue('motty@hubx.com');
+        self.password.setValue('lkjhgfd$');
+        self.username.setValue('sample@manx.com');
         break;
       case 'Seller':
-        self.password.setValue('123456');
-        self.username.setValue('vivianne@laptopplaza.com');
+        self.password.setValue('lkjhgf');
+        self.username.setValue('sample@manx.com');
         break;
       case 'Admin':
-        self.password.setValue('Abcd123$');
-        self.username.setValue('admin@hubx.com');
+        self.password.setValue('lkjhgf$');
+        self.username.setValue('admin@manx.com');
         break;
       case 'SuperAdmin':
-        self.password.setValue('123456');
-        self.username.setValue('it@hubx.com');
+        self.password.setValue('lkjhgf');
+        self.username.setValue('superadmin@manx.com');
         break;
     }
   }
@@ -101,6 +101,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 }
 
-// const data = new DataItem('manny', 'mannyf@hubx.com', 40);
+// const data = new DataItem('manny', 'mannyf@manx.com', 40);
 //         self.storage.storeOnLocalStorage(
 //           data);

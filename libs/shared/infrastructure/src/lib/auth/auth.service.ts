@@ -50,7 +50,7 @@ export class AuthenticationService implements IAuthenticationService {
     domain: AUTH_CONFIG.domain,
     clientID: AUTH_CONFIG.clientID,
     redirectUri: AUTH_CONFIG.callbackURL,
-    audience: 'hubx_web_apis',
+    audience: 'manx_web_apis',
     responseType: 'token id_token',
     scope: 'openid profile offline_access'
   });
@@ -123,7 +123,7 @@ export class AuthenticationService implements IAuthenticationService {
     sessionStorage.setItem('access_token', authResult.accessToken);
     const access_token_decoded = JWT(authResult.accessToken);
     self.userRole =
-      access_token_decoded['https://www.hubx.com/app_metadata']['Role'];
+      access_token_decoded['https://www.manx.com/app_metadata']['Role'];
     sessionStorage.setItem('user_role', self.userRole);
     self.roleChanged.emit(self.userRole);
     return true;

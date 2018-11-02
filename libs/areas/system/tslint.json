@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "hubxsystem",
+      "manxsystem",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "hubxsystem",
+      "manxsystem",
       "kebab-case"
     ]
   }

@@ -9,7 +9,7 @@ export interface IAuthService {
   login(username: string, password: string): void;
 }
 /**
- * Will act as a facade between @hubx/domain
+ * Will act as a facade between @manx/domain
  * @classdesc: It's a mess, don't hurt your eyes.
  */
 @Injectable()

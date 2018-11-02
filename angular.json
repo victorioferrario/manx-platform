@@ -238,7 +238,7 @@
       "root": "libs/areas/system",
       "sourceRoot": "libs/areas/system/src",
       "projectType": "library",
-      "prefix": "hubxsystem",
+      "prefix": "manxsystem",
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
