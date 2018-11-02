@@ -5,7 +5,7 @@
 ## Project Structure
 
 The components path is found under this namespace:
-   > ` @hubx/fabric`
+   > ` @manx/fabric`
 
 ## Details
 
