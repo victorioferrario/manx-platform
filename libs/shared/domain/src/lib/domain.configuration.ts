@@ -1,8 +1,8 @@
 export const domain_environment = {
-  baseUrl: 'https://admin-dev.hubx.com/',
-  apiUrl: 'https://admin-dev.hubx.com/api/',
-  buyerUrl: 'https://buyer-dev.hubx.com/',
-  // https://buyer-test.hubx.com/api/
-  vendorUrl: 'https://vendor-dev.hubx.com/',
+  baseUrl: 'https://admin-dev.manx.com/',
+  apiUrl: 'https://admin-dev.manx.com/api/',
+  buyerUrl: 'https://buyer-dev.manx.com/',
+  // https://buyer-test.manx.com/api/
+  vendorUrl: 'https://vendor-dev.manx.com/',
   genericBaseUrl: 'for example only'
 };
