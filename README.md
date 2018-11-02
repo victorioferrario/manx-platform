@@ -1,39 +1,18 @@
 # AppPlatform
 
+ <code-example path="libs/core/services/src/lib/application-base.context.ts">
+ </code-example>
 
-## Log Rocket
 
-### Install LogRocket
+ ```
 
-SDKs enable us to capture data from your application. No matter what framework you use, our libraries are lightweight, won’t affect performance, and are easy to install.
+ typedoc --out documentation-typedoc/ apps/webportal
 
-1. Install thelogrocketmodule via NPM:
-```
-npm i --save logrocket
-```
-2. Import LogRocket and callLogRocket.initlike so:
-```
-import LogRocket from 'logrocket';
-LogRocket.init('l8park/hubx-platform');
-```
+ ```
 
 ## GitHub
 
 - Start branching off develop.
-
-## To-Do:
-- [x]  Auto-Switch - SideNav
-- [X] Need to remove the fabric, and material UI shells.
-- [x] Need to clean up hybrid UI, move it fully into fabric lib.
-- [X] Automate or fix sub-header when collapsing.
-- [X] Clean up fabric
-- [X] Sunset alternative UIs
-- [x] Bring in Authentication
-- [X] Clean Up module imports. Very messy at moment
-- [X] Integrate Authentication with `services/models/session` with application Context.
-- [ ] State Store Integration of session or augmentation
-- [ ] Create and build Fiber Lib.
-- [ ] Bring in the rest of hubx-angular data services
 
 
 # Tools
@@ -44,20 +23,20 @@ LogRocket.init('l8park/hubx-platform');
 
 ## Angular Enterprise Application Architecture
 
-|                                                   Project Library                                                   |                                           Description                                           |    Type     |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
-| [Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)                   | main application                                                                                | Application |
-| Areas                                                                                                       |                                                                                                 |             |
-| [Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)  | library that runs the buyer-portal under the main app.                                          | Library     |
-| [System &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system)                   | Application Components of common functionality                                                  | Library     |
-| [Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal) | library that runs the vendor-portal under the main app.                                         | Library     |
-| Core                                                                                                        |                                                                                                 |             |
-| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                    | Application UI Management & Core Components                                                     | Library     |
-| [Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fiber)                      | Application State Management                                                                    | Library     |
-| [Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/services)                | Application Context Provider                                                                    | Library     |
-| Shared                                                                                                      |                                                                                                 | Library     |
-| [Domain](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/domain)                  | To be created, then will be wired up inbetween Fiber & Services                                 | Library     |
-| [Infrastructure](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/infrastructure)  | Ideally these are low-level services, not consumed by ui components, but more over for services | Library     |
+| Project Library                                                                                                                | Description                                                                                     | Type        |
+|--------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-------------|
+| [Webportal](https://github.com/victorioferrario/hubx-platform/tree/master/apps/webportal)                                      | main application                                                                                | Application |
+| Areas                                                                                                                          |                                                                                                 |             |
+| [Buyer-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/buyer-portal)                          | library that runs the buyer-portal under the main app.                                          | Library     |
+| [System &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/system) | Application Components of common functionality                                                  | Library     |
+| [Vendor-Portal](https://github.com/victorioferrario/hubx-platform/tree/master/libs/areas/vendor-portal)                        | library that runs the vendor-portal under the main app.                                         | Library     |
+| Core                                                                                                                           |                                                                                                 |             |
+| [Fabric](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fabric)                                       | Application UI Management & Core Components                                                     | Library     |
+| [Fiber](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/fiber)                                         | Application State Management                                                                    | Library     |
+| [Services](https://github.com/victorioferrario/hubx-platform/tree/master/libs/core/services)                                   | Application Context Provider                                                                    | Library     |
+| Shared                                                                                                                         |                                                                                                 | Library     |
+| [Domain](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/domain)                                     | To be created, then will be wired up inbetween Fiber & Services                                 | Library     |
+| [Infrastructure](https://github.com/victorioferrario/hubx-platform/tree/master/libs/shared/infrastructure)                     | Ideally these are low-level services, not consumed by ui components, but more over for services | Library     |
 
 # Angular Enterprise Application Symbols
 
@@ -91,8 +70,8 @@ LogRocket.init('l8park/hubx-platform');
 
 ng generate @angular/material:material-nav --name toolbar
 ## @Angular DevKit
-|              Package              |    Version    |     |
-| --------------------------------- | ------------- | --- |
+| Package                           | Version       |     |
+|-----------------------------------|---------------|-----|
 | @angular-devkit/architect         | 0.7.4         |     |
 | @angular-devkit/build-angular     | 0.7.4         |     |
 | @angular-devkit/build-ng-packager | 0.7.4         |     |

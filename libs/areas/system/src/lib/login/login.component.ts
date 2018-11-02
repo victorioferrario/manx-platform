@@ -1,26 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  OnDestroy
-} from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
-import { IAuthEvent } from '@hubx/domain';
-import { BuyerViewSection, VendorViewSection } from '@hubx/services';
-
-import { Validators } from '@angular/forms';
-import { UserIdentityRole } from '@hubx/services';
-import { LocalStorageService } from '@hubx/services';
-
-import {
-  ApplicationContext,
-  ApplicationViewContext,
-  AreaView,
-  Actions_UI,
-  AuthAction,
-  ActionEmitter
-} from '@hubx/services';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { IAuthEvent } from '@manx/domain';
+import { ActionEmitter, Actions_UI, ApplicationContext, ApplicationViewContext, AreaView, AuthAction, LocalStorageService, UserIdentityRole } from '@manx/services';
 
 export class DataItem {
   constructor(public name: string, public email: string, public age: number) {}
@@ -37,14 +18,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   options: FormGroup;
   username: FormControl;
   password: FormControl = new FormControl('', Validators.required);
-
+  subscription: any;
   constructor(
     public fb: FormBuilder,
     public ctx: ApplicationContext,
     public vtx: ApplicationViewContext,
     public storage: LocalStorageService<DataItem>
   ) {
-
     const self = this;
 
     self.ctx.session.isLogginOut = false;
@@ -54,10 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       floatLabel: 'auto'
     });
 
-    self.username = new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]);
+    self.username = new FormControl('', [Validators.required, Validators.email]);
 
     self.options = this.fb.group({
       hideRequired: false,
@@ -67,48 +44,34 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     const self = this;
-    //
     self.password.setValue('Abcd123$');
     self.username.setValue('admin@hubx.com');
-    //RROR Error: object unsubscribed
-    self.ctx.identity.dispatch.subscribe((event: IAuthEvent) => {
+    self.subscription = self.ctx.identity.dispatch.subscribe(
+      (event: IAuthEvent) => {
         const role = event.role;
         self.ctx.dispatch.emit(
-          new ActionEmitter(
-            Actions_UI.Auth,
-            role === UserIdentityRole.Buyer
-              ? AuthAction.Login_Buyer
-              : AuthAction.Login_Vendor
-          )
+          new ActionEmitter(Actions_UI.Auth, role === UserIdentityRole.Buyer ? AuthAction.Login_Buyer : AuthAction.Login_Vendor)
         );
-        self.vtx.navigateUpdateView(
-          event.route,
-          role === UserIdentityRole.Buyer ? AreaView.Buyer : AreaView.Vendor
-        );
+        self.vtx.navigateUpdateView(event.route, role === UserIdentityRole.Buyer ? AreaView.Buyer : AreaView.Vendor);
       },
       (error: any) => {},
-      (complete: any) => {
-        console.log('complete', complete);
-      }
+      (complete: any) => {}
     );
   }
-
-
   ngOnDestroy() {
-    console.warn('will remove listeners');
     const self = this;
+    if (self.subscription !== null) {
+      self.subscription.unsubscribe();
+    }
   }
   login(username: string, password: string) {
     const self = this;
-    localStorage.clear();
-    sessionStorage.clear();
     self.vtx.loading(true);
     if (this.username.valid && this.password.valid) {
-      self.ctx.identity.login(
-        username, password);
+      self.ctx.identity.login(username, password);
     } else {
       if (this.username.invalid) {
-        console.log('no good');
+        console.warn('invalid');
       }
     }
   }
@@ -128,20 +91,15 @@ export class LoginComponent implements OnInit, OnDestroy {
         self.username.setValue('admin@hubx.com');
         break;
       case 'SuperAdmin':
-        self.password.setValue('Icsly5657');
-        self.username.setValue('Pattikchen@gmail.com');
+        self.password.setValue('123456');
+        self.username.setValue('it@hubx.com');
         break;
     }
   }
   getErrorMessage() {
-    return this.username.hasError('required')
-      ? 'You must enter a value'
-      : this.username.hasError('email')
-        ? 'Not a valid email'
-        : '';
+    return this.username.hasError('required') ? 'You must enter a value' : this.username.hasError('email') ? 'Not a valid email' : '';
   }
 }
-
 
 // const data = new DataItem('manny', 'mannyf@hubx.com', 40);
 //         self.storage.storeOnLocalStorage(

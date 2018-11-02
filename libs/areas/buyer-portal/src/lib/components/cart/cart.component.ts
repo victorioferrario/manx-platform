@@ -1,10 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {
-  ApplicationViewContext,
-  BuyerViewSection,
-  VendorViewSection,
-  AreaView
-} from '@hubx/services';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ApplicationViewContext, AreaView, BuyerViewSection } from '@manx/services';
+
 @Component({
   selector: 'buyer-cart',
   templateUrl: './cart.component.html',

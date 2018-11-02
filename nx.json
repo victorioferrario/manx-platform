@@ -15,44 +15,28 @@
       "tags": []
     },
     "services": {
-      "tags": [
-        "service",
-        "data"
-      ]
+      "tags": ["service", "data"]
     },
     "fabric": {
-      "tags": [
-        "ux"
-      ]
+      "tags": ["ux"]
     },
     "fiber": {
-      "tags": [
-        "state",
-        "data"
-      ]
+      "tags": ["service", "data"]
     },
     "system": {
       "tags": ["ui"]
     },
     "buyer-portal": {
-      "tags": [
-        "ux"
-      ]
+      "tags": ["ui"]
     },
     "vendor-portal": {
-      "tags": [
-        "ux"
-      ]
+      "tags": ["ux"]
     },
     "domain": {
-      "tags": [
-        "data"
-      ]
+      "tags": ["data"]
     },
     "infrastructure": {
-      "tags": [
-        "data"
-      ]
+      "tags": ["data"]
     }
   }
 }

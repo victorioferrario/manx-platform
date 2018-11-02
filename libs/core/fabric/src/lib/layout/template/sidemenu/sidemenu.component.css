@@ -3,7 +3,7 @@
     top: -10px;
     left:0;
     width: 100%;
-    overflow-y: auto;
+    overflow-y:visible;
     background: #493b8d;
     overflow-x:hidden!important;
 }

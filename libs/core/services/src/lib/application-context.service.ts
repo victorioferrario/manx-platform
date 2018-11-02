@@ -1,18 +1,16 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Injectable } from '@angular/core';
+import { DataEmitter, DataEvent, HttpRequestTracker } from '@manx/domain';
+
+import { ApplicationBaseContext } from './application-base.context';
+import { DataContextService } from './application-data.context';
 import { IApplicationContext } from './interfaces/IApplicationContext';
-import { IActionEmitter, ActionEmitter } from './core/emitters';
-import {
-  Actions_UI,
-  MenuAction,
-  AuthAction,
-  UserIdentityRole
-} from './models';
-import { AuthService } from './security/auth.service';
-import { ISession, Session } from './models/session/session';
+import { Actions_UI, AuthAction, DataAction, IDataPayload, MenuAction, UserIdentityRole } from './models';
+import { Session } from './models/session/session';
 import { LayoutAction } from './models/ui/layout.actions';
 import { ViewStateEnum } from './models/view';
-import { ApplicationBaseContext } from './application-base.context';
+import { AuthService } from './security/auth.service';
+
 /**
  * ApplicationContext
  * @description: The Class has two parts.
@@ -20,7 +18,8 @@ import { ApplicationBaseContext } from './application-base.context';
  * @class:ux,
  * @type: ILayoutProps, ILayoutProps contains all the definitions
  * for the sideNav behavior, subheader, and viewstate;
- *
+ * <code-example path="application-base.context.ts">
+ * </code-example>
  * @class:session,
  * @type:ISession;
  *
@@ -34,19 +33,32 @@ import { ApplicationBaseContext } from './application-base.context';
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationContext
-extends ApplicationBaseContext
-  implements IApplicationContext {
+export class ApplicationContext extends ApplicationBaseContext implements IApplicationContext {
   child: ApplicationContext;
   constructor(
     public identity: AuthService,
-    breakpointObserver: BreakpointObserver) {
-    super(identity, breakpointObserver);
-    // In order avoid circular dependency error,
-    // we need to initalize these varaibles here.
-    // this.sessionInit(this);
-    this.instance =  this;
+    public dataContext: DataContextService,
+    public trackerManager: HttpRequestTracker,
+    breakpointObserver: BreakpointObserver
+  ) {
+    super(identity, dataContext, trackerManager, breakpointObserver);
+    this.instance = this;
     this.session = new Session(this);
+  }
+  processDataAction(action: DataAction, data: IDataPayload) {
+    const self = this;
+    switch (action) {
+      case DataAction.LoadItems:
+        self.dataContext.items.dispatch.emit(new DataEmitter(DataEvent.Loading, true));
+        self.dataContext.items.getPayload(data);
+        break;
+      case DataAction.PageItems:
+        self.dataContext.items.dispatch.emit(new DataEmitter(DataEvent.Loading, true));
+        self.dataContext.items.getPayloadPaged(data);
+        break;
+      case DataAction.LoadItemsByFilter:
+        break;
+    }
   }
   processAuthAction(action: AuthAction) {
     const self = this;
@@ -56,9 +68,7 @@ extends ApplicationBaseContext
         self.ux.viewState.active = ViewStateEnum.portal;
         break;
       case AuthAction.Logout:
-        self.ux.dispatch.emit(
-          new LayoutAction(Actions_UI.Auth, AuthAction.Logout)
-        );
+        self.ux.dispatch.emit(new LayoutAction(Actions_UI.Auth, AuthAction.Logout));
         self.session.isAuthenticated = false;
         self.ux.viewState.active = ViewStateEnum.login;
         break;

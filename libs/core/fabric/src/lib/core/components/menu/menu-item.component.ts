@@ -1,6 +1,8 @@
-import { Input, OnInit, Component } from '@angular/core';
-import { IMenuItem, ApplicationContext } from '@hubx/services';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApplicationContext, IMenuItem } from '@manx/services';
+
 import { MenuComponent } from './menu.component';
+
 @Component({
   selector: 'fabric-menu-item',
   styleUrls: ['./menu-item.component.css'],
@@ -21,7 +23,7 @@ export class MenuItemComponent implements OnInit {
   @Input() parent: MenuComponent;
   constructor(public ctx: ApplicationContext) {}
   ngOnInit() {
-    const self = this;    
+    const self = this;
   }
   onNavigate(item: any, eventArg: IMenuItem) {
     const self = this;

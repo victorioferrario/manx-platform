@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { CartComponent, DashboardComponent, MyaccountComponent, MyprofileComponent, OrderDetailComponent, OrdersComponent } from '@manx/areas/buyers';
+
+import { BuyerMainComponent } from './components/main/main.component';
+
 /**
  * @description:  Components
  */
-import {
-          CartComponent         ,
-          DashboardComponent    ,
-          MyaccountComponent    ,
-          MyprofileComponent    ,
-          OrdersComponent       ,
-          OrderDetailComponent  } from '@hubx/areas/buyers';
 /**
  * @description:  Local Hook
  */
-import { 
-  BuyerMainComponent 
-} from './components/main/main.component';
 const routes: Routes = [
   {
     path: '',

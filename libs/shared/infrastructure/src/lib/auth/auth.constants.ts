@@ -1,5 +1,5 @@
+// tslint:disable-next-line:nx-enforce-module-boundaries
 import { environment } from "../../../../../../apps/webportal/src/environments/environment";
-
 export interface IAuthConfig {
   clientID: string;
   domain: string;

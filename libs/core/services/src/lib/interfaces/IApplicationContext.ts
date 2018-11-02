@@ -1,16 +1,17 @@
-
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { EventEmitter } from '@angular/core';
-import { Layout, ILayoutProps, SizeEnum, ISession , AuthAction, MenuAction} from '../models';
-import { IActionEmitter, ActionEmitter } from '../core/emitters';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-//Todo: Remove this.
-import { AuthService} from '../security/auth.service';
+
+import { IActionEmitter } from '../core/emitters';
+import { AuthAction, DataAction, IDataPayload, ILayoutProps, ISession, MenuAction } from '../models';
+import { AuthService } from '../security/auth.service';
+
 export interface IApplicationContext {
-    ux: ILayoutProps;
-    session: ISession;
-    identity : AuthService;
-    breakObserver: BreakpointObserver;
-    dispatch: EventEmitter<IActionEmitter>;
-    processAuthAction(action: AuthAction):void;
-    processMenuAction(action: MenuAction): void;
-  }
+  ux: ILayoutProps;
+  session: ISession;
+  identity: AuthService;
+  breakObserver: BreakpointObserver;
+  dispatch: EventEmitter<IActionEmitter>;
+  processDataAction(action: DataAction, data: IDataPayload): void;
+  processAuthAction(action: AuthAction): void;
+  processMenuAction(action: MenuAction): void;
+}

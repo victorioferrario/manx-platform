@@ -1,41 +1,13 @@
 /**
  * Major clean up required
  */
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit,
-  QueryList,
-  ViewChildren,
-  ViewContainerRef,
-  ElementRef,
-  ViewEncapsulation,
-  Attribute
-} from '@angular/core';
-
-import {
-  ComponentPortal,
-  Portal,
-  TemplatePortalDirective
-} from '@angular/cdk/portal';
-
-import {
-  Overlay,
-  OverlayConfig,
-  CdkOverlayOrigin,
-  OverlayRef
-} from '@angular/cdk/overlay';
-
-import { ILayoutAction } from '@hubx/services';
+import { CdkOverlayOrigin, Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/portal';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { Actions_UI, ApplicationContext, AuthAction, ILayoutAction } from '@manx/services';
 
 import { LoaderComponent } from '../../../core';
 
-import {
-  ApplicationContext,
-  AuthAction,
-  Actions_UI
-} from '@hubx/services';
 @Component({
   selector: 'fabric-main',
   templateUrl: './main.component.html',
@@ -45,19 +17,14 @@ export class MainComponent implements OnInit, AfterViewInit {
   nextPosition = 0;
   cssWidth = ' small';
   isMenuOpen = false;
-  @ViewChildren(TemplatePortalDirective)
-  templatePortals: QueryList<Portal<any>>;
+  @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
   @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin;
   isLoading: boolean;
   @ViewChild('container') private _container;
   @ViewChild('sideNav') private _sideNav: HTMLElement;
-  constructor(
-    public overlay: Overlay,
-    public ctx: ApplicationContext,
-    public viewContainerRef: ViewContainerRef) {
+  constructor(public overlay: Overlay, public ctx: ApplicationContext, public viewContainerRef: ViewContainerRef) {
     const self = this;
-    self.ctx.ux.dispatch.subscribe(
-      (event: ILayoutAction) => {
+    self.ctx.ux.dispatch.subscribe((event: ILayoutAction) => {
       switch (event.type) {
         case Actions_UI.Auth:
           const temp2 = event.subType as AuthAction;
@@ -89,12 +56,9 @@ export class MainComponent implements OnInit, AfterViewInit {
     const overlayRef = this.overlay.create(config);
     overlayRef.backdropClick().subscribe(() => {
       setTimeout(() => {
-        overlayRef.dispose();}, 300);
+        overlayRef.dispose();
+      }, 300);
     });
-    overlayRef.attach(
-      new ComponentPortal(
-        LoaderComponent,
-        this.viewContainerRef)
-    );
+    overlayRef.attach(new ComponentPortal(LoaderComponent, this.viewContainerRef));
   }
 }

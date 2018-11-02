@@ -1,35 +1,28 @@
-import {
-  NgModule
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  HTTP_INTERCEPTORS,
-  HttpClientModule
-} from '@angular/common/http';
-import { TimingInterceptor } from './core';
-import { LoggerService } from './util/logger.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { StorageServiceModule } from 'angular-webstorage-service';
-import { StateService } from './core/services/state.service';
+
 import { ApplicationContext } from './application-context.service';
-import { AuthService, AuthGuard } from './security/index';
-// import { LocalStorageService } from './core/services/localstorage.service';
-import { ApplicationInsightsService } from './application-insights.service';
+import { ErrorInterceptor, TimingInterceptor } from './core';
+import { LocalStorageService } from './core/services/local-storage.service';
+import { AuthGuard, AuthService } from './security';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    StorageServiceModule
-  ],
+  imports: [CommonModule, HttpClientModule, StorageServiceModule],
   providers: [
     AuthGuard,
     AuthService,
-    StateService,
-    LoggerService,
-    ApplicationInsightsService,
+    LocalStorageService,
     ApplicationContext,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TimingInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ]

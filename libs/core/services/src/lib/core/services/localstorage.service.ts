@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
+
 export class GenericList<T> {
   items: T[];
   activeItem: T;
@@ -40,14 +41,11 @@ export class LocalStorageService<T> {
   public storeOnLocalStorage(t: T): void {
     //get array of tasks from local storage
     const result = (this.storage.get(STORAGE_KEY) || []) as GenericList<T>;
-    // push new task to array
-    console.log(result);
     if (result) {
       this.localGenericList.addRange(t, result.items);
     } else {
       this.localGenericList.add(t);
     }
     this.storage.set(STORAGE_KEY, this.localGenericList);
-    console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
   }
 }

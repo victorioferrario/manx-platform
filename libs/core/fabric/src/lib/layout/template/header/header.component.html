@@ -1,7 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row class="header-toolbar-row-1">
     <ng-content select="[headerLogo]"></ng-content>
-    <aside *ngIf="this.ctx.session.isAuthenticated" class="header-toolbar-userInfo">Name:{{this.ctx.session.userIdentity.name}}</aside>
+    <aside *ngIf="this.ctx.session.isAuthenticated" class="header-toolbar-userInfo">
+      <span class="userInfo-label fadeIn animated-800" *ngIf="this.userInfoAvailable|async">Name:&nbsp;</span>{{this.userInfo
+      | async}}</aside>
     <aside class="header-row-output-console">{{ this.areaInfo | async }} {{ this.sectionInfo | async }} </aside>
   </mat-toolbar-row>
   <mat-toolbar-row class="header-toolbar-row-2 fadeIn animated-800" *ngIf="this.ctx.session.isAuthenticated">

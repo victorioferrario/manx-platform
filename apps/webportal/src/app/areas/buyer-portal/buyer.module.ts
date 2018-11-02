@@ -1,67 +1,52 @@
-import { ApplicationContext } from '@hubx/services';
-import { NgModule } from '@angular/core';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from "@angular/router";
-import { FlexLayoutModule } from "@angular/flex-layout";
-//
-
-import { FabricModule } from '@hubx/fabric';
-import {OverlayContainer, FullscreenOverlayContainer, OverlayModule} from '@angular/cdk/overlay';
-import {PortalModule} from '@angular/cdk/portal';
-
-/**
- * Components
- */
-import { 
-  BuyerRoutingModule 
-} from './buyer.routing.module';
-//
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 import {
-  BuyerMainComponent    
-} from './components/main/main.component';
-///
-import {
-  AlertComponent,
-  HostListenerDirective,
-  CartComponent       ,
-  DashboardComponent  ,
-  MyaccountComponent  ,
-  MyprofileComponent  ,
-  OrdersComponent     ,
-  OrderDetailComponent  } from '@hubx/areas/buyers'; 
-  
-  
+  BreadCrumbsComponent,
+  CartComponent,
+  DashboardComponent,
+  DescriptionComponent,
+  ItemListComponent,
+  MyaccountComponent,
+  MyprofileComponent,
+  OrderDetailComponent,
+  OrdersComponent,
+  PaginationComponent,
+  QuickSortComponent,
+} from '@manx/areas/buyers';
+import { FabricModule } from '@manx/fabric';
+import { ApplicationContext } from '@manx/services';
+
+import { BuyerRoutingModule } from './buyer.routing.module';
+import { BuyerMainComponent } from './components/main/main.component';
+
 /**
  * @var: COMPONENTS_BUYER
  * @description: Array of buyer components.
  */
-export const COMPONENTS_BUYER = [  
-  AlertComponent,
-  HostListenerDirective,
+export const COMPONENTS_BUYER = [
+  ItemListComponent,
+  DescriptionComponent,
+  QuickSortComponent,
+  BreadCrumbsComponent,
+  PaginationComponent,
+  CartComponent,
+  OrdersComponent,
+  DashboardComponent,
+  MyprofileComponent,
+  MyaccountComponent,
   BuyerMainComponent,
-  CartComponent       ,
-  DashboardComponent  ,
-  MyprofileComponent  ,
-  MyaccountComponent  ,
-  OrdersComponent     ,
-  OrderDetailComponent ];
+  OrderDetailComponent
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    FlexLayoutModule,
-    FabricModule,
-    OverlayModule,
-    PortalModule,
-    // COMPONENTS_BUYER,
-    BuyerRoutingModule
-  ],
-  providers:[ ApplicationContext],
-  declarations: [
-    COMPONENTS_BUYER],
-    entryComponents:[],
-  exports: [
-    COMPONENTS_BUYER]
+  imports: [CommonModule, RouterModule, FlexLayoutModule, FabricModule, OverlayModule, PortalModule, BuyerRoutingModule],
+  providers: [ApplicationContext],
+  declarations: [COMPONENTS_BUYER],
+  entryComponents: [],
+  exports: [COMPONENTS_BUYER]
 })
-export class BuyerModule { }
+export class BuyerModule {}

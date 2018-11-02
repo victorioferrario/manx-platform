@@ -1,10 +1,8 @@
 <fabric-header SubHeaderTitle="Trending Now...">
-    <fabric-fragment headerLogo>
-        <img src="../assets/images/logo.svg" class="hubx-logo" alt="HubX.com" /></fabric-fragment>
+  <fabric-fragment headerLogo>
+    <img src="../assets/images/logo.svg" class="hubx-logo" alt="HubX.com" /></fabric-fragment>
 </fabric-header>
-<div class="loaderoverlay fadeIn animated-300" *ngIf="this.vtx.viewContext.loading | async">
-  Test{{this.vtx.viewContext.loading | async}}</div>
 <fabric-main>
-    <ng-content mainContent></ng-content>
-    <ng-content select="auth-remember"></ng-content>
+  <ng-content mainContent></ng-content>
+  <ng-content select="auth-remember"></ng-content>
 </fabric-main>

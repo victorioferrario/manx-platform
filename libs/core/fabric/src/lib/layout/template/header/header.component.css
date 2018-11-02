@@ -24,6 +24,10 @@
   right:25px;
   top:5px;
   width:235px;
+  font-size:14px;
+}
+.userInfo-label{
+    color:#ccc;
 }
 .header-row-output-console {
     position: absolute;

@@ -1,18 +1,6 @@
-import {
-  OnInit,
-  Component,
-  HostListener,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import {
-  ApplicationRoutingService
-} from '../app-routing.service';
-
-import {
-  ApplicationContext
-} from '@hubx/services';
+import { ApplicationContext } from '@manx/services';
 
 @Component({
   selector: 'app-root',
@@ -30,11 +18,11 @@ export class AppComponent implements OnInit {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
     this.style = 'height:' + this.screenHeight + 'px;';
+    console.log(this.screenHeight);
   }
-  constructor(
-    private router: Router,
-    private ctx: ApplicationContext) {
-    const self = this;self.onResize();
+  constructor(private router: Router, private ctx: ApplicationContext) {
+    const self = this;
+    self.onResize();
   }
   changeState(state: any) {
     this.toState = this.toState === 'state1' ? 'state2' : 'state1';

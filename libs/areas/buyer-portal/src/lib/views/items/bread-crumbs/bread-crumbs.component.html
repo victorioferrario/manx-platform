@@ -1,0 +1,15 @@
+<ng-template #defaultTopList>
+    <div *ngIf="!topService.loading">
+        <div class="row">
+            <div class="col-md-8 titles">
+                <ul *ngIf="!isManufacturerSelected">
+                    <li>
+                        <span>{{ selectedTopAttribute }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</ng-template>
+<div>Bread Crumbs</div>

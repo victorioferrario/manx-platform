@@ -27,7 +27,7 @@
               "apps/webportal/src/assets"
             ],
             "styles": [
-              "./apps/webportal/src/theme/hubx-app-theme.scss",
+              "./apps/webportal/src/theme/manx-app-theme.scss",
               "./node_modules/animate.css/animate.min.css",
               "apps/webportal/src/styles.css"
             ],
@@ -35,12 +35,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/webportal/src/environments/environment.ts",
-                  "with": "apps/webportal/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "apps/webportal/src/environments/environment.ts",
+                "with": "apps/webportal/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

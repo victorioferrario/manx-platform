@@ -1,6 +1,7 @@
+import { IPaginationResponse } from '../../shared/models';
 import { IPo } from './IPo';
-import { IPaginationResponse } from './IPaginationResponse';
+
 export interface IPoMain {
-    values: IPo[];
-    pagination: IPaginationResponse;    
-  }
+  values: IPo[];
+  pagination: IPaginationResponse;
+}

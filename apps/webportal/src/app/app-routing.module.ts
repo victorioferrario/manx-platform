@@ -7,9 +7,9 @@ import {
   LogoutComponent,
   RouteErrorComponent,
   RouteNotFoundComponent
-} from '@hubx/system';
+} from '@manx/system';
 
-import { AuthGuard } from '@hubx/services';
+import { AuthGuard } from '@manx/services';
 
 const routes: Routes = [
   { path: '', component: LoginComponent , data: { reuse: false }},

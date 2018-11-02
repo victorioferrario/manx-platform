@@ -3,23 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  name: "dev",
+  name: 'dev',
   production: false,
-  buyerPortalBaseUrl: "https://buyer-dev.hubx.com/api/",
-  vendorPortalBaseUrl: "https://vendor-dev.hubx.com/api/vendor/",
-  adminUrl: "https://admin-dev.hubx.com/api/",
-  adminBaseUrl: "https://admin-dev.hubx.com/",
-  imageBaseUrl: "https://cdn.hubx.com",
-  bulkuploadURL: "https://buyer-dev.hubx.com/api/",
-  imageDefaultLogoUrl: "/assets/images/item-placeholder.svg",
-  auth0_Domain: "hubx.auth0.com",
-  auth0_ClientID: "rIeqroV4uPabecbaSNqm3OfH3ERaDK5e",
-  auth0_realm: "Username-Password-Authentication",
-  auth0_RedirectUrl: "http://localhost:4200/callback",
-  auth0_RedirectUrl_LocalHost: "http://localhost:4200/callback",
+  buyerPortalBaseUrl: 'https://buyer-dev.manx.com/api/',
+  vendorPortalBaseUrl: 'https://vendor-dev.manx.com/api/vendor/',
+  adminUrl: 'https://admin-dev.manx.com/api/',
+  adminBaseUrl: 'https://admin-dev.manx.com/',
+  imageBaseUrl: 'https://cdn.manx.com',
+  bulkuploadURL: 'https://buyer-dev.manx.com/api/',
+  imageDefaultLogoUrl: '/assets/images/item-placeholder.svg',
+  auth0_Domain: 'manx.auth0.com',
+  auth0_ClientID: 'rIeqroV4uPabecbaSNqm3OfH3ERaDK5e',
+  auth0_realm: 'Username-Password-Authentication',
+  auth0_RedirectUrl: 'http://localhost:4200/callback',
+  auth0_RedirectUrl_LocalHost: 'http://localhost:4200/callback',
   itemsInPage: 9999,
-  globalSearchIndicator: "#"  ,
-  hmr: false,
+  globalSearchIndicator: '#',
+  hmr: false
 };
 
 /*

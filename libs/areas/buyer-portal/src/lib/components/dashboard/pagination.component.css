@@ -1,0 +1,18 @@
+ul.pagebuttons {
+  display: inline-block;
+  list-style: none;
+  /* background-color: #493b8d; */
+  padding: 2px;
+  margin-bottom: 1px;
+}
+ul.pagebuttons li {
+  display: inline-block;
+  float: left;
+}
+
+.list-button {
+  font-weight: 300;
+  width: 45px;
+  min-width: 45px !important;
+  margin-left: 3px;
+}

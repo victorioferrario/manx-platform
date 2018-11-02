@@ -1,39 +1,31 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { UserStateModule } from '@manx/domain';
+
 import { CartComponent } from './components/cart/cart.component';
+import { DescriptionComponent } from './components/dashboard/children/description.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PaginationComponent } from './components/dashboard/pagination.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
-import { HostListenerDirective } from './components/dashboard/directives/click.directive';
-import { AlertComponent } from './components/dashboard/alert.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ItemsModule } from './views/items/items.module';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([    
-    ])
-  ],
+  imports: [CommonModule, ItemsModule, UserStateModule, RouterModule.forChild([]), FlexLayoutModule],
   declarations: [
-    AlertComponent,
+    DescriptionComponent,
+    PaginationComponent,
     CartComponent,
     DashboardComponent,
     MyaccountComponent,
     OrdersComponent,
     OrderDetailComponent,
-    MyprofileComponent,
-    HostListenerDirective
+    MyprofileComponent
   ],
-  exports: [
-    AlertComponent,
-    CartComponent,
-    DashboardComponent,
-    MyaccountComponent,
-    OrdersComponent,
-    OrderDetailComponent,
-    MyprofileComponent,
-    HostListenerDirective
-  ]
+  exports: [CartComponent, DescriptionComponent, DashboardComponent, MyaccountComponent, OrdersComponent, OrderDetailComponent, MyprofileComponent]
 })
 export class AreasBuyerPortalModule {}

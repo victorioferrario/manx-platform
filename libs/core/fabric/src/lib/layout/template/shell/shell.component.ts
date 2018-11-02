@@ -1,26 +1,23 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { UserDataContext, IUserProfile } from '@hubx/domain';
-import { ApplicationContext, ApplicationViewContext } from '@hubx/services';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { UserDataContext } from '@manx/domain';
+import { ApplicationContext, ApplicationViewContext } from '@manx/services';
+
 @Component({
   selector: 'fabric-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.css']
 })
 export class ShellComponent implements OnInit, AfterViewInit {
-  constructor(
-    public dbx: UserDataContext,
-    public ctx: ApplicationContext,
-    public vtx: ApplicationViewContext
-  ) {
+  constructor(public dbx: UserDataContext, public ctx: ApplicationContext, public vtx: ApplicationViewContext) {
     const self = this;
   }
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
   ngOnInit() {
     const self = this;
     if (self.ctx.session.isAuthenticated) {
-      self.dbx.getUserProfile().subscribe((result: IUserProfile) => {
-        console.log(result.firstName);
-      });
     }
+    self.ctx.trackerManager.list.itemsObs.subscribe((data: any) => {
+      console.log(data);
+    });
   }
 }

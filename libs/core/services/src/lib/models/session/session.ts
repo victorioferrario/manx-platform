@@ -13,6 +13,7 @@ export interface ISession {
   IsLoggdedIn: BehaviorSubject<boolean>;
   IsAuthenticatedObservable: Observable<boolean>;
   authenticate(userRole: UserIdentityRole, isloggedIn: boolean): void;
+  logout():void;
 }
 
 export class Session implements ISession {
@@ -37,6 +38,10 @@ export class Session implements ISession {
     self.IsLoggdedIn.subscribe(val => {
       console.log(val);
     });
+  }
+  logout(){
+    const self = this;
+    self.IsLoggdedIn.next(false);
   }
 }
 

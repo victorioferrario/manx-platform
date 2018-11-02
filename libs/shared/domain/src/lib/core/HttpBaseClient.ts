@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import {HttpBaseOptions, IHttpBaseClient, IHttpBaseOptions } from './models';
+import { HttpBaseOptions, IHttpBaseClient, IHttpBaseOptions } from './models';
 /**
  * @class : HttpBaseClient
  * @desc  : HttpBaseClient that provides http service to all domain logic services.
@@ -10,7 +10,7 @@ import {HttpBaseOptions, IHttpBaseClient, IHttpBaseOptions } from './models';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpBaseClient implements IHttpBaseClient{
+export abstract class HttpBaseClient implements IHttpBaseClient{
   constructor(private http: HttpClient) { }
   get<T>(options: HttpBaseOptions): Observable<T> {
     return this.http.get<T>(options.url).pipe(share());

@@ -1,12 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
-} from '@angular/core';
-import { AnimationSlideToLeft} from '@hubx/fabric';
-import { ApplicationViewContext, VendorViewSection } from '@hubx/services';
-import {UserDataContext, VendorDataContext, IVendor, IBusinessProfile } from '@hubx/domain';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { IBusinessProfile, IVendor, UserDataContext, VendorDataContext } from '@manx/domain';
+import { ApplicationViewContext, VendorViewSection } from '@manx/services';
+
 @Component({
   selector: 'vendor-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,13 +13,7 @@ import {UserDataContext, VendorDataContext, IVendor, IBusinessProfile } from '@h
 export class DashboardComponent implements OnInit {
   sectionText: string;
   sectionTitle: string;
-  constructor(
-    private cdr: ChangeDetectorRef,
-    public vtx: ApplicationViewContext,
-    public dbx: VendorDataContext,
-  public ubx:UserDataContext) {
-
-  }
+  constructor(private cdr: ChangeDetectorRef, public vtx: ApplicationViewContext, public dbx: VendorDataContext, public ubx: UserDataContext) {}
   ngOnInit() {
     const self = this;
     self.sectionTitle = 'Dashboard';
@@ -40,6 +29,5 @@ export class DashboardComponent implements OnInit {
       console.log(arg);
       console.log('DoneLoading-Business Partners');
     });
-
   }
 }

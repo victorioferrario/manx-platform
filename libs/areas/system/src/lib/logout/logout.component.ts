@@ -1,11 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  ApplicationContext,
-  Actions_UI,
-  AuthAction,
-  ActionEmitter
-} from '@hubx/services';
+import { ActionEmitter, Actions_UI, ApplicationContext, AuthAction } from '@manx/services';
+
 @Component({
   selector: 'hubxsystem-logout',
   templateUrl: './logout.component.html',
@@ -14,11 +10,10 @@ import {
 })
 export class LogoutComponent implements OnInit {
   constructor(private router: Router, private ctx: ApplicationContext) {}
-  ngOnInit() {    
+  ngOnInit() {
     const self = this;
-    self.ctx.dispatch.emit(
-      new ActionEmitter(Actions_UI.Auth, AuthAction.Logout)
-    );
+    self.ctx.session.logout();
+    self.ctx.dispatch.emit(new ActionEmitter(Actions_UI.Auth, AuthAction.Logout));
     self.router.navigate(['/login']);
   }
 }

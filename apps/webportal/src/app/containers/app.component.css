@@ -1,31 +1,29 @@
 .hubx-logo {
-    height: 45px;
-    width: 160px;
-    ;
+  height: 45px;
+  width: 160px;
 }
 
 fabric-shell {
-    height: 100vh;
-    display: block;
-    min-height: 100vh;
-    width: 100vw;
-    min-width: 100vw;
+  height: 100vh;
+  display: block;
+  min-height: 100vh;
+  width: 100vw;
+  min-width: 100vw;
 }
 
 .loader-controls {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 50px;
-    z-index: 3001;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  z-index: 3001;
 }
 
 main {
-    top: 0;
-    right: 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  top: 0;
+  right: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
-

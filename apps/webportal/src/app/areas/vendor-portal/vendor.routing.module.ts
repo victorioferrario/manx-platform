@@ -1,32 +1,29 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent, OrdersComponent, ProductsComponent, ProfileComponent } from '@manx/areas/vendor';
+
+import { VendorMainComponent } from './vendor-components';
+
 /**
  * Components
  */
-import {
-          DashboardComponent    ,   
-          OrdersComponent       ,   
-          ProductsComponent     ,   
-          ProfileComponent      } from '@hubx/areas/vendor';
 /**
  * @description:  Local Hook
  */
-import { VendorMainComponent    } from './vendor-components';
-const routes: Routes = [  
+const routes: Routes = [
   {
-    path: '',   
+    path: '',
     component: VendorMainComponent,
     children: [
-      { path: '', component: DashboardComponent         },
-      { path: 'products', component: ProductsComponent  },
-      { path: 'orders', component: OrdersComponent      },
-      { path: 'profile' , component: ProfileComponent   }
+      { path: '', component: DashboardComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'profile', component: ProfileComponent }
     ]
   }
 ];
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class VendorRoutingModule { }
+export class VendorRoutingModule {}

@@ -4,8 +4,10 @@ export * from './lib/models';
 export * from './lib/security';
 export * from './lib/interfaces';
 export * from './lib/appsettings';
-export * from './lib/core/services/localstorage.service';
+export * from './lib/core/services';
 export * from './lib/services.module';
+export * from './lib/application-data.context';
 export * from './lib/application-context.service';
 export * from './lib/application-viewmanager.service';
-
+export { ApplicationInsightsService } from './lib/application-insights.service';
+export { ApplicationInsightsErrorHandler } from './lib/application-insightsx-error.service';

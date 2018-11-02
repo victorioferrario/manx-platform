@@ -1,3 +1,31 @@
-<mat-nav-list class="fabric-sidenav-list" #navlist>
-    <fabric-menu-item *ngFor="let nav of fillerNav" [nav]="nav" [parent]="this"></fabric-menu-item>    
-</mat-nav-list>
+<div class="scroll-wrapper">
+  <perfect-scrollbar [config]="config" [scrollIndicators]="false" style="max-height:calc(100vh - 150px);" class="ps">
+    <mat-nav-list class="fabric-sidenav-list" #navlist>
+      <nav class="category-menu" *ngIf="isMenuReady | async">
+        <h4 class="menu-item-header">Categories</h4>
+        <ul class="left-nav">
+          <li class="menu-item" *ngFor="let parent of NavigationTree">
+            <a class="menu-link {{isParentNavActive(parent)}}" id="{{ parent.navId }}" role="button" (click)="onParentNavClick(parent, $event)">
+              <img *ngIf="parent.iconUri" src="https://cdn.hubx.com{{parent.iconUri}}" alt="{{parent.navName}}" class="category-icon">
+              <span *ngIf="parent.navName.length>14" class="category-name">{{ parent.navName | slice:0:12}}...</span>
+              <span *ngIf="parent.navName.length<=14" class="category-name">{{parent.navName}}</span>
+              <span class="category-bage">{{parent.count}}</span></a>
+            <ul class="menu-sub-menu" [@showSubcats]="selectedParentNavId === parent.navId ? 'show' : 'hide'">
+              <li class="menu-sub-menu-item" *ngFor="let child of parent.navChilds">
+                <a class="menu-sub-menu-link {{isChildNavActive(child)}}" (click)="onChildNavClick(child, $event)">
+                  <span *ngIf="child.navName.length>14">{{child.navName | slice:0:12}}...</span>
+                  <span *ngIf="child.navName.length<=14">{{child.navName}}</span>
+                  <span class="category-bage">{{child.count}}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="vendor-menu" *ngIf="isVendorMenuReady | async">
+        <fabric-menu-item *ngFor="let nav of fillerNav" [nav]="nav" [parent]="this"></fabric-menu-item>
+      </nav>
+    </mat-nav-list>
+  </perfect-scrollbar>
+</div>
+<!-- [ngClass]="{'menu-link': true, 'active': isParentNavActive(parent)}" -->

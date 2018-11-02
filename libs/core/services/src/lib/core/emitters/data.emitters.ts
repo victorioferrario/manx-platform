@@ -2,7 +2,8 @@
 
 import { Output, EventEmitter } from '@angular/core';
 
-export class DataEmitters {
+export class DataEmitters<T> {
+
   @Output()
-  public UserData:EventEmitter<any> = new EventEmitter<any>();
+  public UserData:EventEmitter<T> = new EventEmitter<T>();
 }

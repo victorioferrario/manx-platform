@@ -1,0 +1,26 @@
+<div>
+    <div class="button-row">
+        <div *ngIf="hasPaging | async">
+            <div fxLayout="column" fxFlex="80">
+                <ul class="pagebuttons">
+                    <li *ngFor="let item of pageButtons | async">
+                        <ng-template [ngIf]="item.active">
+                            <button mat-button color="primary" class="list-button" disabled>
+                                {{item.index}}</button>
+                        </ng-template>
+                        <ng-template [ngIf]="!item.active">
+                            <button mat-flat-button color="warn" class="list-button" (click)="pageNext(item.index)">
+                                {{item.index}}</button>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+            <div fxLayout="column" fxFlex="20" fxLayoutAlign="end" style="padding-bottom:8px;">
+                Total Pages: {{this.totalPages | async }}
+                Total Count: {{this.totalCount | async }}
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+</div>

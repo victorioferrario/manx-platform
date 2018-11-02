@@ -1,28 +1,9 @@
-import {
-  Component,
-  ViewChild,
-  OnInit,
-  Inject,
-  AfterViewInit,
-  ViewContainerRef
-} from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
-import {
-  LayoutService,
-  ApplicationContext,
-  UserIdentityRole,
-  ModeEnum,
-  ApplicationViewContext,
-  BuyerViewSection,
-  VendorViewSection,
-  AreaView
-} from '@hubx/services';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { ApplicationContext, ApplicationViewContext, AreaView, BuyerViewSection, UserIdentityRole, VendorViewSection } from '@manx/services';
 
 import { MenuComponent } from '../../../core';
-
-import { RouterLink, Router } from '@angular/router';
-
 import { ConfirmLogoutDialogComponent } from '../dialog/confirm-logout.dialog';
 
 export interface IDialogActions {
@@ -43,12 +24,9 @@ export interface IMenuItem {
 export class SideMenuComponent implements OnInit, AfterViewInit {
   @ViewChild(MenuComponent) menu: MenuComponent;
 
-  constructor(
-    private router: Router,
-    public dialog: MatDialog,
-    public ctx: ApplicationContext,
-    public vtx: ApplicationViewContext
-  ) {}
+  constructor(private router: Router, public dialog: MatDialog, public ctx: ApplicationContext, public vtx: ApplicationViewContext) {
+    const self = this;
+  }
   openDialog(): void {
     const self = this;
     const dialogRef = self.dialog.open(ConfirmLogoutDialogComponent, {
@@ -70,11 +48,7 @@ export class SideMenuComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     const self = this;
-    self.vtx.activateView(
-      self.ctx.session.userIdentity.role === UserIdentityRole.Buyer
-        ? AreaView.Buyer
-        : AreaView.Vendor
-    );
+    self.vtx.activateView(self.ctx.session.userIdentity.role === UserIdentityRole.Buyer ? AreaView.Buyer : AreaView.Vendor);
   }
   onNavigate(arg: string, section?: BuyerViewSection | VendorViewSection) {
     const self = this;
@@ -91,8 +65,7 @@ export class SideMenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const self = this;
     self.menu.navigate.subscribe((event: IMenuItem) => {
-      self.onNavigate(
-        event.path, event.section);
+      self.onNavigate(event.path, event.section);
     });
   }
 }

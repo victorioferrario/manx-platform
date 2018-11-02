@@ -1,11 +1,12 @@
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthDataContext, IAuthEvent } from '@manx/domain';
 import { BehaviorSubject } from 'rxjs';
-import { Injectable, EventEmitter } from '@angular/core';
-import { IAuthEvent, AuthDataContext } from '@hubx/domain';
+
 export interface IAuthService {
   dispatch: EventEmitter<IAuthEvent>;
-  logout():void;
-  login(username: string, password: string):void;
+  logout(): void;
+  login(username: string, password: string): void;
 }
 /**
  * Will act as a facade between @hubx/domain
@@ -35,8 +36,7 @@ export class AuthService implements IAuthService {
   constructor(private router: Router, private authContext: AuthDataContext) {
     const self = this;
     self.dispatch = new EventEmitter();
-    self.authContext.dispatch.subscribe(
-      (event: IAuthEvent) => {
+    self.authContext.dispatch.subscribe((event: IAuthEvent) => {
       self.loggedIn.next(true);
       self.dispatch.emit(event);
     });
@@ -48,6 +48,8 @@ export class AuthService implements IAuthService {
    */
   login(username: string, password: string) {
     const self = this;
+    localStorage.clear();
+    sessionStorage.clear();
     if (username !== '' && password !== '') {
       self.authContext.login(username, password);
     }
@@ -56,7 +58,12 @@ export class AuthService implements IAuthService {
    * Logouts auth service
    */
   logout() {
+    localStorage.clear();
+    sessionStorage.clear();
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
+  }
+  public token() {
+    return this.authContext.getAccessToken();
   }
 }
