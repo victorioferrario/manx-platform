@@ -18,7 +18,7 @@ It is configured as following:
 /**
  * @description:  Components
  */
-import { CartComponent, DashboardComponent, MyaccountComponent, MyprofileComponent, OrdersComponent, OrderDetailComponent } from '@hubx/areas/buyers';
+import { CartComponent, DashboardComponent, MyaccountComponent, MyprofileComponent, OrdersComponent, OrderDetailComponent } from '@manx/areas/buyers';
 /**
  * @description:  Local Hook
  */
